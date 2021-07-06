@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-import { ImageBackground } from 'react-native';
+import { ImageBackground, SafeAreaView } from 'react-native';
 
 import { style } from './style';
 
@@ -13,12 +13,15 @@ type Props = {
 const Background = ({ children }: Props) => {
 
     return (
-      <ImageBackground
-        source={BackgroundImg}
-        style={style.container}
-      >
-          { children }
-      </ImageBackground>
+        <SafeAreaView style={{ flex: 1 }}>
+            <ImageBackground
+                source={BackgroundImg}
+                style={style.container}
+            >
+                {children}
+            </ImageBackground>
+        </SafeAreaView>
+
     );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Main from '../screens/public/Main';
+import Home from '../screens/private/Home';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -15,6 +16,10 @@ const AuthRoutes: React.FC = () => {
             }
         }}
     >
+        <Screen
+            name="Home"
+            component={Home}
+        />
         <Screen
             name="Main"
             component={Main}
