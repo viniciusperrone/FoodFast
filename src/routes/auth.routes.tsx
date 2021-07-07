@@ -3,6 +3,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Main from '../screens/public/Main';
 import Home from '../screens/private/Home';
+import Favorites from '../screens/private/Favorites';
+import Invetory from '../screens/private/Invetory';
+import ShoppingList from '../screens/private/ShoppingList';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -23,6 +26,18 @@ const AuthRoutes: React.FC = () => {
         <Screen
             name="Main"
             component={Main}
+        />
+        <Screen
+            name="Favorites"
+            component={Favorites}
+        />
+        <Screen
+            name="Invetory"
+            component={Invetory}
+        />
+        <Screen
+            name="ShoppingList"
+            component={ShoppingList}
         />
     </Navigator>
   );

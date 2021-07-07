@@ -2,7 +2,7 @@ import React from 'react';
 
 import { RectButton } from 'react-native-gesture-handler';
 import { View, Text } from 'react-native';
-
+import { useNavigation } from '@react-navigation/core';
 import { FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
 import Profile from '../Profile';
@@ -10,6 +10,20 @@ import Profile from '../Profile';
 import { style } from './style';
 
 const Dashboard: React.FC = () => {
+
+    const navigation = useNavigation();
+
+    const handleInventory = () => {
+        navigation.navigate('Invetory');
+    }
+
+    const handleMain = () => {
+        navigation.navigate('Main');
+    }
+
+    const handleShoppingList = () => {
+        navigation.navigate('ShoppingList');
+    }
     return (
         <View style={style.container}>
             <View style={style.header}>
@@ -37,7 +51,7 @@ const Dashboard: React.FC = () => {
                     <FontAwesome name="star" size={24} style={style.icon} />
                 </RectButton>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleInventory}>
                     <Text style={style.text}>Food Inventory</Text>
                     <FontAwesome name="th-list" size={24} style={style.icon} />
                 </RectButton>
