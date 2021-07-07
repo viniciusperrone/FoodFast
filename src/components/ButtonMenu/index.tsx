@@ -1,17 +1,18 @@
 import React from 'react';
 
-import { View } from 'react-native';
+import { View, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 
 import { Entypo } from '@expo/vector-icons';
 
 import { style } from './style';
 
-const ButtonMenu: React.FC = () => {
-  return (
-      <View style={style.container}>
-          <Entypo name="menu" size={40} color="black" />
-      </View>
-  );
+type Props = {
+    onOpen: () => void;
 }
+const ButtonMenu: React.FC<Props> = ({ onOpen }) => (
+      <TouchableOpacity style={style.container} onPress={onOpen}>
+          <Entypo name="menu" size={40} color="black" />
+      </TouchableOpacity>
+);
 
 export default ButtonMenu;

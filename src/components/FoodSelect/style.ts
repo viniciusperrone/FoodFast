@@ -16,10 +16,10 @@ export const style = StyleSheet.create({
         },
         shadowOpacity: 0.34,
         shadowRadius: 6.27,
+
         elevation: 10,
-        marginHorizontal: 30,
-        marginVertical: 30,
-        flexDirection: 'column',
+        marginVertical: 10,
+        marginHorizontal: 20,
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 10

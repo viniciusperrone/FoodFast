@@ -28,9 +28,16 @@ export const style = StyleSheet.create({
         marginTop: 15,
         marginLeft: 30
     },
+    textSecondary: {
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: theme.colors.title,
+        marginLeft: 30,
+    },
     containerInput: {
         width: 350,
         height: 60,
+        marginTop: 10,
         flexDirection: 'row',
         justifyContent: 'center',
         marginHorizontal: 30,

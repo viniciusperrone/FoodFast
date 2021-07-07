@@ -1,23 +1,31 @@
-import React from 'react';
-
+import React, { useRef } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { Modalize } from 'react-native-modalize';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 
+import Dashboard from '../../../components/Dashboard';
 import Profile from '../../../components/Profile';
 import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import ButtonMenu from '../../../components/ButtonMenu';
 import FoodSelect from '../../../components/FoodSelect';
 
 import { style } from './style';
 
 const Home: React.FC = () => {
+    const modalizeRef = useRef<Modalize>(null);
+
+  const onOpen = () => {
+    modalizeRef.current?.open();
+  };
+
     return (
         <View style={style.container}>
             <Header>
                 <Profile />
-                <ButtonMenu />
+                <ButtonMenu onOpen={onOpen}/>
             </Header>
 
             <Text style={style.title}>FoodFast</Text>
@@ -26,35 +34,42 @@ const Home: React.FC = () => {
 
             <Text style={style.text}>What would you like to cook today?</Text>
 
-            <Text style={style.text}>What to search something specific?</Text>
-
             <ScrollView style={{
-                flex: 1,
-                marginBottom: 60
+                flex: 1
             }}>
                 <View style={{
                     width: '100%',
                     height: '100%',
                     flexDirection: 'row',
-                    flexWrap: 'wrap'
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-evenly',
                 }}>
                     <FoodSelect />
                     <FoodSelect />
                     <FoodSelect />
                     <FoodSelect />
+
                 </View>
             </ScrollView>
 
-            <View style={style.containerInput}>
-                <TextInput style={style.input} placeholder="search.." />
-                <View style={style.button}>
-                    <RectButton >
-                        <FontAwesome5 name="search" size={20} color="white" />
-                    </RectButton>
+            <Footer>
+                <Text style={style.textSecondary}>What to search something specific?</Text>
+
+                <View style={style.containerInput}>
+                    <TextInput style={style.input} placeholder="search.." />
+                    <View style={style.button}>
+                        <RectButton onPress={onOpen}>
+                            <FontAwesome5 name="search" size={20} color="white" />
+                        </RectButton>
+                    </View>
                 </View>
-            </View>
+            </Footer>
 
-
+            <Modalize
+                ref={modalizeRef}
+            >
+                <Dashboard />
+            </Modalize>
 
         </View>
     );
