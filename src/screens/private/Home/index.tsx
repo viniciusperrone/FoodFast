@@ -11,6 +11,7 @@ import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import ButtonMenu from '../../../components/ButtonMenu';
 import FoodSelect from '../../../components/FoodSelect';
+import Input from '../../../components/Input';
 
 import { style } from './style';
 
@@ -55,14 +56,8 @@ const Home: React.FC = () => {
             <Footer>
                 <Text style={style.textSecondary}>What to search something specific?</Text>
 
-                <View style={style.containerInput}>
-                    <TextInput style={style.input} placeholder="search.." />
-                    <View style={style.button}>
-                        <RectButton onPress={onOpen}>
-                            <FontAwesome5 name="search" size={20} color="white" />
-                        </RectButton>
-                    </View>
-                </View>
+                <Input />
+
             </Footer>
 
             <Modalize

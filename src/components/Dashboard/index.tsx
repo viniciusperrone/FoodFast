@@ -24,6 +24,10 @@ const Dashboard: React.FC = () => {
     const handleShoppingList = () => {
         navigation.navigate('ShoppingList');
     }
+
+    const handleFavorites = () => {
+        navigation.navigate('Favorites');
+    }
     return (
         <View style={style.container}>
             <View style={style.header}>
@@ -46,7 +50,7 @@ const Dashboard: React.FC = () => {
                     <FontAwesome5 name="calendar-alt" size={24} style={style.icon} />
                 </RectButton>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleFavorites}>
                     <Text style={style.text}>Favorite Recipes</Text>
                     <FontAwesome name="star" size={24} style={style.icon} />
                 </RectButton>
@@ -56,7 +60,7 @@ const Dashboard: React.FC = () => {
                     <FontAwesome name="th-list" size={24} style={style.icon} />
                 </RectButton>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleShoppingList}>
                     <Text style={style.text}>Shopping List</Text>
                     <FontAwesome name="shopping-bag" size={24} style={style.icon} />
                 </RectButton>
