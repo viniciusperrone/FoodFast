@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Ediel da Rocha\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-modalize react-native-gesture-handler
+  C:\Program Files\nodejs\node.exe C:\Users\Ediel da Rocha\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-modal
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\OpenJDK\openjdk-8u282-b08\bin;C:\Program Files (x86)\Java\zulu11.48.21-ca-jdk11.0.11-win_x64;C:\Program Files (x86)\FreeArc\bin;C:\Users\Ediel da Rocha\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Ediel da Rocha\AppData\Roaming\npm;C:\Users\Ediel da Rocha\AppData\Local\Android\Sdk\plataform-tools;C:\Program Files\heroku\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\Ediel da Rocha\Desktop\FoodFast\mobile\node_modules\@babel\helper-compilation-targets\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Ediel da Rocha\Desktop\FoodFast\mobile\node_modules\@babel\generator\node_modules\.bin'
 
 npm manifest: 
   {
@@ -36,6 +36,7 @@ npm manifest:
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
       "react-native-gesture-handler": "^1.10.3",
+      "react-native-modalize": "^2.0.8",
       "react-native-reanimated": "^2.2.0",
       "react-native-safe-area-context": "^3.2.0",
       "react-native-screens": "^3.4.0",
@@ -4867,6 +4868,11 @@ Lockfile:
     version "1.3.1"
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
     integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
+  
+  react-native-modalize@^2.0.8:
+    version "2.0.8"
+    resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-2.0.8.tgz#5dcb2c56d82e3dbd271582f832e7e02ae4cbb503"
+    integrity sha512-OKdpFVExEe4YM2uFHL/aStS9p0JaC6gBupjaW1QVHkGq22T2ASYwkhDvTnMS8BLOLWPx2fC3xEBzOcn2rh7EYw==
   
   react-native-reanimated@^2.2.0:
     version "2.2.0"

@@ -7,6 +7,7 @@ import { style } from './style';
 
 type Props = RectButtonProps & {
     title: string;
+    actionPress?: () => void;
     registered?: boolean;
     privateButton?: boolean;
 }
@@ -15,6 +16,7 @@ const Button: React.FC<Props> = ({
     title,
     registered = false,
     privateButton = false,
+    actionPress,
     ...rest
 }) => {
     return (
@@ -23,7 +25,7 @@ const Button: React.FC<Props> = ({
                 privateButton
                     ? <RectButton style={[style.container, {
                         backgroundColor: theme.colors.button_create
-                    }]}>
+                    }]} onPress={actionPress}>
                         <Text
                             style={{
                                 color: theme.colors.title,

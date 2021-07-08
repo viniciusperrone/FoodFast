@@ -5,6 +5,7 @@ import Header from '../../../components/Header';
 import Button from '../../../components/Button';
 import ButtonMenu from '../../../components/ButtonMenu';
 import Footer from '../../../components/Footer';
+import ModalComponent from '../../../components/Modal';
 
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
@@ -20,6 +21,8 @@ const Invetory: React.FC = () => {
             </ButtonMenu>
           </Header>
           <Button title="Add category" privateButton/>
+
+          <ModalComponent />
 
           <Footer>
               <Text style={style.textContent}>

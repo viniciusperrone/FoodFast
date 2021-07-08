@@ -1,9 +1,6 @@
 import React, { useRef } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import { Modalize } from 'react-native-modalize';
-
-import { FontAwesome5 } from '@expo/vector-icons';
 
 import Dashboard from '../../../components/Dashboard';
 import Profile from '../../../components/Profile';
