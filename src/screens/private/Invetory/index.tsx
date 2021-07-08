@@ -22,7 +22,7 @@ const Invetory: React.FC = () => {
           </Header>
           <Button title="Add category" privateButton/>
 
-          <ModalComponent />
+          <ModalComponent modalInventory={4}/>
 
           <Footer>
               <Text style={style.textContent}>
