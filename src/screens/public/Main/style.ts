@@ -16,10 +16,11 @@ export const style = StyleSheet.create({
         borderRadius: 25,
         marginTop: 70,
         marginLeft: 50,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     image: {
-        flex: 1,
     },
     text: {
         color: theme.colors.title_default,
@@ -30,5 +31,24 @@ export const style = StyleSheet.create({
     },
     containerButtons: {
         marginTop: 230
-    }
+    },
+    containerModal: {
+        width: 410,
+        height: 500,
+        backgroundColor: theme.colors.background,
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        position: 'absolute',
+        marginLeft: -20,
+        marginBottom: -21,
+        bottom: 0
+    },
+    iconButton: {
+        width: 50,
+        height: 50,
+        marginLeft: 40,
+        marginTop: -10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 });

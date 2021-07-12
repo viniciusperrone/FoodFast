@@ -1,11 +1,11 @@
 import React from 'react';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
-import { Text } from 'react-native';
+import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { theme } from '../../global/styles/global';
 import { style } from './style';
 
-type Props = RectButtonProps & {
+type Props = TouchableOpacityProps & {
     title: string;
     actionPress?: () => void;
     registered?: boolean;
@@ -23,7 +23,7 @@ const Button: React.FC<Props> = ({
         <>
             {
                 privateButton
-                    ? <RectButton style={[style.container, {
+                    ? <TouchableOpacity style={[style.container, {
                         backgroundColor: theme.colors.button_create
                     }]} onPress={actionPress}>
                         <Text
@@ -33,8 +33,8 @@ const Button: React.FC<Props> = ({
                                 fontWeight: 'bold'
                             }}
                         >{ title }</Text>
-                    </RectButton>
-                    : <RectButton
+                    </TouchableOpacity>
+                    : <TouchableOpacity
                         {...rest}
                         style={[style.container, { backgroundColor: registered ? theme.colors.button_inside : theme.colors.button_around }]}
                     >
@@ -47,7 +47,7 @@ const Button: React.FC<Props> = ({
                         >
                             { title }
                         </Text>
-                    </RectButton>
+                    </TouchableOpacity>
             }
         </>
 

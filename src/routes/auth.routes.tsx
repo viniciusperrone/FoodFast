@@ -5,6 +5,7 @@ import Main from '../screens/public/Main';
 import Home from '../screens/private/Home';
 import Favorites from '../screens/private/Favorites';
 import Invetory from '../screens/private/Invetory';
+import InvetorySelected from '../screens/private/InvetorySelected';
 import ShoppingList from '../screens/private/ShoppingList';
 
 const { Navigator, Screen } = createStackNavigator();
@@ -20,12 +21,12 @@ const AuthRoutes: React.FC = () => {
         }}
     >
         <Screen
-            name="Home"
-            component={Home}
-        />
-        <Screen
             name="Main"
             component={Main}
+        />
+        <Screen
+            name="Home"
+            component={Home}
         />
         <Screen
             name="Favorites"
@@ -34,6 +35,10 @@ const AuthRoutes: React.FC = () => {
         <Screen
             name="Invetory"
             component={Invetory}
+        />
+        <Screen
+            name="InvetorySelected"
+            component={InvetorySelected}
         />
         <Screen
             name="ShoppingList"

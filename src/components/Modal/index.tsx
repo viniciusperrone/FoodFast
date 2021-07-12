@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/core';
 import { View, TouchableOpacity, TextInput, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import Modal from 'react-native-modal';
@@ -9,6 +10,7 @@ import Button from '../Button';
 import Footer from '../Footer';
 
 import { style } from './style';
+import { styleButton } from '../../global/components/button';
 import { theme } from '../../global/styles/global';
 
 type Props = {
@@ -18,13 +20,14 @@ type Props = {
 const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
     const [visible, setVisible] = useState(true);
 
-    const [add, setAdd] = useState(false);
-    const [update, setUpdate] = useState(false);
-    const [addItem, setAddItem] = useState(false);
-    const [updateItem, setUpdateItem] = useState(false);
+    const navigation = useNavigation();
 
     function handleVisible() {
         setVisible(false);
+    }
+
+    function handleInvetorySelected(){
+        navigation.navigate('InvetorySelected')
     }
 
     const AddModal = () => (
@@ -59,7 +62,9 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
                 </View>
 
                 <Footer>
-                    <Button title="Update" privateButton />
+                    <TouchableOpacity style={styleButton.container} onPress={handleInvetorySelected}>
+                        <Text style={styleButton.text}>Update</Text>
+                    </TouchableOpacity>
                 </Footer>
             </View>
         </Modal>

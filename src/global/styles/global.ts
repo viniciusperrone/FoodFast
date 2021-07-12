@@ -1,6 +1,16 @@
 export const theme = {
     colors: {
 
+        light_blue: '#36D2EE',
+        white: '#FFFFFF',
+        dark_orange: '#F08E67',
+        light_orange: '#F39E7C',
+        white_grey: '#F8F8F8',
+        light_grey: '#E4E4E4',
+        dark_grey: '#7B7B7B',
+        pink:  '#FFE5E5',
+        light_green: '#E4FFE5',
+
         button_inside: '#36D2EE',
         button_around: '#FFFFFF',
         button: '#F08E67',
