@@ -34,7 +34,6 @@ export const style = StyleSheet.create({
     },
     containerModal: {
         width: 410,
-        height: 500,
         backgroundColor: theme.colors.background,
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
@@ -51,4 +50,39 @@ export const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    textModal: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginLeft: 50,
+        marginTop: 10
+    },
+    form: {
+        flex: 1,
+        justifyContent: 'center'
+    },
+    label: {
+        marginLeft: 30,
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: theme.colors.dark_grey
+    },
+    containerInput: {
+        width: '85%',
+        height: 50,
+        flexDirection: 'row',
+        alignSelf: 'center',
+        alignItems: 'center'
+    },
+    input: {
+        width: '90%',
+        height: 50,
+        marginLeft: 5
+    },
+    lineForm: {
+        width: '85%',
+        height: 2,
+        backgroundColor: theme.colors.light_blue,
+        alignSelf: 'center',
+        marginBottom: 10
+    }
 });
