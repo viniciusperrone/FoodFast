@@ -28,7 +28,7 @@ const Home: React.FC = () => {
 
             <Text style={style.title}>FoodFast</Text>
 
-            <Text style={style.subtitle}>Hi viniciusperrone</Text>
+            <Text style={style.subtitle}>Hi viniciusperrone,</Text>
 
             <Text style={style.text}>What would you like to cook today?</Text>
 

@@ -13,6 +13,12 @@ export const style = StyleSheet.create({
         borderRadius: 60,
         marginLeft: 30,
         borderWidth: 2,
-        borderColor: theme.colors.button_inside
+        borderColor: theme.colors.light_blue,
+        justifyContent: 'center',
+        alignItems: 'center'
+
     },
+    user: {
+        color: theme.colors.dark_grey
+    }
 });

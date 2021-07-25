@@ -25,20 +25,19 @@ interface UserRegisterData {
     password: string;
 }
 
-interface UserLoginData{
+interface UserLoginData {
     username: string;
     password: string;
 }
 
 const Main: React.FC = () => {
-    console.log('Geral');
 
-    const [clikedSignIn, setClikedSignIn] = useState(false);
-    const [clikedSignUp, setClikedSignUp] = useState(false);
+    const [clickedSignIn, setClickedSignIn] = useState(false);
+    const [clickedSignUp, setClickedSignUp] = useState(false);
 
     const navigation = useNavigation();
 
-    const SignIn: React.FC = () => {
+    const SignIn = () => {
         console.log('SignIn');
 
         const [userLogin, setUserLogin] = useState<UserLoginData>({
@@ -47,13 +46,24 @@ const Main: React.FC = () => {
         });
 
         const [lineColor, setLineColor] = useState(theme.colors.light_blue);
-
         const [securityLogin, setSecurityLogin] = useState(true);
+        const [error, setError] = useState(false);
+
+        function handleUserLogin() {
+            if (userLogin.username.length >= 8 && userLogin.password.length >= 8) {
+                setClickedSignIn(false);
+                navigation.navigate('Home');
+            }
+            else {
+                setLineColor(theme.colors.red);
+                setError(true);
+            }
+        }
 
         return (
-            <Modal isVisible={clikedSignIn} animationIn="slideInUp">
+            <Modal isVisible={clickedSignIn} animationIn="slideInUp">
                 <View style={[style.containerModal, { height: 500 }]}>
-                    <TouchableOpacity style={style.iconButton} onPress={() => setClikedSignIn(false)}>
+                    <TouchableOpacity style={style.iconButton} onPress={() => setClickedSignIn(false)}>
                         <FontAwesome5 name="arrow-down" size={35} color={theme.colors.light_blue} />
                     </TouchableOpacity>
                     <Text style={style.textModal}>
@@ -61,10 +71,12 @@ const Main: React.FC = () => {
                     </Text>
 
                     <View style={style.form}>
-                        <Text style={style.label}>Username</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Username</Text>
                         <View style={style.containerInput}>
-                            <Feather name="user" size={24} color="black" />
+                            <Feather name="user" size={24} color={error ? theme.colors.red : theme.colors.black} />
                             <TextInput
+                                autoCorrect={false}
+                                underlineColorAndroid="transparent"
                                 style={style.input}
                                 defaultValue={userLogin.username}
                                 onChangeText={e => setUserLogin({
@@ -73,18 +85,20 @@ const Main: React.FC = () => {
                                 })}
                             />
                         </View>
-                        <View style={[style.lineForm, { backgroundColor: lineColor }]} />
+                        <View style={[style.lineForm, { backgroundColor: error ? theme.colors.red : lineColor }]} />
 
-                        <Text style={style.label}>Password</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Password</Text>
                         <View style={style.containerInput}>
                             <TouchableOpacity onPress={() => setSecurityLogin(!securityLogin)}>
                                 {
                                     securityLogin
-                                        ? <Feather name="lock" size={24} color="black" />
-                                        : <Feather name="unlock" size={24} color="black" />
+                                        ? <Feather name="lock" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                                        : <Feather name="unlock" size={24} color={error ? theme.colors.red : theme.colors.black} />
                                 }
                             </TouchableOpacity>
                             <TextInput
+                                autoCorrect={false}
+                                underlineColorAndroid="transparent"
                                 secureTextEntry={securityLogin}
                                 style={style.input}
                                 defaultValue={userLogin.password}
@@ -94,8 +108,9 @@ const Main: React.FC = () => {
                                 })}
                             />
                         </View>
-                        <View style={[style.lineForm, { backgroundColor: lineColor }]} />
-                        <Button title="Sign up" registered />
+                        <View style={[style.lineForm, { backgroundColor: error ? theme.colors.red : lineColor }]} />
+                        <Button title="Sign in" registered onPress={handleUserLogin} />
+                        {error ? <Text style={{ color: theme.colors.red, fontWeight: 'bold', alignSelf: 'center' }}>login failed</Text> : null}
                     </View>
 
                 </View>
@@ -115,16 +130,6 @@ const Main: React.FC = () => {
         const [lineColor, setLineColor] = useState(theme.colors.light_blue);
         const [error, setError] = useState(false);
 
-        function handleUserRegister(){
-            if(userRegister.username.length >= 8 && userRegister.email.length >= 8 && userRegister.password.length >= 8){
-                navigation.navigate('Home');
-            }
-            else{
-                setLineColor(theme.colors.red);
-                setError(true);
-            }
-        }
-
         return (
             <Modal isVisible={clikedSignUp} >
                 <View style={[style.containerModal, { height: 600 }]}>
@@ -140,10 +145,11 @@ const Main: React.FC = () => {
                     </Text>
 
                     <View style={style.form}>
-                        <Text style={[style.label, {color: error ? theme.colors.red : theme.colors.dark_grey}]}>Username</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Username</Text>
                         <View style={style.containerInput}>
                             <Feather name="user" size={24} color={error ? theme.colors.red : theme.colors.black} />
                             <TextInput
+                                autoCorrect={false}
                                 style={style.input}
                                 defaultValue={userRegister.username}
                                 onChangeText={e => setUserRegister({
@@ -155,10 +161,11 @@ const Main: React.FC = () => {
                         </View>
                         <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-                        <Text style={[style.label, {color: error ? theme.colors.red : theme.colors.dark_grey}]}>Email</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Email</Text>
                         <View style={style.containerInput}>
                             <MaterialCommunityIcons name="email-outline" size={24} color={error ? theme.colors.red : theme.colors.black} />
                             <TextInput
+                                autoCorrect={false}
                                 style={style.input}
                                 defaultValue={userRegister.email}
                                 onChangeText={e => setUserRegister({
@@ -169,7 +176,7 @@ const Main: React.FC = () => {
                         </View>
                         <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-                        <Text style={[style.label, {color: error ? theme.colors.red : theme.colors.dark_grey}]}>Password</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Password</Text>
                         <View style={style.containerInput}>
                             <TouchableOpacity onPress={() => setSecurityRegister(!securityRegister)}>
                                 {
@@ -179,6 +186,7 @@ const Main: React.FC = () => {
                                 }
                             </TouchableOpacity>
                             <TextInput
+                                autoCorrect={false}
                                 secureTextEntry={securityRegister}
                                 style={style.input}
                                 defaultValue={userRegister.password}
@@ -191,7 +199,7 @@ const Main: React.FC = () => {
                         </View>
                         <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-                        <Button title="Sign up" registered onPress={handleUserRegister}/>
+                        <Button title="Sign up" registered />
                     </View>
                 </View>
             </Modal>
@@ -216,11 +224,11 @@ const Main: React.FC = () => {
                 </Text>
 
                 <View style={style.containerButtons}>
-                    <Button title="Sign up" registered onPress={() => setClikedSignUp(true)} />
-                    <Button title="Sign in" onPress={() => setClikedSignIn(true)} />
+                    <Button title="Sign up" registered onPress={() => setClickedSignUp(true)} />
+                    <Button title="Sign in" onPress={() => setClickedSignIn(true)} />
                 </View>
-                {clikedSignUp ? <SignUp /> : null}
-                {clikedSignIn ? <SignIn /> : null}
+                {clickedSignUp ? <SignUp /> : null}
+                {clickedSignIn ? <SignIn /> : null}
 
             </View>
         </Background>

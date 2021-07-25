@@ -16,7 +16,8 @@ export const style = StyleSheet.create({
     input: {
         width: 290,
         height: 60,
-        backgroundColor: theme.colors.card,
+        backgroundColor: theme.colors.white_grey,
+        color: theme.colors.dark_grey,
         paddingLeft: 15,
         borderTopLeftRadius: 20,
         borderBottomLeftRadius: 20

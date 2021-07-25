@@ -76,7 +76,8 @@ export const style = StyleSheet.create({
     input: {
         width: '90%',
         height: 50,
-        marginLeft: 5
+        marginLeft: 5,
+        color: theme.colors.dark_grey
     },
     lineForm: {
         width: '85%',
