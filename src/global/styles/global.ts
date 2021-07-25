@@ -2,6 +2,7 @@ export const theme = {
     colors: {
 
         light_blue: '#36D2EE',
+        black: '#00000',
         white: '#FFFFFF',
         dark_orange: '#F08E67',
         light_orange: '#F39E7C',
@@ -10,6 +11,7 @@ export const theme = {
         dark_grey: '#7B7B7B',
         pink:  '#FFE5E5',
         light_green: '#E4FFE5',
+        red: '#D9481C',
 
         button_inside: '#36D2EE',
         button_around: '#FFFFFF',
