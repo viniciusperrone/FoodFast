@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { Modalize } from 'react-native-modalize';
 
+import { useClickDashboard } from '../../../hooks/context';
+
 import Dashboard from '../../../components/Dashboard';
 import Profile from '../../../components/Profile';
 import Header from '../../../components/Header';
@@ -13,23 +15,14 @@ import Input from '../../../components/Input';
 import { style } from './style';
 
 const Home: React.FC = () => {
-    const [openBar, setOpenBar] = useState(false);
-    const modalizeRef = useRef<Modalize>(null);
 
-    const onOpen = () => {
-        modalizeRef.current?.open();
-    };
-
-    useEffect(() => {
-        console.log(openBar)
-    }, [openBar]);
-
+    const { openDashboard, setOpenDashboard } = useClickDashboard();
 
     return (
-        <View style={[style.container, { flexDirection: openBar ? 'row' : 'column' }]}>
+        <View style={[style.container, { flexDirection: openDashboard ? 'row' : 'column' }]}>
             <Header>
                 <Profile />
-                <ButtonMenu onOpen={() => setOpenBar(true)} />
+                <ButtonMenu />
             </Header>
 
             <Text style={style.title}>FoodFast</Text>
@@ -64,7 +57,7 @@ const Home: React.FC = () => {
             </Footer>
 
             {
-                openBar && <Dashboard open={openBar}/>
+                openDashboard && <Dashboard />
             }
 
         </View>

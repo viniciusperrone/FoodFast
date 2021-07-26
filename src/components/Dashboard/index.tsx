@@ -5,26 +5,22 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
+import { useClickDashboard } from '../../hooks/context';
+
 import Profile from '../Profile';
 
 import { style } from './style';
 import { theme } from '../../global/styles/global';
 
-type Props = {
-    open: boolean;
-}
+const Dashboard: React.FC = () => {
 
-const Dashboard: React.FC<Props> = ({ open }) => {
-
-    const [click, setClick] = useState(open);
     const navigation = useNavigation();
+
+    const { openDashboard, setOpenDashboard } = useClickDashboard();
 
     const styleComponent = {
         backgroundColor: theme.colors.light_blue,
         borderColor: theme.colors.white
-    }
-    const handleCloseDashboard = () => {
-        setClick(false);
     }
 
     const handleInventory = () => {
@@ -43,14 +39,8 @@ const Dashboard: React.FC<Props> = ({ open }) => {
         navigation.navigate('Favorites');
     }
 
-    useEffect(() => {
-        open = click;
-
-        console.log('Pai click: ' + open);
-        console.log('Filho click: ' + click);
-    }, [click]);
     return (
-        <View style={[style.container, { opacity: click ? 1 : 0 }]}>
+        <View style={[style.container, { opacity: openDashboard ? 1 : 0 }]}>
             <View style={style.header}>
                 <AntDesign
                     name="arrowright"
@@ -59,7 +49,7 @@ const Dashboard: React.FC<Props> = ({ open }) => {
                     style={{
                         marginLeft: 20
                     }}
-                    onPress={handleCloseDashboard}
+                    onPress={() => setOpenDashboard(false)}
                 />
                 <View style={{ marginLeft: 20 }}>
                     <Text style={style.title}>viniciusperrone@gmail.com</Text>
