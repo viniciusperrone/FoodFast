@@ -4,9 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { style } from './style';
 
-const Profile: React.FC = () => {
+type Props = {
+    styleComponent?: Object;
+}
+
+const Profile: React.FC<Props> = ({ styleComponent }) => {
   return (
-      <View style={style.container}>
+      <View style={[style.container, styleComponent]}>
         <Ionicons
             name="person-outline"
             size={30}

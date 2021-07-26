@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { Modalize } from 'react-native-modalize';
 
@@ -13,18 +13,23 @@ import Input from '../../../components/Input';
 import { style } from './style';
 
 const Home: React.FC = () => {
-    const [openBar, setOpenBar] = useState(true);
+    const [openBar, setOpenBar] = useState(false);
     const modalizeRef = useRef<Modalize>(null);
 
     const onOpen = () => {
         modalizeRef.current?.open();
     };
 
+    useEffect(() => {
+        console.log(openBar)
+    }, [openBar]);
+
+
     return (
         <View style={[style.container, { flexDirection: openBar ? 'row' : 'column' }]}>
             <Header>
                 <Profile />
-                <ButtonMenu onOpen={onOpen} />
+                <ButtonMenu onOpen={() => setOpenBar(true)} />
             </Header>
 
             <Text style={style.title}>FoodFast</Text>

@@ -4,7 +4,7 @@ import { StatusBar, LogBox } from 'react-native';
 
 import Routes from './src/routes';
 
-LogBox.ignoreLogs(['Remote debugger']);
+// LogBox.ignoreLogs(['Remote debugger']);
 
 export default function App() {
     return (

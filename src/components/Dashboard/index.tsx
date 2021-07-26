@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { RectButton } from 'react-native-gesture-handler';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
-import { FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
 import Profile from '../Profile';
 
 import { style } from './style';
+import { theme } from '../../global/styles/global';
 
 type Props = {
     open: boolean;
@@ -18,6 +19,10 @@ const Dashboard: React.FC<Props> = ({ open }) => {
     const [click, setClick] = useState(open);
     const navigation = useNavigation();
 
+    const styleComponent = {
+        backgroundColor: theme.colors.light_blue,
+        borderColor: theme.colors.white
+    }
     const handleCloseDashboard = () => {
         setClick(false);
     }
@@ -37,16 +42,33 @@ const Dashboard: React.FC<Props> = ({ open }) => {
     const handleFavorites = () => {
         navigation.navigate('Favorites');
     }
+
+    useEffect(() => {
+        open = click;
+
+        console.log('Pai click: ' + open);
+        console.log('Filho click: ' + click);
+    }, [click]);
     return (
         <View style={[style.container, { opacity: click ? 1 : 0 }]}>
-            {/* <View style={style.header}>
-                <View>
+            <View style={style.header}>
+                <AntDesign
+                    name="arrowright"
+                    size={35}
+                    color="white"
+                    style={{
+                        marginLeft: 20
+                    }}
+                    onPress={handleCloseDashboard}
+                />
+                <View style={{ marginLeft: 20 }}>
                     <Text style={style.title}>viniciusperrone@gmail.com</Text>
                     <Text style={style.subtitle}>viniciusperrone</Text>
                 </View>
 
-                <Profile />
+                <Profile styleComponent={styleComponent}/>
             </View>
+
             <View style={style.content}>
 
                 <RectButton style={style.button}>
@@ -93,7 +115,7 @@ const Dashboard: React.FC<Props> = ({ open }) => {
                 <Ionicons name="ios-settings-sharp" size={24} style={{
                     color: '#fff'
                 }}/>
-            </View> */}
+            </View>
         </View>
     );
 }

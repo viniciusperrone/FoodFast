@@ -22,7 +22,7 @@ export const style = StyleSheet.create({
         width: '100%',
         height: 150,
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
         alignItems: 'center',
         paddingRight: 30
     },
@@ -42,11 +42,12 @@ export const style = StyleSheet.create({
         color: theme.colors.title_default
     },
     footer: {
-        width: '100%',
-        height: 180,
+        flex: 1,
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly'
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        marginHorizontal: 45,
+        paddingBottom: 30
     },
     text: {
         fontSize: 18,
@@ -55,9 +56,10 @@ export const style = StyleSheet.create({
         marginRight: 20
     },
     textSecondary: {
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
-        color: theme.colors.title_default
+        color: theme.colors.title_default,
+        marginRight: 15,
     },
     title: {
         fontSize: 15,
@@ -66,7 +68,9 @@ export const style = StyleSheet.create({
     },
     subtitle: {
         fontSize: 12,
-        color: theme.colors.text,
+        fontWeight: '200',
+        color: theme.colors.light_grey,
+        marginTop: 5,
         alignSelf: 'flex-end'
     }
 });
