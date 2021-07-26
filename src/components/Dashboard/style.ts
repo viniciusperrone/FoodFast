@@ -6,9 +6,17 @@ import { theme } from '../../global/styles/global';
 
 export const style = StyleSheet.create({
     container: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: theme.colors.dashboard
+        width: '95%',
+        height: '94%',
+        backgroundColor: theme.colors.dashboard,
+        borderTopLeftRadius: 50,
+        borderBottomLeftRadius: 50,
+        position: 'absolute',
+        zIndex: 2,
+        right: 0,
+        bottom: 0,
+        marginBottom: '3%'
+
     },
     header: {
         width: '100%',

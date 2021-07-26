@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { RectButton } from 'react-native-gesture-handler';
 import { View, Text } from 'react-native';
@@ -9,9 +9,18 @@ import Profile from '../Profile';
 
 import { style } from './style';
 
-const Dashboard: React.FC = () => {
+type Props = {
+    open: boolean;
+}
 
+const Dashboard: React.FC<Props> = ({ open }) => {
+
+    const [click, setClick] = useState(open);
     const navigation = useNavigation();
+
+    const handleCloseDashboard = () => {
+        setClick(false);
+    }
 
     const handleInventory = () => {
         navigation.navigate('Invetory');
@@ -29,8 +38,8 @@ const Dashboard: React.FC = () => {
         navigation.navigate('Favorites');
     }
     return (
-        <View style={style.container}>
-            <View style={style.header}>
+        <View style={[style.container, { opacity: click ? 1 : 0 }]}>
+            {/* <View style={style.header}>
                 <View>
                     <Text style={style.title}>viniciusperrone@gmail.com</Text>
                     <Text style={style.subtitle}>viniciusperrone</Text>
@@ -84,7 +93,7 @@ const Dashboard: React.FC = () => {
                 <Ionicons name="ios-settings-sharp" size={24} style={{
                     color: '#fff'
                 }}/>
-            </View>
+            </View> */}
         </View>
     );
 }

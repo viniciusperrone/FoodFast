@@ -38,7 +38,6 @@ const Main: React.FC = () => {
     const navigation = useNavigation();
 
     const SignIn = () => {
-        console.log('SignIn');
 
         const [userLogin, setUserLogin] = useState<UserLoginData>({
             username: "",
@@ -131,9 +130,9 @@ const Main: React.FC = () => {
         const [error, setError] = useState(false);
 
         return (
-            <Modal isVisible={clikedSignUp} >
+            <Modal isVisible={clickedSignUp} >
                 <View style={[style.containerModal, { height: 600 }]}>
-                    <TouchableOpacity style={style.iconButton} onPress={() => setClikedSignUp(false)
+                    <TouchableOpacity style={style.iconButton} onPress={() => setClickedSignUp(false)
                     }>
                         <FontAwesome5 name="arrow-down" size={35} color={theme.colors.light_blue} />
                     </TouchableOpacity>

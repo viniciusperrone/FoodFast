@@ -10,6 +10,7 @@ export const style = StyleSheet.create({
         height: 120,
         backgroundColor: '#fff',
         position: 'absolute',
+        zIndex: 1,
         bottom: 0
     },
 });
