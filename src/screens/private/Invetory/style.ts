@@ -7,7 +7,7 @@ import { theme } from '../../../global/styles/global';
 export const style = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.colors.background
+        backgroundColor: theme.colors.white
     },
     title: {
         fontSize: 20,
@@ -18,6 +18,6 @@ export const style = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         alignSelf: 'center',
-        color: theme.colors.modal_background
+        color: theme.colors.light_grey
     }
 });

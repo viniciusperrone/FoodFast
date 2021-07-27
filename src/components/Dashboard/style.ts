@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
     container: {
         width: '95%',
         height: '94%',
-        backgroundColor: theme.colors.dashboard,
+        backgroundColor: theme.colors.light_blue,
         borderTopLeftRadius: 50,
         borderBottomLeftRadius: 50,
         position: 'absolute',
@@ -39,7 +39,7 @@ export const style = StyleSheet.create({
     },
     icon: {
         marginRight: 50,
-        color: theme.colors.title_default
+        color: theme.colors.white
     },
     footer: {
         flex: 1,
@@ -52,18 +52,18 @@ export const style = StyleSheet.create({
     text: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: theme.colors.title_default,
+        color: theme.colors.white,
         marginRight: 20
     },
     textSecondary: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: theme.colors.title_default,
+        color: theme.colors.white,
         marginRight: 15,
     },
     title: {
         fontSize: 15,
-        color: theme.colors.title_default
+        color: theme.colors.white
 
     },
     subtitle: {

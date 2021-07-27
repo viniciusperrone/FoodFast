@@ -23,9 +23,11 @@ const Button: React.FC<Props> = ({
         <>
             {
                 privateButton
-                    ? <TouchableOpacity style={[style.container, {
-                        backgroundColor: theme.colors.button_create
-                    }]} onPress={actionPress}>
+                    ? <TouchableOpacity
+                        {...rest}
+                        style={[style.container, {
+                        backgroundColor: theme.colors.dark_orange
+                    }]}>
                         <Text
                             style={{
                                 color: theme.colors.title,
@@ -34,13 +36,14 @@ const Button: React.FC<Props> = ({
                             }}
                         >{ title }</Text>
                     </TouchableOpacity>
+
                     : <TouchableOpacity
                         {...rest}
-                        style={[style.container, { backgroundColor: registered ? theme.colors.button_inside : theme.colors.button_around }]}
+                        style={[style.container, { backgroundColor: registered ? theme.colors.light_blue : theme.colors.white }]}
                     >
                         <Text
                             style={{
-                                color: registered ? theme.colors.button_around : theme.colors.button_inside,
+                                color: registered ? theme.colors.white : theme.colors.light_blue,
                                 fontSize: 18,
                                 fontWeight: 'bold'
                             }}

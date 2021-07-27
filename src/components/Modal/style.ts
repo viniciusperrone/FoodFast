@@ -7,7 +7,7 @@ export const style = StyleSheet.create({
     container: {
         width: 410,
         height: 500,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.white,
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
         position: 'absolute',
@@ -30,7 +30,7 @@ export const style = StyleSheet.create({
     input: {
         width: 350,
         height: 50,
-        backgroundColor: '#D6D6D6',
+        backgroundColor: theme.colors.grey,
         borderRadius: 15,
         paddingLeft: 10,
         alignSelf: 'center',

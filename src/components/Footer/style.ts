@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
     container: {
         width: '100%',
         height: 120,
-        backgroundColor: '#fff',
+        backgroundColor: theme.colors.white,
         position: 'absolute',
         zIndex: 1,
         bottom: 0

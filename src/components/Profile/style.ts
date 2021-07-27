@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
     container: {
         width: 60,
         height: 60,
-        backgroundColor: '#fff',
+        backgroundColor: theme.colors.white,
         borderRadius: 60,
         marginLeft: 30,
         borderWidth: 2,

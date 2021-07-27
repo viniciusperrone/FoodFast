@@ -34,7 +34,7 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
-                    <AntDesign name="close" size={40} color={theme.colors.button} />
+                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
                 </TouchableOpacity>
 
                 <View style={style.content}>
@@ -53,7 +53,7 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
-                    <AntDesign name="close" size={40} color={theme.colors.button} />
+                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
                 </TouchableOpacity>
 
                 <View style={style.content}>
@@ -74,7 +74,7 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
-                    <AntDesign name="close" size={40} color={theme.colors.button} />
+                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
                 </TouchableOpacity>
 
                 <View style={style.content}>
@@ -94,7 +94,7 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
-                    <AntDesign name="close" size={40} color={theme.colors.button} />
+                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
                 </TouchableOpacity>
 
                 <View style={style.content}>

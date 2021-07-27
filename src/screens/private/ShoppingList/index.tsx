@@ -1,22 +1,25 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+import { useClickDashboard } from '../../../hooks/context';
+
 import Header from '../../../components/Header';
-import Button from '../../../components/Button';
 import ButtonMenu from '../../../components/ButtonMenu';
+import Dashboard from '../../../components/Dashboard';
+import Button from '../../../components/Button';
 import Footer from '../../../components/Footer';
 
 import { style } from './style';
-import { theme } from '../../../global/styles/global';
 
 const ShoppingList: React.FC = () => {
+
+    const { openDashboard } = useClickDashboard();
+
     return (
         <View style={style.container}>
             <Header>
                 <Text style={style.title}>Shopping List</Text>
-                <ButtonMenu onOpen={() => null}>
-
-                </ButtonMenu>
+                <ButtonMenu />
             </Header>
 
             <View style={style.line}/>
@@ -27,6 +30,8 @@ const ShoppingList: React.FC = () => {
             <Footer>
                 <Button title="Add item to buy" privateButton />
             </Footer>
+
+            { openDashboard && <Dashboard /> }
 
         </View>
     );
