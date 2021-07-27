@@ -9,8 +9,9 @@ import { style } from './style';
 const ButtonMenu: React.FC = () => {
 
     const { setOpenDashboard } = useClickDashboard();
+
     return (
-        <TouchableOpacity style={style.container} onPress={() => setOpenDashboard(false)}>
+        <TouchableOpacity style={style.container} onPress={() => setOpenDashboard(true)}>
             <Entypo name="menu" size={40} color="black" />
         </TouchableOpacity>
     )

@@ -24,18 +24,22 @@ const Dashboard: React.FC = () => {
     }
 
     const handleInventory = () => {
+        setOpenDashboard(false);
         navigation.navigate('Invetory');
     }
 
     const handleMain = () => {
+        setOpenDashboard(false);
         navigation.navigate('Main');
     }
 
     const handleShoppingList = () => {
+        setOpenDashboard(false);
         navigation.navigate('ShoppingList');
     }
 
     const handleFavorites = () => {
+        setOpenDashboard(false);
         navigation.navigate('Favorites');
     }
 

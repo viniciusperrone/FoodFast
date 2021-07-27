@@ -40,7 +40,12 @@ const Home: React.FC = () => {
                     flexDirection: 'row',
                     flexWrap: 'wrap',
                     justifyContent: 'space-evenly',
+                    marginBottom: 120
                 }}>
+                    <FoodSelect />
+                    <FoodSelect />
+                    <FoodSelect />
+                    <FoodSelect />
                     <FoodSelect />
                     <FoodSelect />
                     <FoodSelect />
