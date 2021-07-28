@@ -2,13 +2,15 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Main from '../screens/public/Main';
+
 import Home from '../screens/private/Home';
-import Profile from '../screens/private/Profile';
+import Search from '../screens/private/Search';
+import Schedule from '../screens/private/Shedule';
 import Favorites from '../screens/private/Favorites';
 import Invetory from '../screens/private/Invetory';
 import InvetorySelected from '../screens/private/InvetorySelected';
 import ShoppingList from '../screens/private/ShoppingList';
-
+import Profile from '../screens/private/Profile';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -31,12 +33,16 @@ const AuthRoutes: React.FC = () => {
                 component={Home}
             />
             <Screen
-                name="Favorites"
-                component={Favorites}
+                name="Search"
+                component={Search}
             />
             <Screen
-                name="Profile"
-                component={Profile}
+                name="Schedule"
+                component={Schedule}
+            />
+            <Screen
+                name="Favorites"
+                component={Favorites}
             />
             <Screen
                 name="Invetory"
@@ -50,6 +56,11 @@ const AuthRoutes: React.FC = () => {
                 name="ShoppingList"
                 component={ShoppingList}
             />
+            <Screen
+                name="Profile"
+                component={Profile}
+            />
+
 
         </Navigator>
     );

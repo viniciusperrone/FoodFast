@@ -25,7 +25,7 @@ export const style = StyleSheet.create({
     button: {
         width: 60,
         height: 60,
-        backgroundColor: theme.colors.button,
+        backgroundColor: theme.colors.light_orange,
         borderBottomRightRadius: 20,
         borderTopRightRadius: 20,
         justifyContent: 'center',

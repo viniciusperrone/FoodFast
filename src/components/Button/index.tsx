@@ -30,7 +30,7 @@ const Button: React.FC<Props> = ({
                     }]}>
                         <Text
                             style={{
-                                color: theme.colors.title,
+                                color: theme.colors.brown,
                                 fontSize: 18,
                                 fontWeight: 'bold'
                             }}

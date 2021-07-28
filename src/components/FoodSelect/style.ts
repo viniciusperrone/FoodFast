@@ -17,7 +17,7 @@ export const style = StyleSheet.create({
         shadowOpacity: 0.34,
         shadowRadius: 6.27,
 
-        elevation: 10,
+        elevation: 8,
         marginVertical: 10,
         marginHorizontal: 20,
         justifyContent: 'center',

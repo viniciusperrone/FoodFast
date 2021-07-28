@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { RectButton } from 'react-native-gesture-handler';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
@@ -21,6 +21,11 @@ const Dashboard: React.FC = () => {
     const styleComponent = {
         backgroundColor: theme.colors.light_blue,
         borderColor: theme.colors.white
+    }
+
+    const handleProfile = () => {
+        setOpenDashboard(false);
+        navigation.navigate('Profile');
     }
 
     const handleInventory = () => {
@@ -60,7 +65,7 @@ const Dashboard: React.FC = () => {
                     <Text style={style.subtitle}>viniciusperrone</Text>
                 </View>
 
-                <Profile styleComponent={styleComponent}/>
+                <Profile styleComponent={styleComponent} onPress={handleProfile}/>
             </View>
 
             <View style={style.content}>
@@ -90,7 +95,7 @@ const Dashboard: React.FC = () => {
                     <FontAwesome name="shopping-bag" size={24} style={style.icon} />
                 </RectButton>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleProfile}>
                     <Text style={style.text}>Profile</Text>
                     <Ionicons name="person" size={24} style={style.icon} />
                 </RectButton>
