@@ -7,7 +7,7 @@ export const style = StyleSheet.create({
     container: {
         width: 150,
         height: 200,
-        backgroundColor: theme.colors.card,
+        backgroundColor: theme.colors.white_grey,
         borderRadius: 20,
         shadowColor: "#000",
         shadowOffset: {

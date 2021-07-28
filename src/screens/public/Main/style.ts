@@ -23,7 +23,7 @@ export const style = StyleSheet.create({
     image: {
     },
     text: {
-        color: theme.colors.title_default,
+        color: theme.colors.white,
         fontSize: 20,
         fontWeight: 'bold',
         marginLeft: 50,
@@ -34,7 +34,7 @@ export const style = StyleSheet.create({
     },
     containerModal: {
         width: 410,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.white,
         borderTopLeftRadius: 50,
         borderTopRightRadius: 50,
         position: 'absolute',

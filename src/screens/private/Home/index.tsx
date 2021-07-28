@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { Modalize } from 'react-native-modalize';
+import { useNavigation } from '@react-navigation/core';
 
 import { useClickDashboard } from '../../../hooks/context';
 
@@ -16,12 +17,18 @@ import { style } from './style';
 
 const Home: React.FC = () => {
 
+    const navigation = useNavigation();
+
     const { openDashboard, setOpenDashboard } = useClickDashboard();
+
+    function handleProfile(){
+        navigation.navigate('Profile');
+    }
 
     return (
         <View style={[style.container, { flexDirection: openDashboard ? 'row' : 'column' }]}>
             <Header>
-                <Profile />
+                <Profile onPress={handleProfile}/>
                 <ButtonMenu />
             </Header>
 
