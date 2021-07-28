@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Ediel da Rocha\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @react-native-community/masked-view
+  C:\Program Files\nodejs\node.exe C:\Users\Ediel da Rocha\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo-image-picker@~10.2.2 axios
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\OpenJDK\openjdk-8u282-b08\bin;C:\Program Files\Git\cmd;C:\Users\Ediel da Rocha\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Ediel da Rocha\AppData\Local\Programs\Python\Python39\;C:\Program Files (x86)\Java\zulu11.48.21-ca-jdk11.0.11-win_x64;C:\Program Files (x86)\FreeArc\bin;C:\Users\Ediel da Rocha\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Ediel da Rocha\AppData\Roaming\npm;C:\Users\Ediel da Rocha\AppData\Local\Android\Sdk\plataform-tools;C:\Program Files\heroku\bin;C:\Program Files\Docker Toolbox
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: UNKNOWN: unknown error, scandir 'C:\Users\Ediel da Rocha\Desktop\workspace\FoodFast\mobile\node_modules\@babel\plugin-syntax-private-property-in-object'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Ediel da Rocha\Desktop\workspace\FoodFast\mobile\node_modules\@babel\generator\node_modules\.bin'
 
 npm manifest: 
   {
@@ -27,6 +27,7 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
+      "@react-navigation/drawer": "^5.12.5",
       "@react-navigation/native": "^5.9.4",
       "@react-navigation/stack": "^5.14.5",
       "expo": "~42.0.0",
@@ -1557,11 +1558,6 @@ Lockfile:
       sudo-prompt "^9.0.0"
       wcwidth "^1.0.1"
   
-  "@react-native-community/masked-view@^0.1.11":
-    version "0.1.11"
-    resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.11.tgz#2f4c6e10bee0786abff4604e39a37ded6f3980ce"
-    integrity sha512-rQfMIGSR/1r/SyN87+VD8xHHzDYeHaJq6elOSCAD+0iLagXkSI2pfA0LmSXP21uw5i3em7GkkRjfJ8wpqWXZNw==
-  
   "@react-navigation/core@^5.15.3":
     version "5.15.3"
     resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-5.15.3.tgz#dce7090bf3ea0d302993d742c706825e495b812e"
@@ -1572,6 +1568,14 @@ Lockfile:
       nanoid "^3.1.15"
       query-string "^6.13.6"
       react-is "^16.13.0"
+  
+  "@react-navigation/drawer@^5.12.5":
+    version "5.12.5"
+    resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-5.12.5.tgz#463bd33b29bfcefaa474207b50c2bd3bac6dae79"
+    integrity sha512-WMfz/tKg/K7QBb5rhjXW/pho4zXh3OoHXnHETk5SuVzHlDPM7r84uvAeC5l+ySp5jmipLrJn3zL+kfv9+KKHZQ==
+    dependencies:
+      color "^3.1.3"
+      react-native-iphone-x-helper "^1.3.0"
   
   "@react-navigation/native@^5.9.4":
     version "5.9.4"

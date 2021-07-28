@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 
+import Constants from 'expo-constants';
+import * as Permissions from 'expo-permissions';
+import * as ImagePicker from 'expo-image-picker';
+import Axios from 'axios';
+
 import { useNavigation } from '@react-navigation/core';
 import { useClickDashboard } from '../../../hooks/context';
 
-import { AntDesign, FontAwesome5, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ProfileIcon from '../../../components/Profile';
 import Header from '../../../components/Header';
@@ -17,13 +22,39 @@ import { theme } from '../../../global/styles/global';
 
 const Profile: React.FC = () => {
 
-    const { openDashboard } = useClickDashboard();
+    const { openDashboard, avatar, setAvatar } = useClickDashboard();
+
     const navigation = useNavigation();
 
-    const [security, setSecurity] = useState(false);
-    const [securityConfirm, setSecurityConfirm] = useState(false);
+    const [security, setSecurity] = useState(true);
+    const [securityConfirm, setSecurityConfirm] = useState(true);
     const [error, setError] = useState(false);
     const [lineColor, setLineColor] = useState(theme.colors.light_blue);
+
+    async function ImagePickerCall(){
+        if(Constants.platform?.ios){
+            const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+
+            if(status !== 'granted'){
+                alert('Precisamos dessa permissão');
+                return;
+            }
+
+        }
+
+        const data = await ImagePicker.launchCameraAsync({ mediaTypes: ImagePicker.MediaTypeOptions.All });
+
+        console.log(data);
+
+        if(data.cancelled){
+            return;
+        }
+        if(!data.uri){
+            return;
+        }
+
+        setAvatar(data);
+    }
 
     const goBack = () => {
         navigation.goBack()
@@ -45,68 +76,74 @@ const Profile: React.FC = () => {
             </Header>
             <View style={style.profile}>
                 <ProfileIcon />
-                <TouchableOpacity style={style.addIcon}>
+                <TouchableOpacity style={style.addIcon} onPress={ImagePickerCall}>
                     <Text style={style.textButton}>Add image profile</Text>
                 </TouchableOpacity>
             </View>
 
-            <Text>Username</Text>
+            <View style={style.content}>
+                <Text style={style.label}>Username</Text>
 
-            <View style={style.containerInput}>
-                <Feather name="user" size={24} color={theme.colors.black} />
-                <TextInput
-                    autoCorrect={false}
-                    style={style.input}
-                />
+                <View style={style.containerInput}>
+                    <Feather name="user" size={24} color={theme.colors.black} />
+                    <TextInput
+                        autoCorrect={false}
+                        style={style.input}
+                    />
+                </View>
+                <View style={[style.lineForm, { backgroundColor: lineColor }]} />
+
+                <Text style={style.label}>Email</Text>
+
+                <View style={style.containerInput}>
+                    <MaterialCommunityIcons name="email-outline" size={24} color={theme.colors.black} />
+                    <TextInput
+                        autoCorrect={false}
+                        style={style.input}
+                    />
+                </View>
+                <View style={[style.lineForm, { backgroundColor: lineColor }]} />
+
+                <Text style={style.label}>Password</Text>
+
+                <View style={style.containerInput}>
+                    <TouchableOpacity onPress={() => setSecurity(!security)}>
+                        {
+                            security
+                                ? <Feather name="lock" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                                : <Feather name="unlock" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                        }
+                    </TouchableOpacity>
+                    <TextInput
+                        autoCorrect={false}
+                        style={style.input}
+                        secureTextEntry={security}
+                    />
+                </View>
+                <View style={[style.lineForm, { backgroundColor: lineColor }]} />
+
+                <Text style={style.label}>Confirm Password</Text>
+
+                <View style={style.containerInput}>
+                    <TouchableOpacity onPress={() => setSecurityConfirm(!securityConfirm)}>
+                        {
+                            securityConfirm
+                                ? <Feather name="lock" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                                : <Feather name="unlock" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                        }
+                    </TouchableOpacity>
+                    <TextInput
+                        autoCorrect={false}
+                        style={style.input}
+                        secureTextEntry={securityConfirm}
+                    />
+                </View>
+                <View style={[style.lineForm, { backgroundColor: lineColor }]} />
             </View>
-            <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-            <Text>Email</Text>
 
-            <View style={style.containerInput}>
-                <MaterialCommunityIcons name="email-outline" size={24} color={theme.colors.black} />
-                <TextInput
-                    autoCorrect={false}
-                    style={style.input}
-                />
-            </View>
-            <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-            <Text>Password</Text>
-
-            <View style={style.containerInput}>
-                <TouchableOpacity onPress={() => setSecurity(!security)}>
-                    {
-                        security
-                            ? <Feather name="lock" size={24} color={error ? theme.colors.red : theme.colors.black} />
-                            : <Feather name="unlock" size={24} color={error ? theme.colors.red : theme.colors.black} />
-                    }
-                </TouchableOpacity>
-                <TextInput
-                    autoCorrect={false}
-                    style={style.input}
-                />
-            </View>
-            <View style={[style.lineForm, { backgroundColor: lineColor }]} />
-
-            <Text>Confirm Password</Text>
-
-            <View style={style.containerInput}>
-                <TouchableOpacity onPress={() => setSecurityConfirm(!securityConfirm)}>
-                    {
-                        securityConfirm
-                            ? <Feather name="lock" size={24} color={error ? theme.colors.red : theme.colors.black} />
-                            : <Feather name="unlock" size={24} color={error ? theme.colors.red : theme.colors.black} />
-                    }
-                </TouchableOpacity>
-                <TextInput
-                    autoCorrect={false}
-                    style={style.input}
-                />
-            </View>
-            <View style={[style.lineForm, { backgroundColor: lineColor }]} />
-
-            <Button privateButton title="Save Change"/>
+            <Button title="Save Change" registered/>
             {openDashboard && <Dashboard />}
         </View>
     )

@@ -13,6 +13,10 @@ export const style = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
+    content: {
+        paddingTop: 20,
+        paddingBottom: 20
+    },
     profile: {
         flexDirection: 'row',
         justifyContent: 'space-between'
