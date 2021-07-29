@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  foodfast_mysql:
+    image: mysql
+    container_name: foodfast_mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: mysql
+      MYSQL_DATABASE: foodfast
+    ports:
+      - 3306:3306
+    networks:
+      - mysql-compose-network
+
+  foodfast_adminer:
+    image: adminer
+    container_name: foodfast_adminer
+    ports:
+      - 8080:8080
+    networks:
+      - mysql-compose-network
+
+  foodfast_redis:
+    image: redis
+    container_name: foodfast_redis
+    command: redis-server --requirepass root
+    ports:
+      - 6379:6379
+
+  foodfast_mongodb:
+    image: mongo
+    container_name: foodfast_mongodb
+    ports:
+      - 27017:27017
+
+networks:
+  mysql-compose-network:
+    driver: bridge

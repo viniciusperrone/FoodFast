@@ -1,0 +1,32 @@
+[
+  {
+    "name": "default",
+    "type": "mysql",
+    "host": "192.168.99.100",
+    "port": 3306,
+    "username": "root",
+    "password": "root",
+    "database": "foodfast",
+    "entities": [
+      "./src/modules/**/infra/typeorm/entities/*.ts",
+      "./src/modules/users/infra/typeorm/entities/User.ts"
+    ],
+    "migrations": [
+      "./src/shared/infra/typeorm/database/migrations/*.ts"
+    ],
+    "cli": {
+      "migrationsDir": "./src/shared/infra/typeorm/database/migrations"
+    }
+  },
+  {
+    "name": "mongo",
+    "type": "mongodb",
+    "host": "192.168.99.100",
+    "port": 27017,
+    "database": "foodfast",
+    "useUnifiedTopology": true,
+    "entities": [
+      "./src/modules/**/infra/typeorm/schemas/*.ts"
+    ]
+  }
+]

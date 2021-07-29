@@ -1,0 +1,1164 @@
+openapi: 3.0.0
+
+servers:
+  - description: Development server URL
+    url: http://127.0.0.1:3333/
+  - description: Production server URL
+    url: https://foodfast.api-sact-test.com/
+
+info:
+  description: HTTP Requests guide to utilize the FoodFast API.
+  version: "1.0.0"
+  title: FoodFast API
+
+tags:
+  - name: authentication
+  - name: users
+  - name: categories
+  - name: recipes
+  - name: user-favorites
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    UnauthorizedError:
+      description: JWT token
+    IncorrectToken:
+      description: Invalid JWT token
+  schemas:
+    User:
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        avatar:
+          type: string
+          format: binary
+        created_at:
+          type: string
+          format: dateformat
+        updated_at:
+          type: string
+          format: dateformat
+    UserToken:
+      properties:
+        id:
+          type: string
+          format: uuid
+        token:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        created_at:
+          type: string
+          format: dateformat
+        updated_at:
+          type: string
+          format: dateformat
+    Category:
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        image:
+          type: string
+          format: binary
+        created_at:
+          type: string
+          format: dateformat
+        updated_at:
+          type: string
+          format: dateformat
+    Recipe:
+      properties:
+        id:
+          type: string
+          format: uuid
+        category_id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        ingredients:
+          type: string
+        steps:
+          type: string
+        video_url:
+          type: string
+        image:
+          type: string
+          format: binary
+        created_at:
+          type: string
+          format: dateformat
+        updated_at:
+          type: string
+          format: dateformat
+    UserFavorite:
+      properties:
+        id:
+          type: string
+          format: uuid
+        user_id:
+          type: string
+          format: uuid
+        recipe_id:
+          type: string
+          format: uuid
+
+paths:
+  /sessions:
+    post:
+      summary: Creates an user session.
+      tags:
+        - authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                  email:
+                    type: string
+                    example: "user@email.com"
+                  password:
+                    type: string
+                    example: "user password"
+      responses:
+        '200':
+          description: Returns a JSON containing the user data and a JWT token.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        format: uuid
+                        example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                      name:
+                        type: string
+                        example: "User Name"
+                      email:
+                        type: string
+                        format: email
+                        example: "user@email.com"
+                      created_at:
+                        type: string
+                        format: dateformat
+                        example: "2020-07-02T21:57:00.421Z"
+                      updated_at:
+                        type: string
+                        format: dateformat
+                        example: "2020-07-02T21:57:00.421Z"
+                      avatar_url:
+                        type: string
+                        example: null
+                  token:
+                    type: string
+                    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTcxMTQ0MDgsImV4cCI6MTU5NzIwMDgwOCwic3ViIjoiMWEwMWY3ZmYtYzZlMy00M2NiLThiNzQtY2YxOWVhZDYyMDdhIn0.P_NlcLb0Ob6j9pC6DxDJiF2q7Xrx6qqWkgOcUgqCpro"
+        '401':
+          description: 'Incorrect login/password combination.'
+  /password/forgot:
+    post:
+      summary: Generates a token for password recovering.
+      tags:
+        - authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                  example: "user@email.com"
+      responses:
+        '204':
+          description: Confirmation of token sent to email successfully.
+        '400':
+          description: User does not exists.
+  /password/reset:
+    post:
+      summary: Resets the user password.
+      tags:
+        - authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                  example: "new user password"
+                password_confirmation:
+                  type: string
+                  example: "new user password"
+                token:
+                  type: string
+                  format: uuid
+                  example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+      responses:
+        '204':
+          description: Confirmation of user password changed successfully.
+        '400':
+          description: Token expired | User token doesn't not exists.
+
+  /users:
+    post:
+      summary: Creates an user.
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "User Name"
+                  email:
+                    type: string
+                    format: email
+                    example: "user@email.com"
+                  password:
+                    type: string
+                    example: "user password"
+      responses:
+        '200':
+          description: Returns a JSON containing the created user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "User Name"
+                  email:
+                    type: string
+                    format: email
+                    example: "user@email.com"
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  avatar_url:
+                    type: string
+                    example: null
+    put:
+      summary: Updates the user.
+      tags:
+        - users
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "New User Name"
+                  email:
+                    type: string
+                    format: email
+                    example: "newuser@email.com"
+                  old_password:
+                    type: string
+                    example: "user password"
+                  password:
+                    type: string
+                    example: "new user password"
+                  password_confirmation:
+                    type: string
+                    example: "new user password"
+      responses:
+        '200':
+          description: Returns a JSON containing the updated user.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "New User Name"
+                  email:
+                    type: string
+                    format: email
+                    example: "newuser@email.com"
+                  avatar_url:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    delete:
+      summary: Deletes the user.
+      tags:
+        - users
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a successfully deleted user confirmation.
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /users/avatar:
+    patch:
+      summary: Updates the user avatar.
+      tags:
+        - users
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Returns a JSON containing the updated user with avatar data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "User Name"
+                  email:
+                    type: string
+                    format: email
+                    example: "user@email.com"
+                  avatar:
+                    type: string
+                    format: binary
+                    example: "2196cf1aec2f18533aaf-file_name.png"
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  avatar_url:
+                    type: string
+                    example: "https://image_upload_provider/2196cf1aec2f18533aaf-file_name.png"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /categories:
+    post:
+      summary: Creates a category.
+      tags:
+        - categories
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "Category 01"
+      responses:
+        '200':
+          description: Returns a JSON containing the created category.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Category 01"
+                  image_url:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /categories/{id}:
+    put:
+      summary: Updates a category.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Category id to update it.
+      tags:
+        - categories
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "Category 01"
+      responses:
+        '200':
+          description: Returns a JSON containing the updated category.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Category 01"
+                  image_url:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    delete:
+      summary: Deletes a category.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Category id to delete it.
+      tags:
+        - categories
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a successfully deleted category confirmation.
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /categories/all:
+    get:
+      summary: Gets all categories.
+      tags:
+        - categories
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a JSON array containing all categories.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    name:
+                      type: string
+                      example: "Category 01"
+                    image_url:
+                      type: string
+                      example: null
+                    created_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+                    updated_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /categories/{id}/image:
+    patch:
+      summary: Updates the category image.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Category id to update id.
+      tags:
+        - categories
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Returns a JSON containing the updated module with image data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Category 01"
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  image_url:
+                    type: string
+                    example: "https://image_upload_provider/2196cf1aec2f18533aaf-file_name.png"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /recipes:
+    post:
+      summary: Creates a recipe.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  category_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Recipe 01"
+                  description:
+                    type: string
+                    example: "Recipe 01 description"
+                  ingredients:
+                    type: string
+                    example: "Recipe 01 ingredients"
+                  steps:
+                    type: string
+                    example: "Recipe 01 steps"
+                  video_url:
+                    type: string
+                    example: "Recipe 01 video URL"
+      responses:
+        '200':
+          description: Returns a JSON containing the created recipe.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  category_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Recipe 01"
+                  description:
+                    type: string
+                    example: "Recipe 01 description"
+                  ingredients:
+                    type: string
+                    example: "Recipe 01 ingredients"
+                  steps:
+                    type: string
+                    example: "Recipe 01 steps"
+                  video_url:
+                    type: string
+                    example: "Recipe 01 video URL"
+                  image_url:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /recipes/{id}:
+    put:
+      summary: Updates a recipe.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Recipe id to update it.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  category_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Recipe 01"
+                  description:
+                    type: string
+                    example: "Recipe 01 description"
+                  ingredients:
+                    type: string
+                    example: "Recipe 01 ingredients"
+                  steps:
+                    type: string
+                    example: "Recipe 01 steps"
+                  video_url:
+                    type: string
+                    example: "Recipe 01 video URL"
+      responses:
+        '200':
+          description: Returns a JSON containing the updated recipe.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  category_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Recipe 01"
+                  description:
+                    type: string
+                    example: "Recipe 01 description"
+                  ingredients:
+                    type: string
+                    example: "Recipe 01 ingredients"
+                  steps:
+                    type: string
+                    example: "Recipe 01 steps"
+                  video_url:
+                    type: string
+                    example: "Recipe 01 video URL"
+                  image_url:
+                    type: string
+                    example: null
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    delete:
+      summary: Deletes a recipe.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Recipe id to delete it.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a successfully deleted recipe confirmation.
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /recipes/all:
+    get:
+      summary: Gets all recipes.
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: string
+          description: A integer to control the recipes pagination.
+        - in: query
+          name: search
+          schema:
+            type: string
+          description: A string to search for specific recipes.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a JSON array containing all recipes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    category_id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    name:
+                      type: string
+                      example: "Recipe 01"
+                    description:
+                      type: string
+                      example: "Recipe 01 description"
+                    ingredients:
+                      type: string
+                      example: "Recipe 01 ingredients"
+                    steps:
+                      type: string
+                      example: "Recipe 01 steps"
+                    video_url:
+                      type: string
+                      example: "Recipe 01 video URL"
+                    image_url:
+                      type: string
+                      example: null
+                    created_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+                    updated_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /recipes/filtered/{category_id}:
+    get:
+      summary: Gets all recipes by category id.
+      parameters:
+        - in: path
+          name: category_id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Category id to reference the related recipes.
+        - in: query
+          name: page
+          schema:
+            type: string
+          description: A integer to control the recipes pagination.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a JSON array containing all recipes.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    category_id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    name:
+                      type: string
+                      example: "Recipe 01"
+                    description:
+                      type: string
+                      example: "Recipe 01 description"
+                    ingredients:
+                      type: string
+                      example: "Recipe 01 ingredients"
+                    steps:
+                      type: string
+                      example: "Recipe 01 steps"
+                    video_url:
+                      type: string
+                      example: "Recipe 01 video URL"
+                    image_url:
+                      type: string
+                      example: null
+                    created_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+                    updated_at:
+                      type: string
+                      format: dateformat
+                      example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /recipes/{id}/image:
+    patch:
+      summary: Updates the recipe image.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+            example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+          required: true
+          description: Recipe id to update id.
+      tags:
+        - recipes
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Returns a JSON containing the updated recipe with image data.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  category_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  name:
+                    type: string
+                    example: "Recipe 01"
+                  description:
+                    type: string
+                    example: "Recipe 01 description"
+                  ingredients:
+                    type: string
+                    example: "Recipe 01 ingredients"
+                  steps:
+                    type: string
+                    example: "Recipe 01 steps"
+                  video_url:
+                    type: string
+                    example: "Recipe 01 video URL"
+                  created_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  updated_at:
+                    type: string
+                    format: dateformat
+                    example: "2020-07-02T21:57:00.421Z"
+                  image_url:
+                    type: string
+                    example: "https://image_upload_provider/2196cf1aec2f18533aaf-file_name.png"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /user-favorites:
+    post:
+      summary: Creates an user favorite.
+      tags:
+        - user-favorites
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+              schema:
+                type: object
+                properties:
+                  recipe_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+      responses:
+        '200':
+          description: Returns a JSON containing the created user favorite.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: "5fad6e25458f250c5999c525"
+                  user_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                  recipe_id:
+                    type: string
+                    format: uuid
+                    example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    get:
+      summary: Gets the user favorites.
+      tags:
+        - user-favorites
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a JSON array containing all user favorites.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: "5fad6e25458f250c5999c525"
+                    user_id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    recipe_id:
+                      type: string
+                      format: uuid
+                      example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                    recipe:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          format: uuid
+                          example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                        category_id:
+                          type: string
+                          format: uuid
+                          example: "3c68c90a-009b-4c59-9c7f-dab2774e9a57"
+                        name:
+                          type: string
+                          example: "Recipe 01"
+                        description:
+                          type: string
+                          example: "Recipe 01 description"
+                        ingredients:
+                          type: string
+                          example: "Recipe 01 ingredients"
+                        steps:
+                          type: string
+                          example: "Recipe 01 steps"
+                        video_url:
+                          type: string
+                          example: "Recipe 01 video URL"
+                        image_url:
+                          type: string
+                          example: null
+                        created_at:
+                          type: string
+                          format: dateformat
+                          example: "2020-07-02T21:57:00.421Z"
+                        updated_at:
+                          type: string
+                          format: dateformat
+                          example: "2020-07-02T21:57:00.421Z"
+        '400':
+          $ref:  '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /user-favorites/{id}:
+    delete:
+      summary: Deletes an user favorite.
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            example: "5fad6e25458f250c5999c525"
+          required: true
+          description: User favorite id to delete it.
+      tags:
+        - user-favorites
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Returns a successfully deleted user favorite confirmation.
+        '400':
+          $ref: '#/components/responses/IncorrectToken'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
