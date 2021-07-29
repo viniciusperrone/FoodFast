@@ -10,14 +10,13 @@ import Button from '../Button';
 import Footer from '../Footer';
 
 import { style } from './style';
-import { styleButton } from '../../global/components/button';
 import { theme } from '../../global/styles/global';
 
 type Props = {
-    modalInventory?: number;
+    inventory?: number;
 }
 
-const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
+const ModalComponent: React.FC<Props> = ({ inventory }) => {
     const [visible, setVisible] = useState(true);
 
     const navigation = useNavigation();
@@ -26,7 +25,8 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
         setVisible(false);
     }
 
-    function handleInvetorySelected(){
+    function handleInvetorySelected() {
+        setVisible(false);
         navigation.navigate('InvetorySelected')
     }
 
@@ -38,8 +38,8 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
                 </TouchableOpacity>
 
                 <View style={style.content}>
-                    <TextInput style={style.input} />
-                    <TextInput style={[style.input, { marginTop: 40 }]} />
+                    <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
+                    <TextInput style={[style.input, { marginTop: 40 }]} placeholder="What is the icon" placeholderTextColor="#000000" />
                 </View>
 
                 <Footer>
@@ -62,9 +62,7 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
                 </View>
 
                 <Footer>
-                    <TouchableOpacity style={styleButton.container} onPress={handleInvetorySelected}>
-                        <Text style={styleButton.text}>Update</Text>
-                    </TouchableOpacity>
+                    <Button title="Update" privateButton onPress={handleInvetorySelected}/>
                 </Footer>
             </View>
         </Modal>
@@ -78,10 +76,30 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
                 </TouchableOpacity>
 
                 <View style={style.content}>
-                    <TextInput style={style.input} />
-                    <TextInput style={[style.input, { marginTop: 30 }]} />
-                    <TextInput style={[style.input, { marginTop: 30 }]} />
-                    <TextInput style={[style.input, { marginTop: 30 }]} />
+                    <TextInput
+                        style={style.input}
+                        placeholder="What is the name"
+                        placeholderTextColor={theme.colors.black}
+                    />
+
+                    <TextInput
+                        style={[style.input, { marginTop: 30 }]}
+                        placeholder="What is the name"
+                        placeholderTextColor={theme.colors.black}
+                    />
+
+                    <TextInput
+                        style={[style.input, { marginTop: 30 }]}
+                        placeholder="What is the size"
+                        placeholderTextColor={theme.colors.black}
+                        keyboardType={'numeric'}
+                    />
+
+                    <TextInput
+                        style={[style.input, { marginTop: 30 }]}
+                        placeholder="What is the expiration date"
+                        placeholderTextColor={theme.colors.black}
+                    />
                 </View>
 
                 <Footer>
@@ -114,19 +132,19 @@ const ModalComponent: React.FC<Props> = ({ modalInventory }) => {
     return (
         <>
             {
-                modalInventory === 1 ? <AddModal /> : <></>
+                inventory === 1 ? <AddModal /> : <></>
             }
 
             {
-                modalInventory === 2 ? <UpdateModal /> : <></>
+                inventory === 2 ? <UpdateModal /> : <></>
             }
 
             {
-                modalInventory === 3 ? <ItemAddModal /> : <></>
+                inventory === 3 ? <ItemAddModal /> : <></>
             }
 
             {
-                modalInventory === 4 ? <ItemUpdateModal /> : <></>
+                inventory === 4 ? <ItemUpdateModal /> : <></>
             }
         </>
     );

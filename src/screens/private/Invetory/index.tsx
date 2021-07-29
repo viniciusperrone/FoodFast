@@ -8,7 +8,7 @@ import Dashboard from '../../../components/Dashboard';
 import Button from '../../../components/Button';
 import ButtonMenu from '../../../components/ButtonMenu';
 import Footer from '../../../components/Footer';
-import ModalComponent from '../../../components/Modal';
+import Modal from '../../../components/Modal';
 
 import { style } from './style';
 
@@ -32,7 +32,7 @@ const Invetory: React.FC = () => {
                     privateButton
                 />
 
-            { modal && <ModalComponent modalInventory={1} />}
+            { modal && <Modal inventory={2} />}
 
             <Footer>
                 <Text style={style.textContent}>
