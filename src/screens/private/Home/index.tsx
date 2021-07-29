@@ -53,11 +53,6 @@ const Home: React.FC = () => {
                     <FoodSelect />
                     <FoodSelect />
                     <FoodSelect />
-                    <FoodSelect />
-                    <FoodSelect />
-                    <FoodSelect />
-                    <FoodSelect />
-
                 </View>
             </ScrollView>
 

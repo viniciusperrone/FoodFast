@@ -20,8 +20,24 @@ export const style = StyleSheet.create({
         elevation: 8,
         marginVertical: 10,
         marginHorizontal: 20,
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
         marginRight: 10
     },
+    icon: {
+        color: theme.colors.dark_grey
+    },
+    text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: theme.colors.dark_grey
+    },
+    button: {
+        width: 40,
+        height: 40,
+        backgroundColor: theme.colors.light_orange,
+        borderRadius: 40,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 });

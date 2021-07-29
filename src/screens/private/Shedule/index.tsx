@@ -19,10 +19,11 @@ const Shedule: React.FC = () => {
             <Header>
                 <View style={{ flex: 1 }}>
                     <Text style={style.title}>Today's schedule</Text>
-                    <Text style={style.subtitle}>Tuesday 26</Text>
                 </View>
                 <ButtonMenu />
             </Header>
+
+            {/* <Text style={style.subtitle}>Tuesday 26</Text> */}
 
             <Text style={style.textContent}>No meal schedule</Text>
 

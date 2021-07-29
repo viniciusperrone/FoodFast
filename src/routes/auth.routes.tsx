@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Main from '../screens/public/Main';
 
 import Home from '../screens/private/Home';
+import CategorySelected from '../screens/private/CategorySelected';
 import Search from '../screens/private/Search';
 import Schedule from '../screens/private/Shedule';
 import Favorites from '../screens/private/Favorites';
@@ -31,6 +32,10 @@ const AuthRoutes: React.FC = () => {
             <Screen
                 name="Home"
                 component={Home}
+            />
+            <Screen
+                name="CategorySelected"
+                component={CategorySelected}
             />
             <Screen
                 name="Search"
