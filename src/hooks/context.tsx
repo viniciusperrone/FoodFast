@@ -12,7 +12,7 @@ export const Context = createContext({});
 export default function ContextProvider({ children } : Props){
 
     const [openDashboard, setOpenDashboard] = useState(false);
-    const [avatar, setAvatar] = useState(config.avatar)
+    const [avatar, setAvatar] = useState<any>(null)
 
     return (
     <Context.Provider value={{

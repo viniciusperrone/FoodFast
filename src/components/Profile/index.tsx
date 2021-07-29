@@ -1,8 +1,9 @@
 import React from 'react';
-import { TouchableOpacityProps, TouchableOpacity } from 'react-native';
+import { TouchableOpacityProps, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { useClickDashboard } from '../../hooks/context';
+import { config } from '../../utils/defaultConfig';
 
 import { style } from './style';
 
@@ -19,6 +20,18 @@ const Profile: React.FC<Props> = ({ styleComponent, ...rest }) => {
         >
             {
                 avatar
+                    ?
+                    <Image
+                        source={{
+                            uri: avatar.uri
+                        }}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            borderRadius: 50
+                        }}
+                    />
+                    : config.avatar
             }
         </TouchableOpacity>
     );

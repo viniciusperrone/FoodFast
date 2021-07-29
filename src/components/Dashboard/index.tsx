@@ -23,9 +23,19 @@ const Dashboard: React.FC = () => {
         borderColor: theme.colors.white
     }
 
-    const handleProfile = () => {
+    const handleSearch = () => {
         setOpenDashboard(false);
-        navigation.navigate('Profile');
+        navigation.navigate('Search');
+    }
+
+    const handleSchedule = () => {
+        setOpenDashboard(false);
+        navigation.navigate('Schedule');
+    }
+
+    const handleFavorites = () => {
+        setOpenDashboard(false);
+        navigation.navigate('Favorites');
     }
 
     const handleInventory = () => {
@@ -43,9 +53,10 @@ const Dashboard: React.FC = () => {
         navigation.navigate('ShoppingList');
     }
 
-    const handleFavorites = () => {
+
+    const handleProfile = () => {
         setOpenDashboard(false);
-        navigation.navigate('Favorites');
+        navigation.navigate('Profile');
     }
 
     return (
@@ -70,12 +81,12 @@ const Dashboard: React.FC = () => {
 
             <View style={style.content}>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleSearch}>
                     <Text style={style.text}>Recipes Search</Text>
                     <FontAwesome name="search" size={24} style={style.icon} />
                 </RectButton>
 
-                <RectButton style={style.button}>
+                <RectButton style={style.button} onPress={handleSchedule}>
                     <Text style={style.text}>Meal Schedule</Text>
                     <FontAwesome5 name="calendar-alt" size={24} style={style.icon} />
                 </RectButton>

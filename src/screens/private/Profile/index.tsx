@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
 
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
-import Axios from 'axios';
 
 import { useNavigation } from '@react-navigation/core';
 import { useClickDashboard } from '../../../hooks/context';
@@ -31,25 +30,25 @@ const Profile: React.FC = () => {
     const [error, setError] = useState(false);
     const [lineColor, setLineColor] = useState(theme.colors.light_blue);
 
-    async function ImagePickerCall(){
-        if(Constants.platform?.ios){
+    async function ImagePickerCall() {
+        if (Constants.platform?.ios) {
             const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
 
-            if(status !== 'granted'){
+            if (status !== 'granted') {
                 alert('Precisamos dessa permissão');
                 return;
             }
 
         }
 
-        const data = await ImagePicker.launchCameraAsync({ mediaTypes: ImagePicker.MediaTypeOptions.All });
+        const data = await ImagePicker.launchImageLibraryAsync({});
 
         console.log(data);
 
-        if(data.cancelled){
+        if (data.cancelled) {
             return;
         }
-        if(!data.uri){
+        if (!data.uri) {
             return;
         }
 
@@ -143,7 +142,7 @@ const Profile: React.FC = () => {
 
 
 
-            <Button title="Save Change" registered/>
+            <Button title="Save Change" registered />
             {openDashboard && <Dashboard />}
         </View>
     )
