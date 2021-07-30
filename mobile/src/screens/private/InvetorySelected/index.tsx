@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 
-import { useNavigation } from '@react-navigation/core';
-
-import { AntDesign, FontAwesome, Entypo } from '@expo/vector-icons';
+import { FontAwesome, Entypo } from '@expo/vector-icons';
 
 import Header from '../../../components/Header';
 import Button from '../../../components/Button';
+import ButtonBack from '../../../components/ButtonBack';
 import Footer from '../../../components/Footer';
 import Modal from '../../../components/Modal';
 
 import { style } from './style';
-import { theme } from '../../../global/styles/global';
 
 const InvetorySelected: React.FC = () => {
-    const navigation = useNavigation();
 
     const [modal, setModal] = useState(false);
-
-    const goBack = () => {
-        navigation.goBack();
-    }
 
     function handleAddItem() {
         setModal(!modal);
@@ -29,13 +22,7 @@ const InvetorySelected: React.FC = () => {
     return (
         <View style={style.container}>
             <Header>
-                <TouchableOpacity style={style.buttonGoBack} onPress={goBack}   >
-                    <AntDesign
-                        name="arrowleft"
-                        size={35}
-                        color={theme.colors.light_blue}
-                    />
-                </TouchableOpacity>
+                <ButtonBack />
                 <View>
                     <View style={{ flexDirection: 'row' }}>
                         <Text style={style.title}>Inventory</Text>

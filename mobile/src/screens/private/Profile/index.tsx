@@ -8,10 +8,11 @@ import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/core';
 import { useClickDashboard } from '../../../hooks/context';
 
-import { AntDesign, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import ProfileIcon from '../../../components/Profile';
 import Header from '../../../components/Header';
+import ButtonBack from '../../../components/ButtonBack';
 import ButtonMenu from '../../../components/ButtonMenu';
 import Button from '../../../components/Button';
 import Dashboard from '../../../components/Dashboard';
@@ -43,8 +44,6 @@ const Profile: React.FC = () => {
 
         const data = await ImagePicker.launchImageLibraryAsync({});
 
-        console.log(data);
-
         if (data.cancelled) {
             return;
         }
@@ -55,21 +54,10 @@ const Profile: React.FC = () => {
         setAvatar(data);
     }
 
-    const goBack = () => {
-        navigation.goBack()
-    }
     return (
         <View style={style.container}>
             <Header>
-                <AntDesign
-                    name="arrowleft"
-                    size={35}
-                    color={theme.colors.light_blue}
-                    style={{
-                        marginLeft: 20
-                    }}
-                    onPress={goBack}
-                />
+                <ButtonBack />
                 <Text style={style.title}>Profile</Text>
                 <ButtonMenu />
             </Header>
