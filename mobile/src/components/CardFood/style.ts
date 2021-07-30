@@ -19,6 +19,7 @@ export const style = StyleSheet.create({
         shadowRadius: 6.27,
 
         elevation: 8,
+        marginTop: 20,
         alignSelf: 'center'
 
     },

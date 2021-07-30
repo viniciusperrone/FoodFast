@@ -3,31 +3,23 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
 
-import { AntDesign } from '@expo/vector-icons';
-
 import Header from '../../../components/Header';
+import ButtonBack from '../../../components/ButtonBack';
 import CardFood from '../../../components/CardFood';
 
 import { style } from './style';
-import { theme } from '../../../global/styles/global';
 
 const CategorySelected: React.FC = () => {
 
     const navigation = useNavigation();
 
-    const goBack = () => {
-        navigation.goBack();
+    function handleRecipeDetails(){
+        navigation.navigate('RecipeDetails');
     }
     return (
         <View style={style.container}>
             <Header>
-                <TouchableOpacity style={style.buttonGoBack} onPress={goBack}   >
-                    <AntDesign
-                        name="arrowleft"
-                        size={35}
-                        color={theme.colors.light_blue}
-                    />
-                </TouchableOpacity>
+                <ButtonBack />
                 <View style={{ marginRight: 20}}>
                     <Text style={style.title}>
                         Lorem
@@ -43,6 +35,7 @@ const CategorySelected: React.FC = () => {
             </Header>
 
             <View style={{ flex: 1 }}>
+                <CardFood onPress={handleRecipeDetails}/>
                 <CardFood />
             </View>
         </View>

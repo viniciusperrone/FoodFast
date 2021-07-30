@@ -14,6 +14,7 @@ export const theme = {
         pink:  '#FFE5E5',
         light_green: '#E4FFE5',
         red: '#D9481C',
+        gold: '#FFD700'
 
     }
 }

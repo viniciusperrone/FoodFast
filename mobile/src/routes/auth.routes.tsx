@@ -5,6 +5,7 @@ import Main from '../screens/public/Main';
 
 import Home from '../screens/private/Home';
 import CategorySelected from '../screens/private/CategorySelected';
+import RecipeDetails from '../screens/private/RecipeDetails';
 import Search from '../screens/private/Search';
 import Schedule from '../screens/private/Shedule';
 import Favorites from '../screens/private/Favorites';
@@ -36,6 +37,10 @@ const AuthRoutes: React.FC = () => {
             <Screen
                 name="CategorySelected"
                 component={CategorySelected}
+            />
+            <Screen
+                name="RecipeDetails"
+                component={RecipeDetails}
             />
             <Screen
                 name="Search"
