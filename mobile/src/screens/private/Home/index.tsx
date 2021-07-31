@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { Modalize } from 'react-native-modalize';
-import { useNavigation } from '@react-navigation/core';
 
 import { useClickDashboard } from '../../../hooks/context';
+import { useNavigation } from '@react-navigation/core';
+
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import Dashboard from '../../../components/Dashboard';
 import Profile from '../../../components/Profile';
@@ -14,6 +16,7 @@ import FoodSelect from '../../../components/FoodSelect';
 import Input from '../../../components/Input';
 
 import { style } from './style';
+import { theme } from '../../../global/styles/global';
 
 const Home: React.FC = () => {
 
@@ -21,14 +24,23 @@ const Home: React.FC = () => {
 
     const { openDashboard, setOpenDashboard } = useClickDashboard();
 
-    function handleProfile(){
+    const data = {
+        cookie: {
+            category: 'cookies',
+            icon: <FontAwesome5 name="cookie-bite" size={30} color={theme.colors.dark_grey}/>,
+            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }
+
+    }
+
+    function handleProfile() {
         navigation.navigate('Profile');
     }
 
     return (
         <View style={[style.container, { flexDirection: openDashboard ? 'row' : 'column' }]}>
             <Header>
-                <Profile onPress={handleProfile}/>
+                <Profile onPress={handleProfile} />
                 <ButtonMenu />
             </Header>
 
@@ -49,10 +61,10 @@ const Home: React.FC = () => {
                     justifyContent: 'space-evenly',
                     marginBottom: 120
                 }}>
-                    <FoodSelect />
-                    <FoodSelect />
-                    <FoodSelect />
-                    <FoodSelect />
+                    <FoodSelect category="cookies" Icon={data.cookie.icon}/>
+                    <FoodSelect category="cookies" Icon={data.cookie.icon}/>
+                    <FoodSelect category="cookies" Icon={data.cookie.icon}/>
+                    <FoodSelect category="cookies" Icon={data.cookie.icon}/>
                 </View>
             </ScrollView>
 

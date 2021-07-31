@@ -31,7 +31,7 @@ const InvetorySelected: React.FC = () => {
                     <Text style={style.subtitle}>LOREM E IPSUM</Text>
                 </View>
 
-                <FontAwesome name="camera" size={40} style={style.iconCam} />
+                <FontAwesome name="camera" size={35} style={style.iconCam} />
             </Header>
 
             <Text style={style.textContent}>

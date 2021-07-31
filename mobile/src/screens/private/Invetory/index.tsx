@@ -32,13 +32,13 @@ const Invetory: React.FC = () => {
                     privateButton
                 />
 
-            { modal && <Modal inventory={2} />}
+            { modal && <Modal inventory={1} />}
 
-            <Footer>
+            {/* <Footer>
                 <Text style={style.textContent}>
                     No categories
                 </Text>
-            </Footer>
+            </Footer> */}
 
             { openDashboard && <Dashboard />}
 

@@ -8,7 +8,13 @@ import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import { style } from './style';
 import { theme } from '../../global/styles/global';
 
-const FoodSelect: React.FC = () => {
+type DataFood = {
+    category: string;
+    Icon: JSX.Element;
+}
+
+
+const FoodSelect: React.FC<DataFood> = ({ category, Icon }) => {
 
     const navigation = useNavigation();
 
@@ -17,8 +23,11 @@ const FoodSelect: React.FC = () => {
     }
     return (
         <View style={style.container}>
-            <FontAwesome name="camera" size={30} style={style.icon} />
-            <Text style={style.text}>Category</Text>
+            {/* <FontAwesome name="camera" size={30} style={style.icon} /> */}
+            {
+                Icon
+            }
+            <Text style={style.text}>{ category }</Text>
             <TouchableOpacity style={style.button} onPress={handleCategorySelected}>
                 <AntDesign name="arrowright" size={24} color={theme.colors.white_grey} />
             </TouchableOpacity>

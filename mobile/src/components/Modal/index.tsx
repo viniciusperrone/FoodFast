@@ -43,7 +43,7 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
                 </View>
 
                 <Footer>
-                    <Button title="Add" privateButton />
+                    <Button title="Add" privateButton onPress={handleInvetorySelected}/>
                 </Footer>
             </View>
         </Modal>

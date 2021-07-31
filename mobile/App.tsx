@@ -5,6 +5,7 @@ import { StatusBar, LogBox } from 'react-native';
 import ContextProvider from './src/hooks/context';
 
 import Routes from './src/routes';
+import { theme } from './src/global/styles/global';
 
 LogBox.ignoreLogs(['Remote debugger']);
 
@@ -13,7 +14,7 @@ export default function App() {
         <ContextProvider>
             <StatusBar
                 barStyle="dark-content"
-                backgroundColor="#E0E0E0"
+                backgroundColor={theme.colors.white_grey}
                 translucent
             />
             <Routes />

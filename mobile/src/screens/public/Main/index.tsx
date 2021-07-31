@@ -226,6 +226,7 @@ const Main: React.FC = () => {
                     <Button title="Sign up" registered onPress={() => setClickedSignUp(true)} />
                     <Button title="Sign in" onPress={() => setClickedSignIn(true)} />
                 </View>
+                
                 {clickedSignUp ? <SignUp /> : null}
                 {clickedSignIn ? <SignIn /> : null}
 

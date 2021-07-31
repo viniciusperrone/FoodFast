@@ -4,6 +4,6 @@ import {
 
 export const style = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     }
 });
