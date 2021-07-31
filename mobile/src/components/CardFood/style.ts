@@ -25,7 +25,22 @@ export const style = StyleSheet.create({
     },
     content: {
         width: '100%',
-        height: 100
+        height: 100,
+        flexDirection: 'row'
+    },
+    title: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: theme.colors.dark_grey,
+        marginLeft: 20,
+        alignSelf: 'center'
+    },
+    image: {
+        width: 99,
+        height: 72,
+        borderRadius: 10,
+        marginLeft: 20,
+        alignSelf: 'flex-end'
     },
     footer: {
         flex: 1,
@@ -44,14 +59,14 @@ export const style = StyleSheet.create({
         color: theme.colors.white_grey
     },
     iconStar:{
-        color: theme.colors.dark_grey,
         alignSelf: 'center',
         marginLeft: 10
     },
     textStar: {
         color: theme.colors.dark_grey,
+        fontSize: 16,
         fontWeight: 'bold',
         marginLeft: 5,
         alignSelf: 'center'
-    }
+    },
 });

@@ -9,12 +9,14 @@ export const theme = {
         light_orange: '#F39E7C',
         white_grey: '#F8F8F8',
         grey: '#D6D6D6',
+        tea_green: '#C4FDC4',
         light_grey: '#E4E4E4',
+        light_spanish: '#FFC2C2',
         dark_grey: '#7B7B7B',
         pink:  '#FFE5E5',
         light_green: '#E4FFE5',
         red: '#D9481C',
-        gold: '#FFD700'
+        gold: '#ffd700'
 
     }
 }

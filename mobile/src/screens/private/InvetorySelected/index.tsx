@@ -19,6 +19,17 @@ const InvetorySelected: React.FC = () => {
         setModal(!modal);
     }
 
+    const Item = () => {
+        return (
+            <View>
+                <View>
+                    <Text>
+                        Item I
+                    </Text>
+                </View>
+            </View>
+        )
+    }
     return (
         <View style={style.container}>
             <Header>
@@ -38,10 +49,10 @@ const InvetorySelected: React.FC = () => {
                 No items
             </Text>
 
-            { modal && <Modal inventory={3} />}
+            {modal && <Modal inventory={3} />}
 
             <Footer>
-                <Button title="Add item" privateButton onPress={handleAddItem}/>
+                <Button title="Add item" privateButton onPress={handleAddItem} />
             </Footer>
         </View>
     );

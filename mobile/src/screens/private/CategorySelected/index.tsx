@@ -8,6 +8,7 @@ import ButtonBack from '../../../components/ButtonBack';
 import CardFood from '../../../components/CardFood';
 
 import { style } from './style';
+import { theme } from '../../../global/styles/global';
 
 const CategorySelected: React.FC = () => {
 
@@ -22,7 +23,7 @@ const CategorySelected: React.FC = () => {
                 <ButtonBack />
                 <View style={{ marginRight: 20}}>
                     <Text style={style.title}>
-                        Lorem
+                        Cookies
                     </Text>
                     <Text style={style.subtitle}>
                         Popular recipes
@@ -35,7 +36,7 @@ const CategorySelected: React.FC = () => {
             </Header>
 
             <View style={{ flex: 1 }}>
-                <CardFood onPress={handleRecipeDetails}/>
+                <CardFood styleProps={{backgroundColor: theme.colors.light_green}} onPress={handleRecipeDetails}/>
                 <CardFood />
             </View>
         </View>
