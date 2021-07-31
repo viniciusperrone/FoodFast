@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
-import { Modalize } from 'react-native-modalize';
 
 import { useClickDashboard } from '../../../hooks/context';
 import { useNavigation } from '@react-navigation/core';

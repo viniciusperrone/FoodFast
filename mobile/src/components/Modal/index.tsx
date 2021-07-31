@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import { View, TouchableOpacity, TextInput, Text } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import Modal from 'react-native-modal';
 
 import { AntDesign } from '@expo/vector-icons';
@@ -14,9 +13,11 @@ import { theme } from '../../global/styles/global';
 
 type Props = {
     inventory?: number;
+    shoppingList?: number;
+    mealShedule?: number;
 }
 
-const ModalComponent: React.FC<Props> = ({ inventory }) => {
+const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule }) => {
     const [visible, setVisible] = useState(true);
 
     const navigation = useNavigation();
@@ -30,7 +31,7 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
         navigation.navigate('InvetorySelected')
     }
 
-    const AddModal = () => (
+    const AddInventory = () => (
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
@@ -47,9 +48,8 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
                 </Footer>
             </View>
         </Modal>
-    )
-
-    const UpdateModal = () => (
+    );
+    const UpdateInventory = () => (
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
@@ -66,9 +66,8 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
                 </Footer>
             </View>
         </Modal>
-    )
-
-    const ItemAddModal = () => (
+    );
+    const AddItemInventory = () => (
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
@@ -108,7 +107,7 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
             </View>
         </Modal>
     );
-    const ItemUpdateModal = () => (
+    const UpdateItemInventory = () => (
         <Modal isVisible={visible}>
             <View style={style.container}>
                 <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
@@ -129,22 +128,56 @@ const ModalComponent: React.FC<Props> = ({ inventory }) => {
         </Modal>
     );
 
+    const AddShoppingList = () => (
+        <>
+        </>
+    );
+    const UpdateShoppingList = () => (
+        <>
+        </>
+    );
+
+    const AddMealSchedule= () => (
+        <>
+        </>
+    );
+    const UpdateMealShedule = () => (
+        <>
+        </>
+    );
+
     return (
         <>
             {
-                inventory === 1 ? <AddModal /> : <></>
+                inventory === 1 ? <AddInventory /> : null
             }
 
             {
-                inventory === 2 ? <UpdateModal /> : <></>
+                inventory === 2 ? <UpdateInventory /> : null
             }
 
             {
-                inventory === 3 ? <ItemAddModal /> : <></>
+                inventory === 3 ? <AddItemInventory /> : null
             }
 
             {
-                inventory === 4 ? <ItemUpdateModal /> : <></>
+                inventory === 4 ? <UpdateItemInventory /> : null
+            }
+
+            {
+                shoppingList === 1 ? <AddShoppingList /> : null
+            }
+
+            {
+                shoppingList === 2 ? <UpdateShoppingList /> : null
+            }
+
+            {
+                mealShedule === 1 ? <AddMealSchedule /> : null
+            }
+
+            {
+                mealShedule === 2 ? <UpdateMealShedule /> : null
             }
         </>
     );
