@@ -6,7 +6,8 @@ import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
 
 import { useNavigation } from '@react-navigation/core';
-import { useClickDashboard } from '../../../hooks/context';
+import { useClickDashboard } from '../../../hooks/app';
+import { useAuth } from '../../../hooks/auth';
 
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -22,7 +23,8 @@ import { theme } from '../../../global/styles/global';
 
 const Profile: React.FC = () => {
 
-    const { openDashboard, avatar, setAvatar } = useClickDashboard();
+    const { openDashboard } = useClickDashboard();
+    const { user, setUser } = useAuth();
 
     const navigation = useNavigation();
 
@@ -51,7 +53,12 @@ const Profile: React.FC = () => {
             return;
         }
 
-        setAvatar(data);
+        setUser({
+            username: user.username,
+            email: user.email,
+            password: user.password,
+            avatar: data
+        });
     }
 
     return (

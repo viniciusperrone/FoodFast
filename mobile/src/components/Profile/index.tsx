@@ -1,8 +1,7 @@
 import React from 'react';
 import { TouchableOpacityProps, TouchableOpacity, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 
-import { useClickDashboard } from '../../hooks/context';
+import { useAuth } from '../../hooks/auth';
 import { config } from '../../utils/defaultConfig';
 
 import { style } from './style';
@@ -12,18 +11,18 @@ type Props = TouchableOpacityProps & {
 }
 
 const Profile: React.FC<Props> = ({ styleComponent, ...rest }) => {
-    const { avatar } = useClickDashboard();
+    const { user } = useAuth();
     return (
         <TouchableOpacity
             style={[style.container, styleComponent]}
             {...rest}
         >
             {
-                avatar
+                user.avatar
                     ?
                     <Image
                         source={{
-                            uri: avatar.uri
+                            uri: user.avatar.uri
                         }}
                         style={{
                             width: '100%',

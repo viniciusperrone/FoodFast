@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 
-import { useClickDashboard } from '../../../hooks/context';
+import { useClickDashboard } from '../../../hooks/app';
 
 import Header from '../../../components/Header';
 import Dashboard from '../../../components/Dashboard';

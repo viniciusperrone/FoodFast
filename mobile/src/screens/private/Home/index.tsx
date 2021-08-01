@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, ScrollView, FlatList } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
-import { useClickDashboard } from '../../../hooks/context';
+import { useClickDashboard } from '../../../hooks/app';
 import { useNavigation } from '@react-navigation/core';
-
-import { FontAwesome5, Entypo } from '@expo/vector-icons';
 
 import Dashboard from '../../../components/Dashboard';
 import Profile from '../../../components/Profile';
@@ -15,7 +13,6 @@ import FoodSelect from '../../../components/FoodSelect';
 import Input from '../../../components/Input';
 
 import { style } from './style';
-import { theme } from '../../../global/styles/global';
 
 import { categories } from '../../../utils/categories';
 
@@ -29,13 +26,9 @@ const Home: React.FC = () => {
 
     const navigation = useNavigation();
 
-    const { openDashboard, setOpenDashboard } = useClickDashboard();
+    const { openDashboard } = useClickDashboard();
 
     const [categoriesData, setCategoriesData] = useState<Categories[]>([]);
-
-    function handleProfile() {
-        navigation.navigate('Profile');
-    }
 
     useEffect(() => {
         setCategoriesData(categories);
@@ -44,7 +37,7 @@ const Home: React.FC = () => {
     return (
         <View style={[style.container, { flexDirection: openDashboard ? 'row' : 'column' }]}>
             <Header>
-                <Profile onPress={handleProfile} />
+                <Profile />
                 <ButtonMenu />
             </Header>
 

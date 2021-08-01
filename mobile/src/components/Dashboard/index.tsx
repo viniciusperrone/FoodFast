@@ -5,7 +5,7 @@ import { View, Text, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
-import { useClickDashboard } from '../../hooks/context';
+import { useClickDashboard } from '../../hooks/app';
 
 import Profile from '../Profile';
 

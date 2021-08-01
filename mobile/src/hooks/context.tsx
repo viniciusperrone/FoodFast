@@ -1,7 +1,5 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
 import { ReactNode } from 'react';
-
-import { config } from '../utils/defaultConfig';
 
 type Props = {
     children: ReactNode;
@@ -9,32 +7,31 @@ type Props = {
 
 export const Context = createContext({});
 
+type UserData = {
+    username: string;
+    email: string;
+    password: string;
+    avatar: any;
+}
+
 export default function ContextProvider({ children } : Props){
 
     const [openDashboard, setOpenDashboard] = useState(false);
-    const [avatar, setAvatar] = useState<any>(null)
+    const [user, setUser] = useState<UserData>({
+        username: '',
+        email: '',
+        password: '',
+        avatar: null
+    });
 
     return (
     <Context.Provider value={{
         openDashboard,
         setOpenDashboard,
-        avatar,
-        setAvatar
+        user,
+        setUser
     }}>
         { children }
     </Context.Provider>
     )
-}
-
-export function useClickDashboard(){
-    const context = useContext(Context);
-
-    const { openDashboard, setOpenDashboard, avatar, setAvatar} = context;
-
-    return {
-        openDashboard,
-        setOpenDashboard,
-        avatar,
-        setAvatar
-    };
 }

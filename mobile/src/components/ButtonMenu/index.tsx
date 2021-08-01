@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-import { useClickDashboard } from '../../hooks/context';
+import { useClickDashboard } from '../../hooks/app';
 
 import { style } from './style';
 
