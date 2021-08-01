@@ -6,7 +6,7 @@ import { theme } from '../../global/styles/global';
 
 export const style = StyleSheet.create({
     container: {
-        width: '95%',
+        width: 400,
         height: '94%',
         backgroundColor: theme.colors.light_blue,
         borderTopLeftRadius: 50,

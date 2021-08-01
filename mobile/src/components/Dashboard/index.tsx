@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { RectButton } from 'react-native-gesture-handler';
-import { View, Text } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/core';
 import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
@@ -17,6 +17,16 @@ const Dashboard: React.FC = () => {
     const navigation = useNavigation();
 
     const { openDashboard, setOpenDashboard } = useClickDashboard();
+
+    const [width, setWidth] = useState<any>(new Animated.Value(0));
+
+    Animated.timing(
+        width,
+        {
+            toValue: 400,
+            duration: 600
+        }
+    ).start()
 
     const styleComponent = {
         backgroundColor: theme.colors.light_blue,
@@ -60,7 +70,7 @@ const Dashboard: React.FC = () => {
     }
 
     return (
-        <View style={[style.container, { opacity: openDashboard ? 1 : 0 }]}>
+        <Animated.View style={[style.container, { opacity: openDashboard ? 1 : 0, width: width }]}>
             <View style={style.header}>
                 <AntDesign
                     name="arrowright"
@@ -126,7 +136,7 @@ const Dashboard: React.FC = () => {
                     color: '#fff'
                 }}/>
             </View>
-        </View>
+        </Animated.View>
     );
 }
 
