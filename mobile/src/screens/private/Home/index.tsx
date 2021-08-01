@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, TextInput, ScrollView } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, ScrollView, FlatList } from 'react-native';
 
 import { useClickDashboard } from '../../../hooks/context';
 import { useNavigation } from '@react-navigation/core';
@@ -17,36 +17,29 @@ import Input from '../../../components/Input';
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
+import { categories } from '../../../utils/categories';
+
+interface Categories {
+    id: number;
+    name: string;
+    icon: JSX.Element
+}
+
 const Home: React.FC = () => {
 
     const navigation = useNavigation();
 
     const { openDashboard, setOpenDashboard } = useClickDashboard();
 
-    const data = {
-        cookie: {
-            category: 'cookies',
-            icon: <FontAwesome5 name="cookie-bite" size={30} color={theme.colors.dark_grey}/>,
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        },
-        hamburguer: {
-            category: 'hamburgers',
-            icon: <FontAwesome5 name="hamburger" size={30} color={theme.colors.dark_grey} />
-        },
-        cake: {
-            category: 'cakes',
-            icon: <Entypo name="cake" size={30} color={theme.colors.dark_grey} />
-        },
-        drink: {
-            category: 'drinks',
-            icon: <Entypo name="drink" size={30} color={theme.colors.dark_grey} />
-        }
-
-    }
+    const [categoriesData, setCategoriesData] = useState<Categories[]>([]);
 
     function handleProfile() {
         navigation.navigate('Profile');
     }
+
+    useEffect(() => {
+        setCategoriesData(categories);
+    }, []);
 
     return (
         <View style={[style.container, { flexDirection: openDashboard ? 'row' : 'column' }]}>
@@ -72,11 +65,16 @@ const Home: React.FC = () => {
                     justifyContent: 'space-evenly',
                     marginBottom: 120
                 }}>
-                    <FoodSelect category={data.cookie.category} Icon={data.cookie.icon}/>
-                    <FoodSelect category={data.hamburguer.category} Icon={data.hamburguer.icon}/>
-                    <FoodSelect category={data.cake.category} Icon={data.cake.icon}/>
-                    <FoodSelect category={data.drink.category} Icon={data.drink.icon}/>
-
+                    {
+                        categoriesData.map(category => (
+                            <View key={category.id}>
+                                <FoodSelect
+                                    category={category.name}
+                                    Icon={category.icon}
+                                />
+                            </View>
+                        ))
+                    }
                 </View>
             </ScrollView>
 
