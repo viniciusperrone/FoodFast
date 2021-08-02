@@ -7,20 +7,30 @@ import { theme } from '../../global/styles/global';
 
 type Props = TouchableOpacityProps & {
     styleProps?: Object;
+    id: number;
+    title: string;
+    subtitle: string;
+    url: string;
 }
-const CardFood: React.FC<Props> = ({ styleProps, ...rest }) => {
+const CardFood: React.FC<Props> = ({
+    styleProps,
+    id,
+    title,
+    subtitle,
+    url,
+    ...rest }) => {
     return (
         <View style={[style.container, styleProps]}>
             <View style={style.content}>
                 <Text style={style.title}>
-                    Best Whole Wheat
+                    { title }
                     {'\n'}
-                    Chocolate Chippers
+                    { subtitle }
                 </Text>
                 <Image
                     style={style.image}
                     source={{
-                        uri: 'https://th.bing.com/th/id/OIP.s8SkoC1nMuNksvxpVFREkQEsDI?pid=ImgDet&rs=1',
+                        uri: url,
                     }}
                 />
             </View>

@@ -11,21 +11,23 @@ import CardFood from '../../../components/CardFood';
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
+import { foodsCategories } from '../../../utils/recipeDetails.json';
+
 const CategorySelected: React.FC = () => {
 
     const { category } = useCategory();
     const navigation = useNavigation();
 
-    function handleRecipeDetails(){
+    function handleRecipeDetails() {
         navigation.navigate('RecipeDetails');
     }
     return (
         <View style={style.container}>
             <Header>
                 <ButtonBack />
-                <View style={{ marginRight: 20}}>
+                <View style={{ marginRight: 20 }}>
                     <Text style={style.title}>
-                        { category.name }
+                        {category.name}
                     </Text>
                     <Text style={style.subtitle}>
                         Popular recipes
@@ -38,8 +40,24 @@ const CategorySelected: React.FC = () => {
             </Header>
 
             <View style={{ flex: 1 }}>
-                <CardFood styleProps={{backgroundColor: theme.colors.light_green}} onPress={handleRecipeDetails}/>
-                <CardFood />
+                {
+                    foodsCategories.map(categoryDetais => {
+                        if (categoryDetais.id_category === category.id) {
+                            return (
+                                <View key={categoryDetais.id}>
+                                    <CardFood
+                                        id={categoryDetais.id}
+                                        title={categoryDetais.title}
+                                        subtitle={categoryDetais.subtitle}
+                                        url={categoryDetais.image_uri}
+                                    />
+
+                                </View>
+                            )
+                        }
+                        return;
+                    })
+                }
             </View>
         </View>
     );
