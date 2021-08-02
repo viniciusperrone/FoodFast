@@ -12,3 +12,14 @@ export function useClickDashboard(){
         setOpenDashboard
     };
 }
+
+export function useCategory(){
+    const context = useContext(Context);
+
+    const { category, setCategory } = context;
+
+    return {
+        category,
+        setCategory
+    };
+}

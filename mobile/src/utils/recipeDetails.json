@@ -1,0 +1,32 @@
+{
+    "foodsCategories": [
+        {
+            "id": 1,
+            "title": "Best Whole Wheat",
+            "subtitle": "Chocolate Chippers",
+            "image_uri": "https://th.bing.com/th/id/OIP.s8SkoC1nMuNksvxpVFREkQEsDI?pid=ImgDet&rs=1",
+            "description": "",
+            "ingredients": [
+                "butter",
+                "sugar",
+                "brown sugar",
+                "egg",
+                "wheat flour",
+                "baking powder",
+                "chocolate",
+                "vanilla"
+            ],
+            "steps": [
+                "Mix butter, sugar, egg and vanilla on a tray",
+                "Add flour, yeast and chocolate",
+                "Stir gently",
+                "Form small balls",
+                "Place on a greased shape"
+            ],
+            "id_category": 4
+        },
+        {
+
+        }
+    ]
+}

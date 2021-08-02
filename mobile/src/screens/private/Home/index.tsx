@@ -62,7 +62,8 @@ const Home: React.FC = () => {
                         categoriesData.map(category => (
                             <View key={category.id}>
                                 <FoodSelect
-                                    category={category.name}
+                                    id={category.id}
+                                    categoryName={category.name}
                                     Icon={category.icon}
                                 />
                             </View>

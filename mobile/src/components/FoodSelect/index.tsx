@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
+import { useCategory } from '../../../src/hooks/app';
 
 import { AntDesign, FontAwesome } from '@expo/vector-icons';
 
@@ -9,16 +10,22 @@ import { style } from './style';
 import { theme } from '../../global/styles/global';
 
 type DataFood = {
-    category: string;
+    id: number;
+    categoryName: string;
     Icon: JSX.Element;
 }
 
+const FoodSelect: React.FC<DataFood> = ({ id, categoryName, Icon }) => {
 
-const FoodSelect: React.FC<DataFood> = ({ category, Icon }) => {
-
+    const { category , setCategory } = useCategory();
     const navigation = useNavigation();
 
-    function handleCategorySelected(){
+    function handleCategorySelected(id:number, categoryName:string){
+        setCategory({
+            id: id,
+            name: categoryName
+        });
+
         navigation.navigate('CategorySelected');
     }
     return (
@@ -27,8 +34,8 @@ const FoodSelect: React.FC<DataFood> = ({ category, Icon }) => {
             {
                 Icon
             }
-            <Text style={style.text}>{ category }</Text>
-            <TouchableOpacity style={style.button} onPress={handleCategorySelected}>
+            <Text style={style.text}>{ categoryName }</Text>
+            <TouchableOpacity style={style.button} onPress={() => handleCategorySelected(id, categoryName)}>
                 <AntDesign name="arrowright" size={24} color={theme.colors.white_grey} />
             </TouchableOpacity>
         </View>

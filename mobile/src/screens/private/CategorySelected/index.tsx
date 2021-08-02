@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
+import { useCategory } from '../../../hooks/app';
 import { useNavigation } from '@react-navigation/core';
 
 import Header from '../../../components/Header';
@@ -12,6 +13,7 @@ import { theme } from '../../../global/styles/global';
 
 const CategorySelected: React.FC = () => {
 
+    const { category } = useCategory();
     const navigation = useNavigation();
 
     function handleRecipeDetails(){
@@ -23,7 +25,7 @@ const CategorySelected: React.FC = () => {
                 <ButtonBack />
                 <View style={{ marginRight: 20}}>
                     <Text style={style.title}>
-                        Cookies
+                        { category.name }
                     </Text>
                     <Text style={style.subtitle}>
                         Popular recipes
