@@ -23,3 +23,14 @@ export function useCategory(){
         setCategory
     };
 }
+
+export function useRecipes(){
+    const context = useContext(Context);
+
+    const { recipeDetails, setRecipeDetails } = context;
+
+    return {
+        recipeDetails,
+        setRecipeDetails
+    };
+}

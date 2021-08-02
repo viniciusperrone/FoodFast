@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
 
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
 
+import { useRecipes } from '../../../hooks/app';
+
 import Header from '../../../components/Header';
 import ButtonBack from '../../../components/ButtonBack';
 
@@ -11,6 +13,7 @@ import { theme } from '../../../global/styles/global';
 
 const RecipeDetails: React.FC = () => {
 
+    const { recipeDetails } = useRecipes();
     const [starClick, setStarClick] = useState(true);
     const [shopping, setShopping] = useState(false);
 
@@ -46,15 +49,15 @@ const RecipeDetails: React.FC = () => {
                 }}>
 
                     <Text style={[style.title, { marginBottom: 20 }]}>
-                        Best Whole Wheat
+                        {recipeDetails.title}
                         {'\n'}
-                        Chocolate Chippers
+                        {recipeDetails.subtitle}
                     </Text>
 
                     <Image
                         style={style.image}
                         source={{
-                            uri: 'https://th.bing.com/th/id/OIP.s8SkoC1nMuNksvxpVFREkQEsDI?pid=ImgDet&rs=1',
+                            uri: recipeDetails.image_uri,
                         }}
                     />
 
@@ -76,24 +79,38 @@ const RecipeDetails: React.FC = () => {
 
                     <View style={{ marginTop: 20, marginBottom: 20 }}>
                         <Text style={style.text}>
-                            - Lorem Ipsum {'\n'}
+                            {
+                                recipeDetails.ingredients.map(ingredient => (
+                                    <Text style={style.text}>
+                                        {ingredient}
+                                    </Text>
+                                ))
+                            }
+                            {/* - Lorem Ipsum {'\n'}
                             - is simply dummy text {'\n'}
                             - of the printing and typesetting {'\n'}
                             - industry. Lorem Ipsum {'\n'}
-                            - has been the industry's standard {'\n'}
+                            - has been the industry's standard {'\n'} */}
                         </Text>
                     </View>
 
                     <Text style={style.title}>Steps</Text>
 
                     <View style={{ marginTop: 20, marginBottom: 20 }}>
-                        <Text style={style.text}>
+                        {
+                            recipeDetails.steps.map(step => (
+                                <Text style={style.text}>
+                                    {step}
+                                </Text>
+                            ))
+                        }
+                        {/* <Text style={style.text}>
                             1. Lorem Ipsum {'\n'}
                             2. is simply dummy text {'\n'}
                             3. of the printing and typesetting {'\n'}
                             4. industry. Lorem Ipsum {'\n'}
                             5. has been the industry's standard {'\n'}
-                        </Text>
+                        </Text> */}
                     </View>
 
                     <Text style={style.title}>Video Tutorial</Text>

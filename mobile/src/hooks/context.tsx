@@ -19,6 +19,17 @@ type CategoryData = {
     name: string;
 }
 
+type RecipeDetailsData = {
+    id: number;
+    title: string;
+    subtitle: string;
+    image_uri: string;
+    description: string;
+    ingredients: String[];
+    steps: String[];
+    id_category: number;
+}
+
 export default function ContextProvider({ children } : Props){
 
     const [user, setUser] = useState<UserData>({
@@ -29,6 +40,7 @@ export default function ContextProvider({ children } : Props){
     });
     const [openDashboard, setOpenDashboard] = useState(false);
     const [category, setCategory] = useState<CategoryData>({} as CategoryData);
+    const [recipeDetails, setRecipeDetails] = useState({} as RecipeDetailsData);
 
     return (
     <Context.Provider value={{
@@ -37,7 +49,9 @@ export default function ContextProvider({ children } : Props){
         user,
         setUser,
         category,
-        setCategory
+        setCategory,
+        recipeDetails,
+        setRecipeDetails
     }}>
         { children }
     </Context.Provider>
