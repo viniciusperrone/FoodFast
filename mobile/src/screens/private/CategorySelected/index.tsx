@@ -22,13 +22,13 @@ const CategorySelected: React.FC = () => {
         setRecipeDetails({
             id: category.id,
             title: category.title,
-            subtitle: category.subtitle;
-            image_uri: category.image_uri;
-            description: category.description;
-            ingredients: category.ingredients;
-            steps: category.steps;
-            id_category: category.id_category;
-        })
+            subtitle: category.subtitle,
+            image_uri: category.image_uri,
+            description: category.description,
+            ingredients: category.ingredients,
+            steps: category.steps,
+            id_category: category.id_category,
+        });
         navigation.navigate('RecipeDetails');
     }
     return (

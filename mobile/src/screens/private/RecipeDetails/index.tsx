@@ -65,24 +65,19 @@ const RecipeDetails: React.FC = () => {
 
                     <View style={{ marginTop: 20, marginBottom: 20 }}>
                         <Text style={style.text}>
-                            Lorem Ipsum is simply dummy text of {'\n'}
-                            the printing and typesetting industry. {'\n'}
-                            Lorem Ipsum has been the industry's {'\n'}
-                            standard dummy text ever since the {'\n'}
-                            1500s, when an unknown printer took {'\n'}
-                            a galley of type and scrambled it to {'\n'}
-                            make a type specimen book.
+                            {
+                                recipeDetails.description
+                            }
                         </Text>
                     </View>
 
                     <Text style={style.title}>Ingredients</Text>
 
                     <View style={{ marginTop: 20, marginBottom: 20 }}>
-                        <Text style={style.text}>
                             {
                                 recipeDetails.ingredients.map(ingredient => (
                                     <Text style={style.text}>
-                                        {ingredient}
+                                        - {ingredient}
                                     </Text>
                                 ))
                             }
@@ -91,7 +86,6 @@ const RecipeDetails: React.FC = () => {
                             - of the printing and typesetting {'\n'}
                             - industry. Lorem Ipsum {'\n'}
                             - has been the industry's standard {'\n'} */}
-                        </Text>
                     </View>
 
                     <Text style={style.title}>Steps</Text>
@@ -100,7 +94,7 @@ const RecipeDetails: React.FC = () => {
                         {
                             recipeDetails.steps.map(step => (
                                 <Text style={style.text}>
-                                    {step}
+                                    - {step}
                                 </Text>
                             ))
                         }

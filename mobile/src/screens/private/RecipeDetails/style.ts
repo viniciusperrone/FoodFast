@@ -34,7 +34,6 @@ export const style = StyleSheet.create({
     },
     text: {
         fontSize: 18,
-        alignSelf: 'center',
         marginLeft: 20,
 
     },
