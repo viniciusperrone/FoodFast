@@ -109,4 +109,4 @@ $ cd mobile/app/build/outputs/apk
 ## Contact
 Lorenzo Windmoller Martins - [LinkedIn](https://www.linkedin.com/in/lorenzo-windmoller-martins/) - lorenzomart01@gmail.com
 
-Vinícius Andrade Perrone - [LinkedIn](https://www.linkedin.com/in/vinicius-perrone) - perronevinicius2018@gmail.com
+Vinicius Andrade Perrone - [LinkedIn](https://www.linkedin.com/in/vinicius-perrone) - perronevinicius2018@gmail.com
