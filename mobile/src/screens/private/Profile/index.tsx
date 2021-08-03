@@ -21,10 +21,18 @@ import Dashboard from '../../../components/Dashboard';
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
+interface UserUpdate{
+    avatarIsUpdate: boolean;
+    username: string;
+    password: string;
+    confirm: string;
+}
+
 const Profile: React.FC = () => {
 
     const { openDashboard } = useClickDashboard();
     const { user, setUser } = useAuth();
+    const[userUpdate, setUserUpdate] = useState<UserUpdate>({} as UserUpdate);
 
     const navigation = useNavigation();
 

@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
                     <Text style={style.subtitle}>viniciusperrone</Text>
                 </View>
 
-                <Profile styleComponent={styleComponent} onPress={handleProfile}/>
+                <Profile styleComponent={styleComponent} />
             </View>
 
             <View style={style.content}>

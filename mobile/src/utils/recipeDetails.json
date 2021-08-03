@@ -26,7 +26,54 @@
             "id_category": 4
         },
         {
-
+            "id": 2,
+            "title": "Tasty and Delicious Steak",
+            "subtitle": "Steak A Role",
+            "image_uri": "https://th.bing.com/th/id/R.dcec836caf3856e85d43f93bb6a01ba7?rik=PAwiAllxh3x03Q&pid=ImgRaw&r=0",
+            "description": "A delicious steak to eat with the family on weekends, easy to make and quick in preparation",
+            "ingredients": [
+                "bife",
+                "bacon",
+                "green pepper",
+                "onion",
+                "carrot",
+                "tomato sauce",
+                "salt"
+            ],
+            "steps": [
+                "Spice steaks with salt",
+                "Add onion and garlic",
+                "Mix well and stir for 30 minutes",
+                "Fill with bacon",
+                "Prepare tomato sauce",
+                "Mix for 10 minutes"
+            ],
+            "id_category": 1
+        },
+        {
+            "id": 3,
+            "title": "Best Whole Wheat",
+            "subtitle": "Chocolate Chippers",
+            "image_uri": "https://lh3.googleusercontent.com/VSmwWdSAJLCzMQrmkp95twbkEtL3oCaD0_3wPG5uOnaOPJlqBeGku-QiMGSSe0q0sxjdifQTLdF-cDnJM6HZpUU=w1200-h900-c-rj-v1-e365",
+            "description": "A cookie is a baked or cooked food that is typically small, flat and sweet. It usually contains flour, sugar, egg, and some type of oil, fat, or butter. It may include other ingredients such as raisins, oats, chocolate chips, nuts, etc.",
+            "ingredients": [
+                "butter",
+                "sugar",
+                "brown sugar",
+                "egg",
+                "wheat flour",
+                "baking powder",
+                "chocolate",
+                "vanilla"
+            ],
+            "steps": [
+                "Mix butter, sugar, egg and vanilla on a tray",
+                "Add flour, yeast and chocolate",
+                "Stir gently",
+                "Form small balls",
+                "Place on a greased shape"
+            ],
+            "id_category": 1
         }
     ]
 }
