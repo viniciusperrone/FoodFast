@@ -3,20 +3,7 @@
     <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
   </a>
 
-  <h3 align="center">FoodFast</h3>
-
-  <p align="center">
-    Application for automation of the query of recipes!
-    <br />
-    <a href="https://app.swaggerhub.com/apis/lorenzomart/FoodFast/1.0.0"><strong>Explore the API Spec »</strong></a>
-    <br />
-    <br />
-    <a href="https://drive.google.com/file/d/1FJsNBRTJWbB021RdT3WTdYrKnd-IArTM/view?usp=sharing">Download now</a>
-    ·
-    <a href="https://github.com/lorenzowind/FoodFast/issues/new">Reporte bug</a>
-    ·
-    <a href="https://github.com/lorenzowind/FoodFast/issues/new">Request Feature</a>
-  </p>
+  <h1 align="center">FoodFast</h1>
 </p>
 
 ## Table of Contents
