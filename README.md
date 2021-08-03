@@ -1,8 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Issues][issues-shield]][issues-url]
-![size-shield]
-![commit-shield]
-
 <p align="center">
   <a href="https://github.com/lorenzowind/UBEMath">
     <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
