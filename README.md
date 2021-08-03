@@ -90,12 +90,6 @@ $ docker update --restart=unless-stopped ID_DA_IMAGEM
 // Start the server
 $ yarn dev:server
 ```
-2. To install the application on any device, follow these steps:
-- Navigate to the location of the .apk file and open it on the device
-```bash
-// Navigate to the .apk file
-$ cd mobile/app/build/outputs/apk
-```
 ## Built With
 - The application's backend was developed using the following technologies:
   - [Node.js](https://nodejs.org/en/)
@@ -104,6 +98,7 @@ $ cd mobile/app/build/outputs/apk
   - [MongoDB](https://www.mongodb.com/)
   - [Redis](https://redis.io/)
   - [React Native](https://reactnative.dev/)
+  - [Expo](https://expo.dev/)
 
 ## Contact
 Lorenzo Windmoller Martins - [LinkedIn](https://www.linkedin.com/in/lorenzo-windmoller-martins/) - lorenzomart01@gmail.com
