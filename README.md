@@ -40,7 +40,7 @@
 
 ## Team
 - Lorenzo Windmoller Martins (Developer)
-- Vinícius Andrade Perrone (Developer)
+- Vinicius Andrade Perrone (Developer)
 
 ## How to download?
 - To download the project, execute the command:
