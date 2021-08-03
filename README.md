@@ -34,7 +34,7 @@
 * [How to install?](#how-to-install)
 * [Built With](#built-with)
 * [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+
 
 ## About The Project
 - The FoodFast project consists of an Android application to consult and favor recipes.
