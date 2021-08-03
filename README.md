@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://github.com/lorenzowind/UBEMath">
-    <img src="logo.png" alt="Logo" height="180">
+    <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
   </a>
 
   <h3 align="center">FoodFast</h3>
