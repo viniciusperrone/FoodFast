@@ -3,7 +3,7 @@
     <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
   </a>
 
-  <h1 align="center">FoodFast</h1>
+  <h1 align="center">FoodFast 2.0</h1>
 </p>
 
 ## Table of Contents
@@ -19,7 +19,7 @@
 
 
 ## About The Project
-- The FoodFast project consists of an Android application to consult and favor recipes.
+- This Project is the new version of FoodFast that will be used natively in all mobile applications.
 
 ### Justification
 - The project was based on the understanding of a certain difficulty in organizing and having control of the food available in the kitchen.
@@ -40,14 +40,13 @@
 
 ## Team
 - Lorenzo Windmoller Martins (Developer)
-- Samuel Albuquerque de Paiva (Designer)
 - Vinícius Andrade Perrone (Developer)
 
 ## How to download?
 - To download the project, execute the command:
 ```bash
 // Clone the application repository
-$ git clone https://github.com/lorenzowind/FoodFast.git
+$ git clone https://github.com/viniciusperrone/FoodFast.git
 ```
 
 ## How to install?
@@ -105,26 +104,9 @@ $ cd mobile/app/build/outputs/apk
   - [MongoDB](https://www.mongodb.com/)
   - [Redis](https://redis.io/)
 - The application's mobile was developed using the following technologies:
-  - [Android](https://www.android.com/intl/pt-BR_br/)
-  - [Volley](https://developer.android.com/training/volley)
+  - [React Native](https://reactnative.dev/)
 
 ## Contact
 Lorenzo Windmoller Martins - [LinkedIn](https://www.linkedin.com/in/lorenzo-windmoller-martins/) - lorenzomart01@gmail.com
 
-Samuel Albuquerque de Paiva - samycaaa@gmail.com
-
-Vinícius Andrade Perrone - [LinkedIn](https://www.linkedin.com/in/vin%C3%ADcius-perrone-2484001b1/) - perronevinicius2018@gmail.com
-
-## Acknowledgements
-* [README Template by othneildrew](https://github.com/othneildrew/Best-README-Template)
-* [Img Shields](https://shields.io)
-
-[contributors-shield]: https://img.shields.io/github/contributors/lorenzowind/FoodFast?style=flat-square
-[contributors-url]: https://github.com/lorenzowind/FoodFast/graphs/contributors
-
-[issues-shield]: https://img.shields.io/github/issues/lorenzowind/FoodFast?style=flat-square
-[issues-url]: https://github.com/lorenzowind/FoodFast/issues
-
-[size-shield]: https://img.shields.io/github/repo-size/lorenzowind/FoodFast?style=flat-square
-
-[commit-shield]: https://img.shields.io/github/last-commit/lorenzowind/FoodFast?style=flat-square
+Vinícius Andrade Perrone - [LinkedIn](https://www.linkedin.com/in/vinicius-perrone) - perronevinicius2018@gmail.com
