@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { View, TouchableOpacity, TextInput, Text, Picker } from 'react-native';
+import { View, TouchableOpacity, TextInput, Text, ScrollView } from 'react-native';
+import { Picker } from '@react-native-picker/picker'
 import Modal from 'react-native-modal';
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 import Button from '../Button';
 import Footer from '../Footer';
@@ -33,30 +34,87 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
         navigation.navigate('InvetorySelected')
     }
 
-    const AddInventory = () => (
-        <Modal isVisible={visible}>
-            <View style={style.container}>
-                <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
-                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
-                </TouchableOpacity>
+    const AddInventory = () => {
+        const [iconAdd, setIconAdd] = useState(false);
 
-                <View style={style.content}>
-                    <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
-                    <Picker style={style.input}>
-                       {
-                           categories.map(item => (
-                               <Picker.Item key={item.id} value={item.icon} label={item.name}/>
-                           ))
-                       }
-                    </Picker>
-                </View>
+        function handleIconSelected() {
+            setIconAdd(true)
+        }
 
-                <Footer>
-                    <Button title="Add" privateButton onPress={handleInvetorySelected}/>
-                </Footer>
-            </View>
-        </Modal>
-    );
+        function closeIconSelected() {
+            setIconAdd(false);
+        }
+        return (
+            <>
+                {
+                    iconAdd
+                        ?
+                        <Modal isVisible={iconAdd}>
+                            <View style={style.container}>
+                                <Ionicons
+                                    style={[style.iconButton, { marginTop: 10 }]}
+                                    name="ios-arrow-back-sharp"
+                                    size={40}
+                                    color={theme.colors.dark_orange}
+                                    onPress={closeIconSelected}
+                                />
+                                <ScrollView style={{
+                                    flex: 1
+                                }}>
+                                    <View>
+                                        { categories.map(item => (
+                                            <View
+                                                style={[
+                                                    style.input,
+                                                    {
+                                                        flexDirection: 'row',
+                                                        marginTop: 20,
+                                                        justifyContent: 'space-between',
+                                                        alignItems: 'center',
+                                                        paddingLeft: 20,
+                                                        paddingRight: 20
+                                                    }
+                                                ]}
+                                                key={item.id}>
+                                                {
+                                                    item.icon
+                                                }
+                                                <Text>
+                                                    { item.name }
+                                                </Text>
+                                            </View>
+                                        ))}
+                                        <Button privateButton title="Add icon"/>
+                                    </View>
+
+                                </ScrollView>
+                            </View>
+                        </Modal>
+                        :
+                        <Modal isVisible={visible}>
+                            <View style={style.container}>
+                                <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
+                                    <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
+                                </TouchableOpacity>
+
+                                <View style={style.content}>
+                                    <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
+                                    <View style={[style.input, { marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }]}>
+                                        <Text style={{ alignSelf: 'center' }}>What is the icon</Text>
+                                        <MaterialIcons style={{ alignSelf: 'center', marginRight: 10 }} name="arrow-drop-down" size={30} color="black" onPress={handleIconSelected} />
+                                    </View>
+                                </View>
+
+                                <Footer>
+                                    <Button title="Add" privateButton onPress={handleInvetorySelected} />
+                                </Footer>
+                            </View>
+                        </Modal>
+                }
+
+            </>
+        );
+    }
     const UpdateInventory = () => (
         <Modal isVisible={visible}>
             <View style={style.container}>
@@ -70,7 +128,7 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                 </View>
 
                 <Footer>
-                    <Button title="Update" privateButton onPress={handleInvetorySelected}/>
+                    <Button title="Update" privateButton onPress={handleInvetorySelected} />
                 </Footer>
             </View>
         </Modal>
@@ -145,7 +203,7 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
         </>
     );
 
-    const AddMealSchedule= () => (
+    const AddMealSchedule = () => (
         <>
         </>
     );
