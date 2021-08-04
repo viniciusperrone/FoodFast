@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { View, TouchableOpacity, TextInput, Text } from 'react-native';
+import { View, TouchableOpacity, TextInput, Text, Picker } from 'react-native';
 import Modal from 'react-native-modal';
 
 import { AntDesign } from '@expo/vector-icons';
@@ -10,6 +10,8 @@ import Footer from '../Footer';
 
 import { style } from './style';
 import { theme } from '../../global/styles/global';
+
+import { categories } from '../../utils/categories';
 
 type Props = {
     inventory?: number;
@@ -40,7 +42,13 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
 
                 <View style={style.content}>
                     <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
-                    <TextInput style={[style.input, { marginTop: 40 }]} placeholder="What is the icon" placeholderTextColor="#000000" />
+                    <Picker style={style.input}>
+                       {
+                           categories.map(item => (
+                               <Picker.Item key={item.id} value={item.icon} label={item.name}/>
+                           ))
+                       }
+                    </Picker>
                 </View>
 
                 <Footer>
