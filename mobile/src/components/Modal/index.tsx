@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { View, TouchableOpacity, TextInput, Text, ScrollView } from 'react-native';
-import { Picker } from '@react-native-picker/picker'
+import {
+    View,
+    TouchableOpacity,
+    TouchableOpacityProps,
+    TextInput,
+    Text,
+    ScrollView
+} from 'react-native';
+
 import Modal from 'react-native-modal';
 
 import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -20,6 +27,11 @@ type Props = {
     mealShedule?: number;
 }
 
+interface PropsIconSelected {
+    name: string;
+    icon: JSX.Element;
+}
+
 const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule }) => {
     const [visible, setVisible] = useState(true);
 
@@ -36,6 +48,8 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
 
     const AddInventory = () => {
         const [iconAdd, setIconAdd] = useState(false);
+        const [iconSelected, setIconSelected] = useState({} as PropsIconSelected);
+
 
         function handleIconSelected() {
             setIconAdd(true)
@@ -43,6 +57,13 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
 
         function closeIconSelected() {
             setIconAdd(false);
+        }
+
+        function AddIcon(name: string, icon: JSX.Element) {
+            setIconSelected({
+                name: name,
+                icon: icon
+            })
         }
         return (
             <>
@@ -62,8 +83,9 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                     flex: 1
                                 }}>
                                     <View>
-                                        { categories.map(item => (
-                                            <View
+                                        {categories.map(item => (
+                                            <TouchableOpacity
+
                                                 style={[
                                                     style.input,
                                                     {
@@ -75,16 +97,18 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                                         paddingRight: 20
                                                     }
                                                 ]}
-                                                key={item.id}>
+
+                                                key={item.id}
+                                                onPress={() => AddIcon(item.name, item.icon)}
+                                            >
                                                 {
                                                     item.icon
                                                 }
                                                 <Text>
-                                                    { item.name }
+                                                    {item.name}
                                                 </Text>
-                                            </View>
+                                            </TouchableOpacity>
                                         ))}
-                                        <Button privateButton title="Add icon"/>
                                     </View>
 
                                 </ScrollView>
@@ -99,10 +123,25 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
 
                                 <View style={style.content}>
                                     <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
-                                    <View style={[style.input, { marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }]}>
-                                        <Text style={{ alignSelf: 'center' }}>What is the icon</Text>
-                                        <MaterialIcons style={{ alignSelf: 'center', marginRight: 10 }} name="arrow-drop-down" size={30} color="black" onPress={handleIconSelected} />
-                                    </View>
+                                    {
+                                        iconSelected
+                                        ?
+                                            iconSelected
+                                        :
+                                            <View
+                                                style={[
+                                                    style.input,
+                                                    {
+                                                        marginTop: 30,
+                                                        flexDirection: 'row',
+                                                        justifyContent: 'space-between'
+                                                    }
+                                                    ]}
+                                            >
+                                                <Text style={{ alignSelf: 'center' }}>What is the icon</Text>
+                                                <MaterialIcons style={{ alignSelf: 'center', marginRight: 10 }} name="arrow-drop-down" size={30} color="black" onPress={handleIconSelected} />
+                                            </View>
+                                    }
                                 </View>
 
                                 <Footer>
