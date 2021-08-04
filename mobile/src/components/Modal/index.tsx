@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/core';
 import {
     View,
     TouchableOpacity,
-    TouchableOpacityProps,
     TextInput,
     Text,
     ScrollView
 } from 'react-native';
-
 import Modal from 'react-native-modal';
 
 import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -40,7 +38,6 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
     function handleVisible() {
         setVisible(false);
     }
-
     function handleInvetorySelected() {
         setVisible(false);
         navigation.navigate('InvetorySelected')
@@ -125,9 +122,9 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                     <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
                                     {
                                         iconSelected
-                                        ?
+                                            ?
                                             iconSelected
-                                        :
+                                            :
                                             <View
                                                 style={[
                                                     style.input,
@@ -136,7 +133,7 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                                         flexDirection: 'row',
                                                         justifyContent: 'space-between'
                                                     }
-                                                    ]}
+                                                ]}
                                             >
                                                 <Text style={{ alignSelf: 'center' }}>What is the icon</Text>
                                                 <MaterialIcons style={{ alignSelf: 'center', marginRight: 10 }} name="arrow-drop-down" size={30} color="black" onPress={handleIconSelected} />
@@ -242,10 +239,41 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
         </>
     );
 
-    const AddMealSchedule = () => (
-        <>
-        </>
-    );
+    const AddMealSchedule = () => {
+        return (
+            <Modal isVisible={visible}>
+                <View style={style.container}>
+                    <TouchableOpacity style={style.iconButton} onPress={handleVisible}>
+                        <AntDesign name="close" size={40} color={theme.colors.dark_orange} />
+                    </TouchableOpacity>
+
+                    <View style={style.content}>
+                        <View style={style.input}>
+                            <Text>
+                                Select a meal to cook {'\n'}
+                                from your favorite recipes
+                            </Text>
+                        </View>
+                        <View style={style.input}>
+                            <Text>
+                                When it happen
+                            </Text>
+                        </View>
+                        <View style={style.input}>
+                            <Text>
+                                Add a note
+                            </Text>
+                        </View>
+
+                    </View>
+
+                    <Footer>
+                        <Button title="Add" privateButton onPress={handleInvetorySelected} />
+                    </Footer>
+                </View>
+            </Modal>
+        );
+    }
     const UpdateMealShedule = () => (
         <>
         </>
