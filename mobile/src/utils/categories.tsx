@@ -27,7 +27,7 @@ export const categories = [
     {
         id: 4,
         name: "cookies",
-        icon: <FontAwesome5 name="hamburger" size={30} color={theme.colors.dark_grey} />
+        icon: <FontAwesome5 name="cookie-bite" size={30} color={theme.colors.dark_grey} />
     },
     {
         id: 5,

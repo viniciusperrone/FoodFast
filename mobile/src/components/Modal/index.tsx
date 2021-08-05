@@ -46,7 +46,8 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
     const AddInventory = () => {
         const [iconAdd, setIconAdd] = useState(false);
         const [iconSelected, setIconSelected] = useState({} as PropsIconSelected);
-
+        const [iconIsValid, setIconIsValid] = useState(false);
+        console.log(iconSelected)
 
         function handleIconSelected() {
             setIconAdd(true)
@@ -57,10 +58,12 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
         }
 
         function AddIcon(name: string, icon: JSX.Element) {
+            setIconIsValid(true);
             setIconSelected({
                 name: name,
                 icon: icon
-            })
+            });
+            setIconAdd(false);
         }
         return (
             <>
@@ -79,7 +82,7 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                 <ScrollView style={{
                                     flex: 1
                                 }}>
-                                    <View>
+                                    <View style={{ marginBottom: 30 }}>
                                         {categories.map(item => (
                                             <TouchableOpacity
 
@@ -121,9 +124,22 @@ const ModalComponent: React.FC<Props> = ({ inventory, shoppingList, mealShedule 
                                 <View style={style.content}>
                                     <TextInput style={style.input} placeholder="What is the name" placeholderTextColor="#000000" />
                                     {
-                                        iconSelected
+                                        iconIsValid
                                             ?
-                                            iconSelected
+                                            <View
+                                            style={[
+                                                style.input,
+                                                {
+                                                    marginTop: 30,
+                                                    flexDirection: 'row',
+                                                    justifyContent: 'space-between',
+                                                    alignItems: 'center'
+                                                }
+                                            ]}
+                                            >
+                                                {iconSelected.icon}
+                                                <Text style={{ marginRight: 20}}>{iconSelected.name}</Text>
+                                            </View>
                                             :
                                             <View
                                                 style={[
