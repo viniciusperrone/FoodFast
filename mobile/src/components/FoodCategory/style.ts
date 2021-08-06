@@ -18,6 +18,8 @@ export const style = StyleSheet.create({
         shadowOpacity: 0.34,
         shadowRadius: 6.27,
         elevation: 8,
+        marginHorizontal: 20,
+        alignSelf: 'center'
     },
     header: {
         width: '100%',

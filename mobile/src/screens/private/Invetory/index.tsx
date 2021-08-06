@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
 import { useClickDashboard } from '../../../hooks/app';
@@ -39,19 +39,30 @@ const Invetory: React.FC = () => {
                 privateButton
             />
 
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', opacity: openDashboard ? 0 : 1 }}>
-                <FoodCategory onPress={handleInvetorySelected}/>
-            </View>
+            {/* <ScrollView
+                style={{
+                    flex: 1,
+                    opacity: openDashboard ? 0 : 1,
+                }}
 
-            { modal && <Modal inventory={1} /> }
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            >
 
-            {/* <Footer>
+                <FoodCategory onPress={handleInvetorySelected} />
+                <FoodCategory onPress={handleInvetorySelected} />
+                <FoodCategory onPress={handleInvetorySelected} />
+            </ScrollView> */}
+
+            {modal && <Modal inventory={1} />}
+
+            <Footer>
                 <Text style={style.textContent}>
                     No categories
                 </Text>
-            </Footer> */}
+            </Footer>
 
-            { openDashboard && <Dashboard /> }
+            {openDashboard && <Dashboard />}
 
         </View>
     );

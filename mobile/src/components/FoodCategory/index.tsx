@@ -9,6 +9,11 @@ import {
 
 import { style } from './style';
 
+interface PropertiesFood{
+    title: string;
+    icon: JSX.Element;
+}
+
 const FoodCategory: React.FC<TouchableOpacityProps> = ({ ...rest }) => {
 
     const Item = () => (
