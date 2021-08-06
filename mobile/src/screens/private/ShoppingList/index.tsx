@@ -6,6 +6,7 @@ import { useClickDashboard } from '../../../hooks/app';
 import Header from '../../../components/Header';
 import ButtonMenu from '../../../components/ButtonMenu';
 import Dashboard from '../../../components/Dashboard';
+import ItemBuy from '../../../components/ItemBuy';
 import Button from '../../../components/Button';
 import Footer from '../../../components/Footer';
 
@@ -24,9 +25,10 @@ const ShoppingList: React.FC = () => {
 
             <View style={style.line}/>
 
-            <Text style={style.textContent}>
+            <ItemBuy />
+            {/* <Text style={style.textContent}>
                 No items yet
-            </Text>
+            </Text> */}
             <Footer>
                 <Button title="Add item to buy" privateButton />
             </Footer>
