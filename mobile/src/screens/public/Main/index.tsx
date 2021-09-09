@@ -19,6 +19,8 @@ import LogoImg from '../../../assets/logo_foodfast.png';
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
+import api from '../../../server/api';
+
 interface UserRegisterData {
     username: string;
     email: string;
@@ -49,7 +51,7 @@ const Main: React.FC = () => {
         const [error, setError] = useState(false);
 
         function handleUserLogin() {
-            if (userLogin.username.length >= 8 && userLogin.password.length >= 8) {
+            if (userLogin.username.trim().length >= 8 && userLogin.password.length >= 8) {
                 setClickedSignIn(false);
                 navigation.navigate('Home');
             }
@@ -129,6 +131,23 @@ const Main: React.FC = () => {
         const [lineColor, setLineColor] = useState(theme.colors.light_blue);
         const [error, setError] = useState(false);
 
+        async function handleUserRegister(){
+            if(userRegister.username.length >= 6 && userRegister.email.length >= 8 && userRegister.password.length >= 8){
+                const response = await api.post('/users', {
+                    name: userRegister.username,
+                    email: userRegister.email,
+                    password: userRegister.password
+                });
+
+                console.log(response);
+                setClickedSignUp(false);
+            }
+            else {
+                setLineColor(theme.colors.red);
+                setError(true);
+            }
+        }
+
         return (
             <Modal isVisible={clickedSignUp} >
                 <View style={[style.containerModal, { height: 600 }]}>
@@ -198,7 +217,7 @@ const Main: React.FC = () => {
                         </View>
                         <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-                        <Button title="Sign up" registered />
+                        <Button title="Sign up" registered onPress={handleUserRegister}/>
                     </View>
                 </View>
             </Modal>
@@ -226,7 +245,7 @@ const Main: React.FC = () => {
                     <Button title="Sign up" registered onPress={() => setClickedSignUp(true)} />
                     <Button title="Sign in" onPress={() => setClickedSignIn(true)} />
                 </View>
-                
+
                 {clickedSignUp ? <SignUp /> : null}
                 {clickedSignIn ? <SignIn /> : null}
 
