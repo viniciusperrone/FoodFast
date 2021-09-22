@@ -74,6 +74,108 @@
                 "Place on a greased shape"
             ],
             "id_category": 1
+        },
+        {
+            "id": 4,
+            "title": "Simple Soft Cake",
+            "subtitle": "Simple Cakes",
+            "image_uri": "https://th.bing.com/th/id/R.a74ce67f1a8c862f95bf2aa6b9a7f817?rik=GoiOzl560fQrOQ&riu=http%3a%2f%2fwww.multireceitas.com.br%2fwp-content%2fuploads%2f2015%2f05%2fReceita-de-Bolo-Mesclado-Simples.jpg&ehk=%2bB1HGoaKLv7AVfWNT0RuLk5u%2fSOfgTQ7kMxcReMeaOo%3d&risl=&pid=ImgRaw&r=0",
+            "description": "A delight, and super cute. Simple Blended Cake Recipe!",
+            "ingredients": [
+                "wheat",
+                "milk",
+                "chocolate powder",
+                "sugar",
+                "eggs",
+                "margarine",
+                "baking powder"
+            ],
+            "steps": [
+                "in the blender, beat the margarine, sugar and egg until it forms a homogeneous mixture",
+                "gradually add milk and flour, beating always",
+                "add the yeast and stir with a spoon until incorporated into the mixture",
+                "separate 1/3 of the dough and set aside",
+                "bring the dough to a shape, greased and floured",
+                "add the chocolate powder to the reserved dough and beat well",
+                "turn the black mass over the white mass, into the form, quite carefully",
+                "bake in medium, preheated oven, until it bakes"
+            ],
+            "id_category": 2
+        },
+        {
+            "id": 5,
+            "title": "Paçoca Cake",
+            "subtitle": "Simple Soft Cake",
+            "image_uri": "https://img.cybercook.com.br/receitas/537/bolo-de-pacoca-sem-acucar.jpeg",
+            "description": "Make an easy and tasty cake to eat with the family",
+            "ingredients": [
+                "eggs",
+                "sweetener culinary",
+                "wheat",
+                "milk",
+                "unsalted butter",
+                "paçoca diet",
+                "vanilla essence",
+                "baking powder",
+                "sweet milk"
+            ],
+            "steps": [
+                "put the eggs, sweetener and butter in the mixer, beat everything until it becomes a fluffy cream",
+                "add the vanilla essence, and go alternating the milk with the wheat flour. Remove from the mixer and add the paçoquinhas in the form of farofa and the baking powder. Mix and place in a greased and floured form. Bake preheated at 180ºC for about 30 minutes",
+                "after roasting, wait to cool and cover the cake with the sweet milk and sprinkle the diet paçoca on top"
+            ],
+            "id_category": 2
+        },
+        {
+            "id": 6,
+            "title": "Chocolate Cake",
+            "subtitle": "Simple Soft Cake",
+            "image_uri": "https://i2.wp.com/coolicias.ao/wp-content/uploads/2019/12/Receita-de-Bolo-de-Chocolate-Molhadinho.jpg",
+            "description": "Soft and delicious Chocolate Cake to eat with friends",
+            "ingredients": [
+                "3 cups wheat",
+                "2 cups sugar",
+                "1 cup chocolate powder",
+                "3 whole eggs",
+                "1 cup oil",
+                "2 cups boiling water",
+                "1 pinch of salt",
+                "2 teaspoons baking soda",
+                "3 colheres de chá de fermento em pó",
+                "1 can of condensed milk",
+                "4 tablespoons chocolate powder",
+                "2 tablespoons unsalted margarine",
+                "granulated chocolate for sprinkling"
+            ],
+            "steps": [
+                "In a bowl place the first 3 dried ingredients sifted and mix well. In a cup mix the 3 eggs and add in the mixture together with the oil, until the dough looks like a paste, after very well mixed, add the boiling water and stir, a very soft dough, add the salt the yeast and the sodium spourate and stir gently until well mixed,  place in a greased and floured shape, bake 180º to 200º for 30 to 40 minutes or until pierced with toothpick and it comes out clean",
+                "Bring to the fire all ingredients",
+                "After boiling let cook for 5 minutes over low heat stirring constantly",
+                "Place the topping on the cake and sprinkle with granulated chocolate",
+                "As soon as you turn on the heat to bake the cake, place a container with water in the oven, this will make the cake get more wet and juicy",
+                "Drill multiple holes in the cake with toothpick or fork so that the cover penetrates"
+            ],
+            "id_category": 2
+        },
+        {
+            "id": 7,
+            "title": "",
+            "subtitle": "",
+            "image_uri": "",
+            "description": "",
+            "ingredients": [],
+            "steps": [],
+            "id_category": 1
+        },
+        {
+            "id": 8,
+            "title": "",
+            "subtitle": "",
+            "image_uri": "",
+            "description": "",
+            "ingredients": [],
+            "steps": [],
+            "id_category": 1
         }
     ]
 }

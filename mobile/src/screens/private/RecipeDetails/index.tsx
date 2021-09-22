@@ -95,6 +95,7 @@ const RecipeDetails: React.FC = () => {
                             recipeDetails.steps.map(step => (
                                 <Text style={style.text}>
                                     - {step}
+                                    {'\n'}
                                 </Text>
                             ))
                         }

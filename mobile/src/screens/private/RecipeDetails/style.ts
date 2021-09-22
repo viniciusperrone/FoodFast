@@ -35,6 +35,7 @@ export const style = StyleSheet.create({
     text: {
         fontSize: 18,
         marginLeft: 20,
+        marginRight: 20
 
     },
     containerVideo: {
