@@ -163,7 +163,13 @@
             "subtitle": "",
             "image_uri": "https://th.bing.com/th/id/R.60d005cdbb20d84440005f9e5d0fe87b?rik=r7DJc5WVRjG1Pg&pid=ImgRaw&r=0",
             "description": "",
-            "ingredients": [],
+            "ingredients": [
+                "sweet crackers",
+                "yoghurt",
+                "eggs",
+                "sugar",
+                "mango"
+            ],
             "steps": [],
             "id_category": 3
         },
