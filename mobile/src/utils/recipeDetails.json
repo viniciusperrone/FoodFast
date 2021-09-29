@@ -159,10 +159,10 @@
         },
         {
             "id": 7,
-            "title": "",
-            "subtitle": "",
+            "title": "Grandma's Candy",
+            "subtitle": "Sweet and Yummy",
             "image_uri": "https://th.bing.com/th/id/R.60d005cdbb20d84440005f9e5d0fe87b?rik=r7DJc5WVRjG1Pg&pid=ImgRaw&r=0",
-            "description": "",
+            "description": "Sweet recipe to eat with family reunited",
             "ingredients": [
                 "sweet crackers",
                 "yoghurt",
@@ -170,15 +170,19 @@
                 "sugar",
                 "mango"
             ],
-            "steps": [],
+            "steps": [
+                "Grind the cookies until they are well undone. Book.",
+                "Pour the yogurts in a bowl. Beat the egg whites, add the sugar gradually, beating always until they are very hard and shiny, and wrap them gently with the yogurt.",
+                "Distribute the previous cream by bowls, making it in alternating layers with the ground wafer. Take it cold until serving time. At that time, cover the surface of each bowl with fresh mango pulp."
+            ],
             "id_category": 3
         },
         {
             "id": 8,
-            "title": "",
+            "title": "Vegan Rocambole",
             "subtitle": "",
-            "image_uri": "",
-            "description": "",
+            "image_uri": "https://n1n.com.br/wp-content/uploads/2020/04/Nove-receitas-de-rocambole-doces-divinas-f%C3%A1ceis-e-para-todos-os-gostos.jpg",
+            "description": "Soy milk, flaxseed flour, wheat flour, oil, yeast, sugar, chocolate and strawberry. So with these ingredients, you can make a delicious roll without any animal products.",
             "ingredients": [],
             "steps": [],
             "id_category": 3
