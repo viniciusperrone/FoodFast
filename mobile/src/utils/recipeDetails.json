@@ -180,31 +180,52 @@
         {
             "id": 8,
             "title": "Brigadeiro",
-            "subtitle": "",
-            "image_uri": "https://www.bing.com/th?id=OIP.4fEZ0IvwJ2MOARxhZtdyuQHaEc&w=200&h=119&rs=1&qlt=80&o=6&pid=3.1",
-            "description": "Soy milk, flaxseed flour, wheat flour, oil, yeast, sugar, chocolate and strawberry. So with these ingredients, you can make a delicious roll without any animal products.",
-            "ingredients": [],
-            "steps": [],
+            "subtitle": "Simple & Delicious",
+            "image_uri": "https://th.bing.com/th/id/OIP.SRnGafNqlXSBr4oh6ibd6gHaE8?pid=ImgDet&rs=1",
+            "description": "Simple and delicious chocolate brigadier recipe, made for meeting in the afternoon",
+            "ingredients": [
+                "chocolate powder",
+                "condensed milk",
+                "margarine",
+                "soybean oil"
+            ],
+            "steps": [
+                "Pour into the glass the margarine broken into small pieces, condensed milk and 2 tablespoons of chocolate powder.",
+                "12 minutes cooked",
+                "Remove into a container greased with oil and allow to cool (the process is frankly faster if we put it in the refrigerator). After cold, make balls with hands slightly greased, and pass through chocolate rolls. Put on paper bags."
+            ],
             "id_category": 3
         },
         {
             "id": 9,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
+            "title": "Milk Pudding",
+            "subtitle": "Simple & Delicious",
+            "image_uri": "https://www.teleculinaria.pt/wp-content/uploads/2017/05/pudim-de-iogurte-1.jpg",
             "description": "",
-            "ingredients": [],
+            "ingredients": [
+                "iorgute",
+                "milk"
+            ],
             "steps": [],
             "id_category": 3
         },
         {
             "id": 10,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Banana Candy",
+            "subtitle": "Few Ingredients    ",
+            "image_uri": "https://diabets.com.br/wp-content/uploads/2020/04/doce-de-banana-diet.jpg",
+            "description": "Sweet banana, easy to make and with few ingredients and delicious",
+            "ingredients": [
+                "dried banana",
+                "fresh banana"
+            ],
+            "steps": [
+                "Cut the dried banana into very small pieces and the fresh banana into cubes.",
+                "Place the dried banana in the pan with 1 cup of water. Leave to hydrate over medium heat for about 10 minutes.",
+                "Add the chopped fresh banana and stir until incorporated. Add more water if necessary.",
+                "Cook, stirring constantly until a homogeneous dough forms where you see a few pieces of dried banana (about 10-15 minutes)",
+                "Remove from heat and store in refrigerator in lidded bowl."
+            ],
             "id_category": 3
         },
         {
