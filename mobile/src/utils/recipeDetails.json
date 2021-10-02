@@ -261,43 +261,75 @@
         },
         {
             "id": 14,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Roast Chicken",
+            "subtitle": "Buttery and Soft",
+            "image_uri": "https://th.bing.com/th/id/R.d78ce7a8b86af4701027a0d716900592?rik=M4GK5rjlczl0%2bw&pid=ImgRaw&r=0",
+            "description": "Roasted chicken with mateiga, yields up to five-part and with minimum duration",
+            "ingredients": [
+                "potato",
+                "salt",
+                "black pepper",
+                "garlic",
+                "rosemary",
+                "sage",
+                "marjoram",
+                "chicken"
+            ],
+            "steps": [
+                "Cook the potato in boiling salted water for 3 minutes and drain.",
+                "Em uma vasilha, misture a manteiga, o alho, as ervas, sal e pimenta.",
+                "Season the chicken inside and out with the mixture and place on a baking sheet with the potato.",
+                "Place in the oven high, preheated, for 30 minutes.",
+                "Lower the temperature to medium and ass for another 30 minutes."
+            ],
             "id_category": 6
         },
         {
             "id": 15,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Chicken Chess",
+            "subtitle": "Traditional & Wet",
+            "image_uri": "https://th.bing.com/th/id/R.3bdb1d915eedad229e0f638d9159cbb1?rik=hBj4KTZK%2fGcXVQ&pid=ImgRaw&r=0",
+            "description": "Traditional Chess Chicken. Very tasty and delicious, made to bring the best in lunches.",
+            "ingredients": [
+                "chicken",
+                "salt",
+                "black pepper",
+                "oil",
+                "chilies",
+                "onion",
+                "roasted peanut",
+                "shoyu",
+                "catshup",
+                "cornstarch"
+            ],
+            "steps": [
+                "Cut the chicken fillets into medium squares and season with salt and black pepper to taste. Add little salt in case you use salted peanuts.",
+                "Heat the oil in a saucepan. Add the chicken fillets and fry until golden brown. Add the peppers and the sliced onion and fry.",
+                "Then add the peanut. Mix soy sauce, ketchup and cornstarch. Also take to the pan and allow to heat, without stopping stirring."
+            ],
             "id_category": 6
         },
         {
             "id": 16,
             "title": "",
             "subtitle": "",
-            "image_uri": "",
+            "image_uri": "https://th.bing.com/th/id/R.1f1b24f36781668aec4132c392147e6b?rik=HYO9BeXl70dFbA&riu=http%3a%2f%2fipiranganews.inf.br%2fwp-content%2fuploads%2fReceita-1034-1.jpg&ehk=xm5vaVd0NqkXD8yE0A%2bKlxNmw6xl4DYSabCIs%2fZCUlY%3d&risl=&pid=ImgRaw&r=0",
             "description": "",
             "ingredients": [],
             "steps": [],
-            "id_category": 6
+            "id_category": 6,
+            "receita": "http://ipiranganews.inf.br/frango-ensopado/"
         },
         {
             "id": 17,
             "title": "",
             "subtitle": "",
-            "image_uri": "",
+            "image_uri": "https://th.bing.com/th/id/R.59ee61fb4b1ac30207ebefb71f619a26?rik=eRiKfqmBNnbQaQ&pid=ImgRaw&r=0",
             "description": "",
             "ingredients": [],
             "steps": [],
-            "id_category": 6
+            "id_category": 6,
+            "receita": "https://www.deliciastododia.com.br/prato-unico/receita-de-strogonoff-de-frango/"
         },
         {
             "id": 18,
