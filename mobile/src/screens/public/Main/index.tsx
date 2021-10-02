@@ -138,9 +138,9 @@ const Main: React.FC = () => {
                     email: userRegister.email,
                     password: userRegister.password
                 });
-
-                console.log(response);
                 setClickedSignUp(false);
+                setClickedSignIn(true);
+
             }
             else {
                 setLineColor(theme.colors.red);
