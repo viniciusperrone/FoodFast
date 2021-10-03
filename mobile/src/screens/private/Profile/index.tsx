@@ -65,7 +65,8 @@ const Profile: React.FC = () => {
             username: user.username,
             email: user.email,
             password: user.password,
-            avatar: data
+            avatar: data,
+            token: user.token
         });
     }
 

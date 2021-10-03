@@ -12,6 +12,7 @@ type UserData = {
     email: string;
     password: string;
     avatar: any;
+    token: string;
 }
 
 type CategoryData = {
@@ -36,7 +37,8 @@ export default function ContextProvider({ children } : Props){
         username: '',
         email: '',
         password: '',
-        avatar: null
+        avatar: null,
+        token: ''
     });
     const [openDashboard, setOpenDashboard] = useState(false);
     const [category, setCategory] = useState<CategoryData>({} as CategoryData);

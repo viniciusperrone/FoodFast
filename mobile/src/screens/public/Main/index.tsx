@@ -2,6 +2,7 @@ import React, { useState, memo } from 'react';
 import Modal from 'react-native-modal';
 import { FontAwesome5, Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
+import { useAuth } from '../../../hooks/auth';
 
 import {
     View,
@@ -28,7 +29,7 @@ interface UserRegisterData {
 }
 
 interface UserLoginData {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -38,11 +39,12 @@ const Main: React.FC = () => {
     const [clickedSignUp, setClickedSignUp] = useState(false);
 
     const navigation = useNavigation();
+    const { setUser } = useAuth();
 
     const SignIn = () => {
 
         const [userLogin, setUserLogin] = useState<UserLoginData>({
-            username: "",
+            email: "",
             password: ""
         });
 
@@ -50,10 +52,25 @@ const Main: React.FC = () => {
         const [securityLogin, setSecurityLogin] = useState(true);
         const [error, setError] = useState(false);
 
-        function handleUserLogin() {
-            if (userLogin.username.trim().length >= 8 && userLogin.password.length >= 8) {
+        async function handleUserLogin() {
+            if (userLogin.email.trim().length >= 8 && userLogin.password.length >= 8) {
                 setClickedSignIn(false);
-                navigation.navigate('Home');
+                const response = api.post('/sessions', {
+                    email: userLogin.email,
+                    password: userLogin.password
+                });
+
+                if (response) {
+                    setUser({
+                        username: response.data.user.username,
+                        email: response.data.user.username,
+                        password: response.data.user.username,
+                        avatar: response.data.user.avatar,
+                        token: user.token
+                    })
+                }
+
+
             }
             else {
                 setLineColor(theme.colors.red);
@@ -72,16 +89,16 @@ const Main: React.FC = () => {
                     </Text>
 
                     <View style={style.form}>
-                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Username</Text>
+                        <Text style={[style.label, { color: error ? theme.colors.red : theme.colors.dark_grey }]}>Email</Text>
                         <View style={style.containerInput}>
-                            <Feather name="user" size={24} color={error ? theme.colors.red : theme.colors.black} />
+                            <MaterialCommunityIcons name="email-outline" size={24} color={error ? theme.colors.red : theme.colors.black} />
                             <TextInput
                                 autoCorrect={false}
                                 underlineColorAndroid="transparent"
                                 style={style.input}
-                                defaultValue={userLogin.username}
+                                defaultValue={userLogin.email}
                                 onChangeText={e => setUserLogin({
-                                    username: e,
+                                    email: e,
                                     password: userLogin.password
                                 })}
                             />
@@ -104,7 +121,7 @@ const Main: React.FC = () => {
                                 style={style.input}
                                 defaultValue={userLogin.password}
                                 onChangeText={e => setUserLogin({
-                                    username: userLogin.username,
+                                    email: userLogin.email,
                                     password: e
                                 })}
                             />
@@ -131,8 +148,8 @@ const Main: React.FC = () => {
         const [lineColor, setLineColor] = useState(theme.colors.light_blue);
         const [error, setError] = useState(false);
 
-        async function handleUserRegister(){
-            if(userRegister.username.length >= 6 && userRegister.email.length >= 8 && userRegister.password.length >= 8){
+        async function handleUserRegister() {
+            if (userRegister.username.length >= 6 && userRegister.email.length >= 8 && userRegister.password.length >= 8) {
                 const response = await api.post('/users', {
                     name: userRegister.username,
                     email: userRegister.email,
@@ -217,7 +234,7 @@ const Main: React.FC = () => {
                         </View>
                         <View style={[style.lineForm, { backgroundColor: lineColor }]} />
 
-                        <Button title="Sign up" registered onPress={handleUserRegister}/>
+                        <Button title="Sign up" registered onPress={handleUserRegister} />
                     </View>
                 </View>
             </Modal>
