@@ -39,7 +39,7 @@ const Main: React.FC = () => {
     const [clickedSignUp, setClickedSignUp] = useState(false);
 
     const navigation = useNavigation();
-    const { setUser } = useAuth();
+    const { user, setUser } = useAuth();
 
     const SignIn = () => {
 
@@ -54,8 +54,7 @@ const Main: React.FC = () => {
 
         async function handleUserLogin() {
             if (userLogin.email.trim().length >= 8 && userLogin.password.length >= 8) {
-                setClickedSignIn(false);
-                const response = api.post('/sessions', {
+                const response = await api.post('/sessions', {
                     email: userLogin.email,
                     password: userLogin.password
                 });
@@ -67,7 +66,9 @@ const Main: React.FC = () => {
                         password: response.data.user.username,
                         avatar: response.data.user.avatar,
                         token: user.token
-                    })
+                    });
+                    setClickedSignIn(false);
+                    navigation.navigate('Home');
                 }
 
 
