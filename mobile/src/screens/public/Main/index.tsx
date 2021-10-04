@@ -61,11 +61,11 @@ const Main: React.FC = () => {
 
                 if (response) {
                     setUser({
-                        username: response.data.user.username,
-                        email: response.data.user.username,
-                        password: response.data.user.username,
+                        username: response.data.user.name,
+                        email: response.data.user.email,
+                        password: userLogin.password,
                         avatar: response.data.user.avatar,
-                        token: user.token
+                        token: response.data.token
                     });
                     console.log(response);
                     setClickedSignIn(false);
