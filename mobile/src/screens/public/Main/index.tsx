@@ -67,6 +67,7 @@ const Main: React.FC = () => {
                         avatar: response.data.user.avatar,
                         token: user.token
                     });
+                    console.log(response);
                     setClickedSignIn(false);
                     navigation.navigate('Home');
                 }
