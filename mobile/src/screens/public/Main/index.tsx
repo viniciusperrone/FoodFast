@@ -54,23 +54,24 @@ const Main: React.FC = () => {
 
         async function handleUserLogin() {
             if (userLogin.email.trim().length >= 8 && userLogin.password.length >= 8) {
-                const response = await api.post('/sessions', {
-                    email: userLogin.email,
-                    password: userLogin.password
-                });
+                // const response = await api.post('/sessions', {
+                //     email: userLogin.email,
+                //     password: userLogin.password
+                // });
 
-                if (response) {
-                    setUser({
-                        username: response.data.user.username,
-                        email: response.data.user.username,
-                        password: response.data.user.username,
-                        avatar: response.data.user.avatar,
-                        token: user.token
-                    });
-                    setClickedSignIn(false);
-                    navigation.navigate('Home');
-                }
-
+                // if (response) {
+                //     setUser({
+                //         username: response.data.user.username,
+                //         email: response.data.user.username,
+                //         password: response.data.user.username,
+                //         avatar: response.data.user.avatar,
+                //         token: user.token
+                //     });
+                //     setClickedSignIn(false);
+                //     navigation.navigate('Home');
+                // }
+                setClickedSignIn(false);
+                navigation.navigate('Home');
 
             }
             else {
