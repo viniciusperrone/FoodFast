@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Image } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
@@ -18,6 +18,8 @@ import ButtonMenu from '../../../components/ButtonMenu';
 import Button from '../../../components/Button';
 import Dashboard from '../../../components/Dashboard';
 
+import api from '../../../server/api';
+
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
@@ -32,6 +34,7 @@ const Profile: React.FC = () => {
 
     const { openDashboard } = useClickDashboard();
     const { user, setUser } = useAuth();
+
     const[userUpdate, setUserUpdate] = useState<UserUpdate>({} as UserUpdate);
 
     const navigation = useNavigation();
@@ -68,6 +71,10 @@ const Profile: React.FC = () => {
             avatar: data,
             token: user.token
         });
+    }
+
+    async function UpdateProfile(){
+
     }
 
     return (
