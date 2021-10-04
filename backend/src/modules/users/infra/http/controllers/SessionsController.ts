@@ -15,6 +15,8 @@ export default class SessionsController {
       password,
     });
 
+    console.log({ user, token });
+
     return response.json({ user: classToClass(user), token });
   }
 }
