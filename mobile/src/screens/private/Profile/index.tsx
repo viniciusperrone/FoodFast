@@ -18,12 +18,12 @@ import ButtonMenu from '../../../components/ButtonMenu';
 import Button from '../../../components/Button';
 import Dashboard from '../../../components/Dashboard';
 
-import api from '../../../server/api';
-
 import { style } from './style';
 import { theme } from '../../../global/styles/global';
 
-interface UserUpdate{
+import api from '../../../server/api';
+
+interface UserUpdate {
     avatarIsUpdate: boolean;
     username: string;
     email: string;
@@ -36,7 +36,7 @@ const Profile: React.FC = () => {
     const { openDashboard } = useClickDashboard();
     const { user, setUser } = useAuth();
 
-    const[userUpdate, setUserUpdate] = useState<UserUpdate>({
+    const [userUpdate, setUserUpdate] = useState<UserUpdate>({
         avatarIsUpdate: false,
         username: user.username,
         email: user.email,
@@ -80,8 +80,31 @@ const Profile: React.FC = () => {
         });
     }
 
-    async function UpdateProfile(){
+    async function UpdateProfile() {
+        if (userUpdate.password === userUpdate.confirm) {
+            const response = await api.post('/profile', {
+                name: userUpdate.username,
+                email: userUpdate.email,
+                old_password: user.password,
+                password: userUpdate.password
+            });
 
+            if (response) {
+                setUser({
+                    username: userUpdate.username,
+                    email: userUpdate.email,
+                    password: userUpdate.password,
+                    avatar: user.avatar,
+                    token: user.token
+                });
+                navigation.navigate('Home');
+            } else{
+                setError(true);
+                return;
+            }
+        } else {
+            setError(true);
+        }
     }
 
     return (
@@ -192,7 +215,7 @@ const Profile: React.FC = () => {
 
 
 
-            <Button title="Save Change" registered />
+            <Button title="Save Change" registered onPress={UpdateProfile}/>
             {openDashboard && <Dashboard />}
         </View>
     )
