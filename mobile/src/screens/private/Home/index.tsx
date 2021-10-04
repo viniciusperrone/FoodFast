@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 
+import { useAuth } from '../../../hooks/auth';
 import { useClickDashboard } from '../../../hooks/app';
 import { useNavigation } from '@react-navigation/core';
 
@@ -24,6 +25,7 @@ interface Categories {
 
 const Home: React.FC = () => {
 
+    const { user } = useAuth();
     const navigation = useNavigation();
 
     const { openDashboard } = useClickDashboard();
@@ -43,7 +45,7 @@ const Home: React.FC = () => {
 
             <Text style={style.title}>FoodFast</Text>
 
-            <Text style={style.subtitle}>Hi viniciusperrone,</Text>
+            <Text style={style.subtitle}>Hi {user.username},</Text>
 
             <Text style={style.text}>What would you like to cook today?</Text>
 

@@ -26,6 +26,7 @@ import { theme } from '../../../global/styles/global';
 interface UserUpdate{
     avatarIsUpdate: boolean;
     username: string;
+    email: string;
     password: string;
     confirm: string;
 }
@@ -35,7 +36,13 @@ const Profile: React.FC = () => {
     const { openDashboard } = useClickDashboard();
     const { user, setUser } = useAuth();
 
-    const[userUpdate, setUserUpdate] = useState<UserUpdate>({} as UserUpdate);
+    const[userUpdate, setUserUpdate] = useState<UserUpdate>({
+        avatarIsUpdate: false,
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        confirm: '',
+    });
 
     const navigation = useNavigation();
 
@@ -99,6 +106,14 @@ const Profile: React.FC = () => {
                     <TextInput
                         autoCorrect={false}
                         style={style.input}
+                        value={userUpdate.username}
+                        onChangeText={e => setUserUpdate({
+                            avatarIsUpdate: userUpdate.avatarIsUpdate,
+                            username: e,
+                            email: userUpdate.email,
+                            password: userUpdate.password,
+                            confirm: userUpdate.confirm
+                        })}
                     />
                 </View>
                 <View style={[style.lineForm, { backgroundColor: lineColor }]} />
@@ -110,6 +125,14 @@ const Profile: React.FC = () => {
                     <TextInput
                         autoCorrect={false}
                         style={style.input}
+                        value={userUpdate.email}
+                        onChangeText={e => setUserUpdate({
+                            avatarIsUpdate: userUpdate.avatarIsUpdate,
+                            username: userUpdate.username,
+                            email: e,
+                            password: userUpdate.password,
+                            confirm: userUpdate.confirm
+                        })}
                     />
                 </View>
                 <View style={[style.lineForm, { backgroundColor: lineColor }]} />
@@ -128,6 +151,14 @@ const Profile: React.FC = () => {
                         autoCorrect={false}
                         style={style.input}
                         secureTextEntry={security}
+                        value={userUpdate.password}
+                        onChangeText={e => setUserUpdate({
+                            avatarIsUpdate: userUpdate.avatarIsUpdate,
+                            username: userUpdate.username,
+                            email: userUpdate.email,
+                            password: e,
+                            confirm: userUpdate.confirm
+                        })}
                     />
                 </View>
                 <View style={[style.lineForm, { backgroundColor: lineColor }]} />
@@ -146,6 +177,14 @@ const Profile: React.FC = () => {
                         autoCorrect={false}
                         style={style.input}
                         secureTextEntry={securityConfirm}
+                        value={userUpdate.confirm}
+                        onChangeText={e => setUserUpdate({
+                            avatarIsUpdate: userUpdate.avatarIsUpdate,
+                            username: userUpdate.username,
+                            email: userUpdate.email,
+                            password: userUpdate.password,
+                            confirm: e
+                        })}
                     />
                 </View>
                 <View style={[style.lineForm, { backgroundColor: lineColor }]} />
