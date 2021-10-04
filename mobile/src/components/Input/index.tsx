@@ -3,9 +3,8 @@ import { RectButton } from 'react-native-gesture-handler';
 import { View, TextInput } from 'react-native';
 
 import { FontAwesome5 } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/core';
 
-import SearchRecipes from '../../screens/private/SearchRecipes';
+import { useNavigation } from '@react-navigation/core';
 
 import { style } from './style';
 
