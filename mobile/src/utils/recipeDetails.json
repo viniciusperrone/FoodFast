@@ -133,18 +133,18 @@
             "image_uri": "https://i2.wp.com/coolicias.ao/wp-content/uploads/2019/12/Receita-de-Bolo-de-Chocolate-Molhadinho.jpg",
             "description": "Soft and delicious Chocolate Cake to eat with friends",
             "ingredients": [
-                "3 cups wheat",
-                "2 cups sugar",
-                "1 cup chocolate powder",
-                "3 whole eggs",
-                "1 cup oil",
-                "2 cups boiling water",
-                "1 pinch of salt",
-                "2 teaspoons baking soda",
-                "3 colheres de chá de fermento em pó",
-                "1 can of condensed milk",
-                "4 tablespoons chocolate powder",
-                "2 tablespoons unsalted margarine",
+                "wheat",
+                "sugar",
+                "chocolate powder",
+                "whole eggs",
+                "oil",
+                "boiling water",
+                "pinch of salt",
+                "teaspoons baking soda",
+                "colheres de chá de fermento em pó",
+                "condensed milk",
+                " chocolate powder",
+                "unsalted margarine",
                 "granulated chocolate for sprinkling"
             ],
             "steps": [
@@ -234,10 +234,24 @@
             "subtitle": "Guaranteed Fun",
             "image_uri": "https://th.bing.com/th/id/OIP.L0fNWf3yk5e2vNK3PCJB1gHaE8?pid=ImgDet&rs=1",
             "description": "",
-            "ingredients": [],
-            "steps": [],
-            "id_category": 4,
-            "receita": "https://www.iguaria.com/sobremesa/biscoito/mini-biscoitos-de-chocolate/"
+            "ingredients": [
+                "wheat flour",
+                "baking powder",
+                "butter",
+                "chocolate powder",
+                "sugar",
+                "milk",
+                "eggs",
+                "salt",
+                "vanilla"
+            ],
+            "steps": [
+                "In a bowl, add the granulated sugar with the yellow sugar with the butter at room temperature, beat until you get a cream.",
+                "Now add the whole egg, a yolk, vanilla extract, a tablespoon of milk and beat again until everything is incorporated.",
+                "Finally add the flour, yeast, chocolate and a pinch of salt, all sifted into the mixture, uses a wooden spoon to help create the dough.",
+                "Now grind the chocolate and add this dough, mix, now cut a rectangle of cling film and pour a little dough, with the help of the film create a thin roll of dough, then wrap in the film and tie the ends, take to the freezer, repeat until you roll the whole dough, in my case it was 2 large rolls and 1 small."
+            ],
+            "id_category": 4
         },
         {
             "id": 12,
@@ -245,8 +259,18 @@
             "subtitle": "In the Mornings   ",
             "image_uri": "https://th.bing.com/th/id/R.3fa2f8320df2cf2c1c2fef628e6cc32e?rik=fghWsP8jIAFvmQ&pid=ImgRaw&r=0",
             "description": "",
-            "ingredients": [],
-            "steps": [],
+            "ingredients": [
+                "coffee powder",
+                "water",
+                "sugar"
+            ],
+            "steps": [
+                "Bring the water to a boil and add the sugar.",
+                "When it bubbles, turn off the heat.",
+                "Adjust the filter paper to the shard holder.",
+                "Place the coffee powder in the paper filter.",
+                "Sing the coffee."
+            ],
             "id_category": 5
         },
         {
@@ -255,8 +279,19 @@
             "subtitle": "In the Mornings",
             "image_uri": "https://th.bing.com/th/id/R.8deba77b1ed8702bd5ecc2790f5def33?rik=3Og%2fGQc4BePGog&pid=ImgRaw&r=0",
             "description": "",
-            "ingredients": [],
-            "steps": [],
+            "ingredients": [
+                "coffee powder",
+                "milk powder",
+                "chocolate powder",
+                "sugar",
+                "cinnamon powder",
+                "bicarbonate powder"
+            ],
+            "steps": [
+                "In a bowl, love the soluble coffee with a potato doughr or spoon.",
+                "Add milk powder, chocolate, sugar, cinnamon, bicarbonate and mix. Transfer to pots with lid and store for up to 2 months.",
+                "Para preparar, coloque de 2 a 3 colheres (sopa) do cappuccino em uma xícara com 250ml de água quente e misture até dissolver."
+            ],
             "id_category": 5
         },
         {

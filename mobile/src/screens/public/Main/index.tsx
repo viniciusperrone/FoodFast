@@ -39,7 +39,7 @@ const Main: React.FC = () => {
     const [clickedSignUp, setClickedSignUp] = useState(false);
 
     const navigation = useNavigation();
-    const { user, setUser } = useAuth();
+    const { setUser } = useAuth();
 
     const SignIn = () => {
 
@@ -67,7 +67,6 @@ const Main: React.FC = () => {
                         avatar: response.data.user.avatar,
                         token: response.data.token
                     });
-                    console.log(response);
                     setClickedSignIn(false);
                     navigation.navigate('Home');
                 }
@@ -160,13 +159,12 @@ const Main: React.FC = () => {
                     email: userRegister.email,
                     password: userRegister.password
                 });
-                if (response) {
-                    setClickedSignUp(false);
-                    setClickedSignIn(true);
-                }
-                else {
+                if (!response) {
+                    setError(true);
                     return;
                 }
+                setClickedSignUp(false);
+                setClickedSignIn(true);
 
             }
             else {
