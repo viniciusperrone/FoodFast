@@ -160,8 +160,13 @@ const Main: React.FC = () => {
                     email: userRegister.email,
                     password: userRegister.password
                 });
-                setClickedSignUp(false);
-                setClickedSignIn(true);
+                if (response) {
+                    setClickedSignUp(false);
+                    setClickedSignIn(true);
+                }
+                else {
+                    return;
+                }
 
             }
             else {
