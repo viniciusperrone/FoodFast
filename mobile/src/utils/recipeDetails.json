@@ -346,23 +346,56 @@
         },
         {
             "id": 16,
-            "title": "",
-            "subtitle": "",
+            "title": "Cooked Chicken",
+            "subtitle": "Stew & Vegetables",
             "image_uri": "https://th.bing.com/th/id/R.1f1b24f36781668aec4132c392147e6b?rik=HYO9BeXl70dFbA&riu=http%3a%2f%2fipiranganews.inf.br%2fwp-content%2fuploads%2fReceita-1034-1.jpg&ehk=xm5vaVd0NqkXD8yE0A%2bKlxNmw6xl4DYSabCIs%2fZCUlY%3d&risl=&pid=ImgRaw&r=0",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
-            "id_category": 6,
-            "receita": "http://ipiranganews.inf.br/frango-ensopado/"
+            "description": "Chicken stew with plenty of vegetables. Delicious and with plenty of sauce. Do yours and eat in the middle of the afternoon.",
+            "ingredients": [
+                "chicken",
+                "tomatoes",
+                "onion",
+                "bell pepper",
+                "red pepper",
+                "paprika",
+                "vinegar",
+                "saffron",
+                "lemon"
+            ],
+            "steps": [
+                "Wash the chicken pieces well under running water.",
+                "Then soak in lemon juice for about 5 minutes.",
+                "Wash well to take the juice out completely. In a saucepan, heat the olive oil and add the chicken pieces.",
+                "Junte os demais ingredientes e, mexendo sempre para não grudar no fundo da panela, refogue a carne no caldo que se forma naturalmente",
+                "Cozinhe durante 30 minutos, sempre em fogo baixo. Se precisar, coloque mais água quente, aos poucos. No final, a carne deverá estar cozida e com molho reduzido."
+            ],
+            "id_category": 6
         },
         {
             "id": 17,
-            "title": "",
-            "subtitle": "",
+            "title": "Chicken Strogonoff",
+            "subtitle": "Easy and Fast",
             "image_uri": "https://th.bing.com/th/id/R.59ee61fb4b1ac30207ebefb71f619a26?rik=eRiKfqmBNnbQaQ&pid=ImgRaw&r=0",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "description": "Chicken Strogonoff is a delicious, practical and easy to make recipe.Before the recipe we will talk a little about this dish so consumed around the world.",
+            "ingredients": [
+                "chicken",
+                "garlic",
+                "salt",
+                "pepper",
+                "onion",
+                "mayonnaise",
+                "ketchup",
+                "mustard",
+                "mushrooms",
+                "sour cream",
+                "straw battle"
+            ],
+            "steps": [
+                "Mix the chicken with garlic, mayonnaise, salt and pepper.",
+                "",
+                "",
+                "",
+                ""
+            ],
             "id_category": 6,
             "receita": "https://www.deliciastododia.com.br/prato-unico/receita-de-strogonoff-de-frango/"
         },

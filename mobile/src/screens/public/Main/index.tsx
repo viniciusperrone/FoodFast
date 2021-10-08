@@ -53,33 +53,33 @@ const Main: React.FC = () => {
         const [error, setError] = useState(false);
 
         async function handleUserLogin() {
-            if (userLogin.email.trim().length >= 8 && userLogin.password.length >= 8) {
-                const response = await api.post('/sessions', {
-                    email: userLogin.email,
-                    password: userLogin.password
-                });
+            // if (userLogin.email.trim().length >= 8 && userLogin.password.length >= 8) {
+            //     const response = await api.post('/sessions', {
+            //         email: userLogin.email,
+            //         password: userLogin.password
+            //     });
 
-                if (response) {
-                    setUser({
-                        username: response.data.user.name,
-                        email: response.data.user.email,
-                        password: userLogin.password,
-                        avatar: response.data.user.avatar,
-                        token: response.data.token
-                    });
+            //     if (response) {
+            //         setUser({
+            //             username: response.data.user.name,
+            //             email: response.data.user.email,
+            //             password: userLogin.password,
+            //             avatar: response.data.user.avatar,
+            //             token: response.data.token
+            //         });
                     setClickedSignIn(false);
                     navigation.navigate('Home');
-                }
-                else {
-                    setLineColor(theme.colors.red);
-                    setError(true);
-                }
+            //     }
+            //     else {
+            //         setLineColor(theme.colors.red);
+            //         setError(true);
+            //     }
 
-            }
-            else {
-                setLineColor(theme.colors.red);
-                setError(true);
-            }
+            // }
+            // else {
+            //     setLineColor(theme.colors.red);
+            //     setError(true);
+            // }
         }
 
         return (
