@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import axios from 'axios';
 
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
@@ -69,6 +70,18 @@ const Profile: React.FC = () => {
         }
         if (!data.uri) {
             return;
+        }
+
+        const formData = new FormData();
+
+        if(data.base64){
+            formData.append('avatar', data.base64);
+        }
+
+        try{
+            await api.patch('users/avatar', formData);
+        }catch (err){
+            console.log("Não foi possível salvar essa imagem");
         }
 
         setUser({

@@ -39,7 +39,7 @@ const Main: React.FC = () => {
     const [clickedSignUp, setClickedSignUp] = useState(false);
 
     const navigation = useNavigation();
-    const { setUser } = useAuth();
+    const { user, setUser } = useAuth();
 
     const SignIn = () => {
 
@@ -60,13 +60,23 @@ const Main: React.FC = () => {
                 });
 
                 if (response) {
-                    setUser({
-                        username: response.data.user.name,
-                        email: response.data.user.email,
-                        password: userLogin.password,
-                        avatar: response.data.user.avatar,
-                        token: response.data.token
-                    });
+                    if(response.data.user.avatar){
+                        setUser({
+                            username: response.data.user.name,
+                            email: response.data.user.email,
+                            password: userLogin.password,
+                            avatar: response.data.user.avatar,
+                            token: response.data.token
+                        });
+                    }else{
+                        setUser({
+                            username: response.data.user.name,
+                            email: response.data.user.email,
+                            password: userLogin.password,
+                            avatar: user.avatar,
+                            token: response.data.token
+                        });
+                    }
 
                     api.defaults.headers.authorization = `Bearer ${response.data.token}`;
 
