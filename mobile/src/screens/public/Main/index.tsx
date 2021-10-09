@@ -68,7 +68,7 @@ const Main: React.FC = () => {
                         token: response.data.token
                     });
 
-                    await api.defaults.headers.authorization = `Bearer ${response.data.token}`;
+                    api.defaults.headers.authorization = `Bearer ${response.data.token}`;
 
                     setClickedSignIn(false);
                     navigation.navigate('Home');
