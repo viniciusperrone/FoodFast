@@ -744,32 +744,55 @@
         },
         {
             "id": 32,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Banana Vitamin",
+            "subtitle": "Simple and Easy",
+            "image_uri": "https://th.bing.com/th/id/R.622cb11f9a5e0a44530d3553fcbb7414?rik=isG7RaJa7Wf%2fwg&pid=ImgRaw&r=0",
+            "description": "Start your day well with a nutritious and delicious banana vitamin! Easy, simple recipe and with many benefits! It only takes about five minutes to prepare, look at that! Those who live alone sometimes end up neglecting food and eating any crap for breakfast due to lack of time. If you are one of those people, I will show you today a simple and easy recipe for how to make banana vitamin, which will help give you a up on your diet, or at least help make your breakfast healthier.",
+            "ingredients": [
+                "banana",
+                "milk",
+                "sugar"
+            ],
+            "steps": [
+                "Cut each banana into 3 pieces, depending on the size of it.",
+                "Play along with the other ingredients in the blender and beat for 15 seconds.",
+                "Ready! Easier to do impossible, huh?"
+            ],
             "id_category": 12
         },
         {
             "id": 33,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Avocado Vitamin",
+            "subtitle": "Simple and Easy",
+            "image_uri": "https://th.bing.com/th/id/R.bbfb733c62480743b0da715257b995e5?rik=x0gQIT4WupbVEA&pid=ImgRaw&r=0",
+            "description": "Avocado vitamin is one of the most delicious and simple to prepare in the day to day. Besides being healthy, it is very tasty and can be done very quickly. In sum, learn how to make avocado vitamin and share it with your whole family!",
+            "ingredients": [
+                "avocado",
+                "milk",
+                "sugar",
+                "sour cream"
+            ],
+            "steps": [
+                "Take the avocado take the lump and peel the fruit pulp (watch out for the skin of the fruit, as it can bitter all the vitamin).",
+                "Put it in the blender. Add the milk, the sugar spoons and beat well.",
+                "Add some of the cream and beat again.Put some ice and serve then."
+            ],
             "id_category": 12
         },
         {
             "id": 34,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Papaya Vitamin",
+            "subtitle": "Simple and Easy",
+            "image_uri": "https://th.bing.com/th/id/OIP.ll-doC0FHklB9rIUEeNtHQHaEl?pid=ImgDet&rs=1",
+            "description": "Whether to learn something new or to fix that seasoning that always ends up getting stronger, FoodFast recipes, such as Papaya Vitamin, are tested and approved by everyone who had the same interest as you: the day-to-day kitchen! Check out all the tips and details of this papaya vitamin recipe that is a delight and simple to be made! Have fun, delight and learn more!",
+            "ingredients": [
+                "papaya",
+                "milk",
+                "condensed milk"
+            ],
+            "steps": [
+                "Beat everything in the blender and serve."
+            ],
             "id_category": 12
         }
     ]
