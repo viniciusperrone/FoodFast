@@ -201,12 +201,19 @@
             "title": "Milk Pudding",
             "subtitle": "Simple & Delicious",
             "image_uri": "https://www.teleculinaria.pt/wp-content/uploads/2017/05/pudim-de-iogurte-1.jpg",
-            "description": "",
+            "description": "Do you love pudding? Then you'll have to try this simple and delicious yogurt pudding recipe. Then you'll have to try this simple and delicious yogurt pudding recipe. Good appetite!",
             "ingredients": [
-                "iorgute",
-                "milk"
+                "yoghurt",
+                "milk",
+                "condensed milk",
+                "egg",
+                "caramel"
             ],
-            "steps": [],
+            "steps": [
+                "Bring to the boil a large, wide pan with water and bring to the boil. Bar a form of pudding with the caramel.",
+                "Pour the eggs into the blender cup, add the condensed milk, yogurts and milk, turn on and let it beat well. Then place in the pan, cover well, place inside the pan with the water over heat and cook for 50 minutes. Turn off the heat and allow the pudding to cool down in the water.",
+                "Then take it to the fridge, unmold and serve very fresh."
+            ],
             "id_category": 3
         },
         {
@@ -258,7 +265,7 @@
             "title": "Simple Coffee",
             "subtitle": "In the Mornings   ",
             "image_uri": "https://th.bing.com/th/id/R.3fa2f8320df2cf2c1c2fef628e6cc32e?rik=fghWsP8jIAFvmQ&pid=ImgRaw&r=0",
-            "description": "",
+            "description": "Learn how to make that simple coffee to start your day well. Good, appetite!",
             "ingredients": [
                 "coffee powder",
                 "water",
@@ -278,7 +285,7 @@
             "title": "Capuccino Coffee",
             "subtitle": "In the Mornings",
             "image_uri": "https://th.bing.com/th/id/R.8deba77b1ed8702bd5ecc2790f5def33?rik=3Og%2fGQc4BePGog&pid=ImgRaw&r=0",
-            "description": "",
+            "description": "You will learn how to make a delicious stuffed coffee. Make your morning more enjoyable",
             "ingredients": [
                 "coffee powder",
                 "milk powder",
@@ -588,7 +595,7 @@
             "title": "Potato Pizza",
             "subtitle": "Crispy & Delicious",
             "image_uri": "https://th.bing.com/th/id/R.47f01fd79f2e667aa5380d43494c86c8?rik=uJs%2bA88YETXYeA&riu=http%3a%2f%2fwww.tudogostoso.com.br%2fimages%2frecipes%2f000%2f000%2f683%2f10006%2f10006_original.jpg&ehk=P%2b7rMTb0FUyrXz6VJEuoLMZKC63VkktUe3sHzAYUbkY%3d&risl=&pid=ImgRaw&r=0",
-            "description": "",
+            "description": "Do you like pizza? Learn how to make a tasty potato pizza. I've been with friends.",
             "ingredients": [
                 "popato",
                 "wheat",
