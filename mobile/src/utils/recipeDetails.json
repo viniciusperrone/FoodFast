@@ -441,22 +441,47 @@
         },
         {
             "id": 20,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Fruit Salad",
+            "subtitle": "Creamy & Delicious",
+            "image_uri": "https://th.bing.com/th/id/R.6072786a2e3d77f5ae59155c00b750fc?rik=83YkcpRTOgwXuw&riu=http%3a%2f%2f3.bp.blogspot.com%2f-mb6qhHU9elw%2fUbSlrWaMrwI%2fAAAAAAAAAcs%2f7b1hkFCuhqk%2fs1600%2f080.JPG&ehk=Lv0%2btg6LN0FgUMnRT73tl%2f4os%2bGI1ODWgIsRBi0cgsA%3d&risl=&pid=ImgRaw&r=0",
+            "description": "Fruit salad is always a simple and practical recipe, ideal for children to eat fruit but also to try fruit combinations, so this recipe is more a combination of the fruits that I like in a fast and delicious fruit salad with my favorite fruits, but can and should do your experiences, this recipe turns out to be another guide with some good tips to make good fruit salads.",
+            "ingredients": [
+                "sour cream",
+                "condensed milk",
+                "strawberrie",
+                "kiwi",
+                "banana",
+                "grape",
+                "pineapple",
+                "manga",
+                "lemon",
+                "orange"
+            ],
+            "steps": [
+                "Choose fruit that is ripe and sweet, cut into large cubes if the fruit is large, pour a little lemon juice to prevent rusting.",
+                "Put at least 30minutes in the fridge to stay fresh, a fruit salad tastes best fresh, a fruit salad is to be consumed on the day it is made!",
+                "If you think the fruit combination is not ripe or sweet, pour some sugar or honey to sweeten, or if you use fruit in syrup a little syrup.",
+                "Just as a salad shouldn't have too many ingredients, also a fruit salad is ideal when you only have a few fruits, 4 or 5 is ideal, more than that and you start masking flavors and have a better chance of creating combinations that just don't work out well.",
+                "It avoids fruit too soft or that in contact with moisture becomes soft, such as bananas, this creates a strange texture when eating.",
+                "A fruit salad can be accompanied with a thousand and one things, from yogurt, cereals, dried fruits, etc."
+            ],
             "id_category": 8
         },
         {
             "id": 21,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Avocado Cream",
+            "subtitle": "Creamy & Delicious",
+            "image_uri": "https://www.bing.com/th?id=OIP._WSNlpazZ5q3QRlGreThvQHaG6&w=200&h=186&rs=1&qlt=80&o=6&pid=3.1",
+            "description": "There are several avocado recipes. In this recipe we will teach you how to make a delicious avocado cream, to eat in the mornings and afternoons.",
+            "ingredients": [
+                "condensed milk",
+                "avocado",
+                "lemon"
+            ],
+            "steps": [
+                "Hit everything in the blender.",
+                "Allow to freeze a little before serving"
+            ],
             "id_category": 8
         },
         {
