@@ -486,42 +486,101 @@
         },
         {
             "id": 22,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Simple Rib Burger",
+            "subtitle": "Crispy & Tasty",
+            "image_uri": "https://www.multireceitas.com.br/wp-content/uploads/2017/06/hamburguer-de-costela.jpg",
+            "description": "Homemade Burger Special: How to Make Rib Burger. Delicious feel the taste of rib in a burger, try it!",
+            "ingredients": [
+                "basil",
+                "arugula",
+                "tomato",
+                "ox rib",
+                "salt",
+                "black pepper",
+                "olive oil",
+                "bread",
+                "cheese"
+            ],
+            "steps": [
+                "Cut the tomatoes into thick slices, place on a small baking sheet, water with olive oil and bake for forty minutes, then add basil on top.",
+                "Remove the excess fat from the rib and cut into tiny cubes, season the rib already chopped with salt and pepper to taste and add the olive oil to harmonize the flavors.",
+                "Mold the burgers with about 150 g of meat, drip a strand of olive oil in an anti-stick frying pan and fry the burgers.",
+                "When on the point add the cheese and heat the bread in the oven for 3 minutes and assemble the snack next to: bread, arugula, hamburger and tomato."
+            ],
             "id_category": 9
         },
         {
             "id": 23,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Simple Sandwich",
+            "subtitle": "Creamy & Healthy ",
+            "image_uri": "https://receitasdocheff.com.br/wp-content/uploads/2019/12/2796757s1280h960-1024x768.jpg",
+            "description": "How about having a delicious snack for that afternoon coffee with a friend? This natural sandwich recipe is certainly the best choice. This natural sandwich is for sure the best you've ever tried. Best of all is that this natural sandwich is very simple to make and you can do it at any time. This snack is perfect for having along with a freshly sparse coffee is simply delicious, or to take to have your afternoon coffee at work, and is also a great choice to sell for sure is a great extra income.",
+            "ingredients": [
+                "onion",
+                "tomato",
+                "green corn",
+                "chicken",
+                "bread",
+                "mayonnaise",
+                "sausage",
+                "salt"
+            ],
+            "steps": [
+                "Saute shredded chicken with olive oil, garlic and onion in a saucepan.",
+                "Mix chopped onion and tomato, grated carrot, corn, parsley, chives and salt.",
+                "Add mayonnaise until you get the desired consistency of the filling.",
+                "Creamy or more consistent, as you prefer.",
+                "Place the filling between 2 slices of bread."
+            ],
             "id_category": 9
         },
         {
             "id": 24,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Chicken Burger",
+            "subtitle": "Homemade & Juicy",
+            "image_uri": "https://www.multireceitas.com.br/wp-content/uploads/2017/06/hamburguer-de-frango.jpg",
+            "description": "Homemade Burger Special: Chicken Burger Recipe. The recipe is simple, good and is a delight. Check!",
+            "ingredients": [
+                "garlic",
+                "green odor",
+                "coffe",
+                "salt",
+                "oats",
+                "onion",
+                "chicken"
+            ],
+            "steps": [
+                "Start by placing the onion, garlic and green smell in the food processor and grind into small pieces.",
+                "Then add the chicken and beat in the processor until it turns into a dough, and then transfer the dough to a large bowl, add the salt and add the oatmeal gradually.",
+                "Stir with your hands until you form a homogeneous dough and then make balls and flatten so that it is hamburger-shaped."
+            ],
             "id_category": 9
         },
         {
             "id": 25,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Beef Burger",
+            "subtitle": "Crispy and Stuffed",
+            "image_uri": "https://www.multireceitas.com.br/wp-content/uploads/2018/09/hamburguer-recheado-1542x850.jpg",
+            "description": "This Stuffed Beef Burger Recipe is just fantastic, imagine eating a burger and that cheese melting from the middle of it. Serve with french fries, salads and bread.",
+            "ingredients": [
+                "onion",
+                "milk",
+                "beef",
+                "bread",
+                "garlic",
+                "black pipper",
+                "cheese",
+                "pepperoni",
+                "salt"
+            ],
+            "steps": [
+                "Soak the bread with milk and set aside for it to soften.",
+                "Remove the skin from the calabrian sausage and grind into the processor.",
+                "Mix the meat with the sausage, add the chopped onion and chopped garlic until a homogeneous mixture.",
+                "Season with the ready seasoning of garlic and salt.",
+                "Take the already soft bread and mix to the meat along with the bread flour and finally put August black pepper.",
+                "Model how you prefer your burgers and place a slice of cheese in the middle."
+            ],
             "id_category": 9
         },
         {
