@@ -402,22 +402,41 @@
         },
         {
             "id": 18,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Caipirinha Original",
+            "subtitle": "    Appreciated   ",
+            "image_uri": "https://th.bing.com/th/id/OIP.0VIt3Dig6H8Lg24vrHcl9gHaE5?pid=ImgDet&rs=1",
+            "description": "Do you know how the caipirinha drink is made, the most appreciated cocktail inside and outside Brazil? Made with lemon and cachaça, the original recipe uses the national distillate made from fermented sugarcane juice. But you can find variations of the drink, mixed with other types of fruits such as strawberry, kiwi, passion fruit, pineapple and even pepper. Would you really know if you're drinking the legitimate capirinha?",
+            "ingredients": [
+                "liquor",
+                "lemon",
+                "sugar"
+            ],
+            "steps": [
+                "Fill a glass with 60 ml of luquo.",
+                "Squeeze your lemons into drink.",
+                "Add sugar to your drink and mix well."
+            ],
             "id_category": 7
         },
         {
             "id": 19,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Fruit Cocktail",
+            "subtitle": "Simple & Easy       ",
+            "image_uri": "https://th.bing.com/th/id/OIP.YcO2h4G3xfftn6V95F4JfwHaFl?w=234&h=180&c=7&r=0&o=5&pid=1.7",
+            "description": "See this Simple Fruit Cocktail Recipe, it's a delight, it doesn't accompany alcohol, and kids can drink at will.",
+            "ingredients": [
+                "sour cream",
+                "condensed milk",
+                "guarana",
+                "juices"
+            ],
+            "steps": [
+                "Beat in the blender all the ingredients except guarana.",
+                "Add some of the guarana and beat a little more.",
+                "Pour into a large bowl and add guarana to your liking until you get the desired point.",
+                "Be careful, because when being cold the cocktail gains creaminess, so do not leave the cream so thick.",
+                "Bring to frost and serve with ice stones."
+            ],
             "id_category": 7
         },
         {
