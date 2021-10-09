@@ -693,22 +693,53 @@
         },
         {
             "id": 30,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Cheese Toastie",
+            "subtitle": "Crispy & Delicious",
+            "image_uri": "https://th.bing.com/th/id/R.23b329740859e31f899b3832e74da716?rik=khtdZxPijBz3Sg&riu=http%3a%2f%2fwww.receitasdehoje.com.br%2fwp-content%2fuploads%2f2014%2f08%2f56373-2016-02-12_08-51-4511.jpg&ehk=4DhVfc7ncuwZ1yROul4weRnoWJU%2fP%2bnI16jktPQlkwg%3d&risl=&pid=ImgRaw&r=0",
+            "description": "Simple and easy to make sandwich. Do yours and ensure your most fun.",
+            "ingredients": [
+                "bread",
+                "butter",
+                "ham",
+                "cheese"
+            ],
+            "steps": [
+                "Pass the butter on the two slices of the bread and prepare a sandwich with cheese and ham.",
+                "Place in the toaster or sandwich maker or it can be done in the oven. Keep an eye out to see the point of the cheese, which should be melted.",
+                "You can put butter on the outside of the slices of bread and watch when they turn golden. The bread won is also crispy and with a more delicious flavor.",
+                "You can also spice up the recipe by adding tomato slices sprinkled with salt and black pepper to taste. If you prefer add oregano as well.",
+                "The cheese suggested in this recipe is the dish, but you can use the one of your choice and even exchange the simple ham for another type that you like the most.",
+                "A tip is to use white cheese and turkey breast blanquet with slice te seasoned tomato. Simply divine!"
+            ],
             "id_category": 11
         },
         {
             "id": 31,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Simple Coxinha",
+            "subtitle": "Stuffed & Tasty",
+            "image_uri": "https://static.clubedaanamariabraga.com.br/wp-content/uploads/2019/03/coxinha-pratica-scaled.jpg",
+            "description": "Coxinha is one of the salty favorites of Brazilians. We'll teach you how to do it step by step",
+            "ingredients": [
+                "wheat",
+                "margarine",
+                "chicken",
+                "milk",
+                "oil",
+                "onion",
+                "garlic",
+                "tomato",
+                "salt"
+            ],
+            "steps": [
+                "Boil the water with chicken broth and margarine.",
+                "Add the flour at once, stirring vigorously until unstuck from the pan. Let it cool down.",
+                "With your hands greased in oil, take small parts of the dough, fill and shape the cushions.",
+                "Bread first in milk and then in breadcrumbs.",
+                "Fry, a few times, in abundant hot oil until golden brown and allow to drain on absorbent paper.",
+                "Heat the oil and sauté the onion and garlic.",
+                "Add the chicken and the other ingredients and simmer until anchored.",
+                "Sprinkle parsley and chives and wait for it to cool."
+            ],
             "id_category": 11
         },
         {
