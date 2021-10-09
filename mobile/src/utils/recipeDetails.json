@@ -585,42 +585,110 @@
         },
         {
             "id": 26,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
+            "title": "Potato Pizza",
+            "subtitle": "Crispy & Delicious",
+            "image_uri": "https://th.bing.com/th/id/R.47f01fd79f2e667aa5380d43494c86c8?rik=uJs%2bA88YETXYeA&riu=http%3a%2f%2fwww.tudogostoso.com.br%2fimages%2frecipes%2f000%2f000%2f683%2f10006%2f10006_original.jpg&ehk=P%2b7rMTb0FUyrXz6VJEuoLMZKC63VkktUe3sHzAYUbkY%3d&risl=&pid=ImgRaw&r=0",
             "description": "",
-            "ingredients": [],
-            "steps": [],
+            "ingredients": [
+                "popato",
+                "wheat",
+                "egg",
+                "butter",
+                "salt",
+                "sugar",
+                "milk",
+                "ferment"
+            ],
+            "steps": [
+                "Put the milk to dissolve the yeast, then the other ingredients.",
+                "Knead well.",
+                "Put in a pizza form, greased with butter and flour, letting it rest for 20 minutes.",
+                "Filling to taste, after pre-baking the dough for 10 minutes."
+            ],
             "id_category": 10
         },
         {
             "id": 27,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Vegan Pizza",
+            "subtitle": "Crispy and Stuffed",
+            "image_uri": "https://img.cybercook.com.br/receitas/386/pizza-vegana-low-carb-2.jpeg",
+            "description": "Whether you want to learn something new or to fix that seasoning that always gets stronger, CyberCook recipes, such as low carb vegan pizza, are tested and approved by everyone who had the same interest as you: the day-to-day kitchen! Check out all the tips and details of this low carb vegan pizza recipe that is a delight and simple to be made! Have fun, delight and learn more!",
+            "ingredients": [
+                "cauliflower",
+                "garlic",
+                "cornstarch",
+                "oregano",
+                "salt",
+                "black pipper",
+                "onion",
+                "tomato",
+                "olive"
+            ],
+            "steps": [
+                "Process the cauliflower or pass through a grater. Cook in boiling water for 5 minutes.",
+                "Drain the water and dry the cauliflower with the help of a cloth or paper towel to remove excess water.  Drain the water and dry the cauliflower with the help of a cloth or paper towel to remove excess water. BookBook.",
+                "Transfer the already crushed lineof line to a bowl with water and let it sit for 5 minutes.",
+                "Add with the reserved cauliflower, garlic, cornstarch, salt, pepper and oregano (or other dehydrated herbs of your choice).",
+                "Add the hydrated calye and mix well with your hands to form a homogeneous dough.",
+                "Transfer to a pizza baking sheet lined with parchment paper. Sprinkle cornmeal or cornstarch over the parchment paper, so it will become easier to unstick the dough afterwards.",
+                "Set the dough to a light pizza format to bake in a preheated oven at 190 C for 45 minutes.",
+                "With the cauliflower dough already baked, flip the side of it and spread the tomato sauce.",
+                "Top with the red onion, the cherry tomatinhos broken in half and the black olives.",
+                "Grate the vegetable cheese on top (optional).",
+                "Use in preheated oven at 190 C for 10 - 15 minutes or until the filling is hot.",
+                "Garnish with basil and serve hot."
+            ],
             "id_category": 10
         },
         {
             "id": 28,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Simple and Easy  ",
+            "subtitle": "Pizza Dough",
+            "image_uri": "https://th.bing.com/th/id/R.effc033ada496eac6eeac5e0341ade99?rik=Rn62bnOBLtj0dg&riu=http%3a%2f%2fimg.itdg.com.br%2fimages%2frecipes%2f000%2f112%2f656%2f42610%2f42610_original.jpg&ehk=%2fYfw%2b5N2cmzFf0a0mhuEDwhzF7MXPR8eRZSW%2bd4Xb8Q%3d&risl=&pid=ImgRaw&r=0",
+            "description": "Easy preparation of pizza dough. Use your creativity and create your own pizza with your ingredients.",
+            "ingredients": [
+                "oil",
+                "baking powder",
+                "wheat",
+                "salt"
+            ],
+            "steps": [
+                "Mix the first 5 ingredients, then add the wheat flour and stir until loosened from the hand that is already on point.",
+                "After sove for 10 minutes, let stand capped for 1 hour and a half more or less, stretch in a greased and floured form.",
+                "The red sauce: tomato dough dissolved in water with a pinch of salt one of sugar.",
+                "Filling to taste and oregano.",
+                "Preheat the oven and bake in a low oven."
+            ],
             "id_category": 10
         },
         {
             "id": 29,
-            "title": "",
-            "subtitle": "",
-            "image_uri": "",
-            "description": "",
-            "ingredients": [],
-            "steps": [],
+            "title": "Pizza Calabreza",
+            "subtitle": "Filling & Delicious",
+            "image_uri": "https://facilreceitas.com/wp-content/uploads/2020/10/Receita-facil-de-Pizza-de-calabresa.png",
+            "description": "To follow this our recipe of Pizza de Calabresa will just take an hour of your time at home and put your hand in the dough.  In this article you will see how simple and easy it is to prepare your delicious Calabrian Pizza even if you are a beginner in the kitchen. So let's start the ingredients.",
+            "ingredients": [
+                "wheat",
+                "bread",
+                "egg",
+                "baking powder",
+                "salt",
+                "tomato",
+                "cheese",
+                "oregano",
+                "olive oil",
+                "pepperoni",
+                "onion",
+                "olive"
+            ],
+            "steps": [
+                "Beat the tomato in the blender with the other ingredients until it forms a homogeneous mixture.",
+                "Mix 50 gr of flour, yeast and a little water. Let sit for up to 20 minutes. Add the other ingredients and smasit until you get a very soft dough.",
+                "Cut into 3 equal parts, form 3 balls and cover them with a cloth. Let it sit for 1 hour. Open the dough with a roll until it is 25 cm in size.",
+                "Spread the tomato sauce on top and bake in a preheated oven at 180ºC, or for 15 minutes. Remove and allow to cool.",
+                "Spread the sausage over the tomato sauce and top with the onion. Garnish with the olive and place the olive oil and oregano.",
+                "Return to the oven for another 10 minutes. Remove from the oven and ready, you can now use your Calabrian Pizza made right there in your home."
+            ],
             "id_category": 10
         },
         {
