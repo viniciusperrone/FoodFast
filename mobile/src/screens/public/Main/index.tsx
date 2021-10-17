@@ -62,6 +62,7 @@ const Main: React.FC = () => {
                 if (response) {
                     if(response.data.user.avatar){
                         setUser({
+                            id: response.data.user.id,
                             username: response.data.user.name,
                             email: response.data.user.email,
                             password: userLogin.password,
@@ -70,12 +71,14 @@ const Main: React.FC = () => {
                         });
                     }else{
                         setUser({
+                            id: response.data.user.id,
                             username: response.data.user.name,
                             email: response.data.user.email,
                             password: userLogin.password,
                             avatar: user.avatar,
                             token: response.data.token
                         });
+                        console.log(user);
                     }
 
                     api.defaults.headers.authorization = `Bearer ${response.data.token}`;

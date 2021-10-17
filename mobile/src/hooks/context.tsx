@@ -8,6 +8,7 @@ type Props = {
 export const Context = createContext({});
 
 type UserData = {
+    id: number;
     username: string;
     email: string;
     password: string;
@@ -34,6 +35,7 @@ type RecipeDetailsData = {
 export default function ContextProvider({ children } : Props){
 
     const [user, setUser] = useState<UserData>({
+        id: 0,
         username: '',
         email: '',
         password: '',

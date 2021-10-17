@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/core';
 import { AntDesign, FontAwesome, Ionicons, FontAwesome5 } from '@expo/vector-icons';
 
 import { useClickDashboard } from '../../hooks/app';
+import { useAuth } from '../../hooks/auth';
 
 import Profile from '../Profile';
 
@@ -17,14 +18,15 @@ const Dashboard: React.FC = () => {
     const navigation = useNavigation();
 
     const { openDashboard, setOpenDashboard } = useClickDashboard();
-
+    const { user } = useAuth();
     const [width, setWidth] = useState<any>(new Animated.Value(0));
 
     Animated.timing(
         width,
         {
             toValue: 400,
-            duration: 600
+            duration: 600,
+            useNativeDriver: false
         }
     ).start()
 
@@ -82,8 +84,8 @@ const Dashboard: React.FC = () => {
                     onPress={() => setOpenDashboard(false)}
                 />
                 <View style={{ marginLeft: 20 }}>
-                    <Text style={style.title}>viniciusperrone@gmail.com</Text>
-                    <Text style={style.subtitle}>viniciusperrone</Text>
+                    <Text style={style.title}>{ user.email }</Text>
+                    <Text style={style.subtitle}>{ user.username }</Text>
                 </View>
 
                 <Profile styleComponent={styleComponent} />
