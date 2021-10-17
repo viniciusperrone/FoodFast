@@ -91,7 +91,7 @@ const Profile: React.FC = () => {
         try{
             await api.patch('users/avatar', formData);
         }catch (err){
-            console.log(err);
+            console.log('Não foi possível salvar a imagem');
         }
 
         setUser({
