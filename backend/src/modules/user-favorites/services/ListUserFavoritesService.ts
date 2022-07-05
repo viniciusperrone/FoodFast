@@ -6,7 +6,7 @@ import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICa
 import Recipe from '@modules/recipes/infra/typeorm/entities/Recipe';
 import IRecipesRepository from '@modules/recipes/repositories/IRecipesRepository';
 
-import UserFavorite from '../infra/typeorm/schemas/UserFavorite';
+import UserFavorite from '../infra/typeorm/entities/UserFavorite';
 import IUserFavoritesRepository from '../repositories/IUserFavoritesRepository';
 
 interface IUserFavoriteWithRecipe extends UserFavorite {
@@ -26,7 +26,7 @@ class ListUserFavoritesService {
     private cacheProvider: ICacheProvider,
   ) {}
 
-  public async execute(user_id: string): Promise<IUserFavoriteWithRecipe[]> {
+  public async  execute(user_id: string): Promise<IUserFavoriteWithRecipe[]> {
     const userFavorites =
       (await this.cacheProvider.recover<IUserFavoriteWithRecipe[]>(
         `favorite-recipes-list:${user_id}`,

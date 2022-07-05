@@ -1,5 +1,6 @@
-import { getRepository, Repository } from 'typeorm';
-import { v4 } from 'uuid';
+import { Repository } from 'typeorm';
+import { dataSource } from '@shared/infra/typeorm/database';
+import { v4 as uuid } from 'uuid';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 
@@ -8,36 +9,38 @@ import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
 import User from '../entities/User';
 
 class UsersRepository implements IUsersRepository {
-  private ormRepository: Repository<User>;
+  private databaseRepository: Repository<User>;
 
   constructor() {
-    this.ormRepository = getRepository(User);
+    this.databaseRepository = dataSource.getRepository(User);
   }
 
-  public async findById(id: string): Promise<User | undefined> {
-    const findUser = await this.ormRepository.findOne(id);
+  public async findById(id: string): Promise<User | null> {
+    const findUser = await this.databaseRepository.findOne({ where: { id } });
 
     return findUser;
   }
 
-  public async findByEmail(email: string): Promise<User | undefined> {
-    const findUser = await this.ormRepository.findOne({ where: { email } });
+  public async findByEmail(email: string): Promise<User | null> {
+    const findUser = await this.databaseRepository.findOne({
+      where: { email },
+    });
 
     return findUser;
   }
 
   public async create(userData: ICreateUserDTO): Promise<User> {
-    const user = this.ormRepository.create(userData);
+    const user = this.databaseRepository.create(userData);
 
-    Object.assign(user, { id: v4() });
+    Object.assign(user, { id: uuid() });
 
-    await this.ormRepository.save(user);
+    await this.databaseRepository.save(user);
 
     return user;
   }
 
   public async save(user: User): Promise<User> {
-    return this.ormRepository.save(user);
+    return this.databaseRepository.save(user);
   }
 }
 

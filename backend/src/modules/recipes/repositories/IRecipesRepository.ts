@@ -8,8 +8,8 @@ export default interface IRecipesRepository {
     category_id: string,
   ): Promise<Recipe[]>;
   findAllRecipes(search: string, page: number): Promise<Recipe[]>;
-  findByName(name: string): Promise<Recipe | undefined>;
-  findById(id: string): Promise<Recipe | undefined>;
+  findByName(name: string): Promise<Recipe | null>;
+  findById(id: string): Promise<Recipe | null>;
   create(data: ICreateRecipeDTO): Promise<Recipe>;
   save(recipe: Recipe): Promise<Recipe>;
   remove(recipe: Recipe): Promise<void>;

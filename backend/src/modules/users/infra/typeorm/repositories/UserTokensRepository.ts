@@ -1,19 +1,20 @@
-import { getRepository, Repository } from 'typeorm';
-import { v4 } from 'uuid';
+import { Repository } from 'typeorm';
+import { dataSource } from '@shared/infra/typeorm/database';
+import { v4 as uuid } from 'uuid';
 
 import IUserTokensRepository from '@modules/users/repositories/IUserTokensRepository';
 
 import UserToken from '../entities/UserToken';
 
 class UserTokensRepository implements IUserTokensRepository {
-  private ormRepository: Repository<UserToken>;
+  private databaseRepository: Repository<UserToken>;
 
   constructor() {
-    this.ormRepository = getRepository(UserToken);
+    this.databaseRepository = dataSource.getRepository(UserToken);
   }
 
-  public async findByToken(token: string): Promise<UserToken | undefined> {
-    const userToken = await this.ormRepository.findOne({
+  public async findByToken(token: string): Promise<UserToken | null> {
+    const userToken = await this.databaseRepository.findOne({
       where: { token },
     });
 
@@ -21,13 +22,13 @@ class UserTokensRepository implements IUserTokensRepository {
   }
 
   public async generate(user_id: string): Promise<UserToken> {
-    const userToken = this.ormRepository.create({
+    const userToken = this.databaseRepository.create({
       user_id,
     });
 
-    Object.assign(userToken, { id: v4(), token: v4() });
+    Object.assign(userToken, { id: uuid(), token: uuid() });
 
-    await this.ormRepository.save(userToken);
+    await this.databaseRepository.save(userToken);
 
     return userToken;
   }

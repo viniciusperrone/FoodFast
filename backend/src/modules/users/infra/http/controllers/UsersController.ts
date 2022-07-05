@@ -3,10 +3,11 @@ import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
 import CreateUserService from '@modules/users/services/CreateUserService';
+import { IRequestCreateUser } from '@modules/users/request/createUser';
 
 export default class UsersController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, email, password } = request.body;
+    const { name, email, password } = request.body as IRequestCreateUser;
 
     const createUser = container.resolve(CreateUserService);
 

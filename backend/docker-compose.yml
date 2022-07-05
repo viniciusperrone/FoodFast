@@ -1,41 +1,46 @@
 version: '3'
 
 services:
-  foodfast_mysql:
-    image: mysql
-    container_name: foodfast_mysql
-    environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: mysql
-      MYSQL_DATABASE: foodfast
-      MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+  foodfast_app:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: foodfast_app
     ports:
-      - 3306:3306
-    networks:
-      - mysql-compose-network
+      - '3333:3333'
+    volumes:
+      - .:/home/node/foodfast
+    depends_on:
+      - foodfast_postgres
+      - foodfast_redis
 
-  foodfast_adminer:
-    image: adminer
-    container_name: foodfast_adminer
+  foodfast_postgres:
+    build: .docker/postgres
+    container_name: foodfast_postgres
+    restart: always
+    tty: true
     ports:
-      - 8080:8080
-    networks:
-      - mysql-compose-network
+      - '5432:5432'
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=foodfast
 
   foodfast_redis:
     image: redis
     container_name: foodfast_redis
     command: redis-server --requirepass root
     ports:
-      - 6379:6379
+      - '6379:6379'
 
-  foodfast_mongodb:
-    image: mongo
-    container_name: foodfast_mongodb
+  foodfast_pgadmin:
+    image: dpage/pgadmin4
+    container_name: foodfast_pgadmin
+    tty: true
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
-      - 27017:27017
-
-networks:
-  mysql-compose-network:
-    driver: bridge
+      - '8000:80'
+    depends_on:
+      - foodfast_postgres

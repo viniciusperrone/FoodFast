@@ -1,5 +1,6 @@
-import { getRepository, Repository } from 'typeorm';
-import { v4 } from 'uuid';
+import { Repository } from 'typeorm';
+import { dataSource } from '@shared/infra/typeorm/database';
+import { v4 as uuid } from 'uuid';
 
 import ICategoriesRepository from '@modules/categories/repositories/ICategoriesRepository';
 
@@ -8,20 +9,20 @@ import ICreateCategoryDTO from '@modules/categories/dtos/ICreateOrUpdateCategory
 import Category from '../entities/Category';
 
 class CategoriesRepository implements ICategoriesRepository {
-  private ormRepository: Repository<Category>;
+  private dataBaseRepository: Repository<Category>;
 
   constructor() {
-    this.ormRepository = getRepository(Category);
+    this.dataBaseRepository = dataSource.getRepository(Category);
   }
 
   public async findAllCategories(): Promise<Category[]> {
-    const findCategories = await this.ormRepository.find();
+    const findCategories = await this.dataBaseRepository.find();
 
     return findCategories;
   }
 
-  public async findByName(name: string): Promise<Category | undefined> {
-    const findCategory = await this.ormRepository.findOne({
+  public async findByName(name: string): Promise<Category | null> {
+    const findCategory = await this.dataBaseRepository.findOne({
       where: {
         name,
       },
@@ -30,28 +31,30 @@ class CategoriesRepository implements ICategoriesRepository {
     return findCategory;
   }
 
-  public async findById(id: string): Promise<Category | undefined> {
-    const findCategory = await this.ormRepository.findOne(id);
+  public async findById(id: string): Promise<Category | null> {
+    const findCategory = await this.dataBaseRepository.findOne({
+      where: { id },
+    });
 
     return findCategory;
   }
 
   public async create(categoryData: ICreateCategoryDTO): Promise<Category> {
-    const category = this.ormRepository.create(categoryData);
+    const category = this.dataBaseRepository.create(categoryData);
 
-    Object.assign(category, { id: v4() });
+    Object.assign(category, { id: uuid() });
 
-    await this.ormRepository.save(category);
+    await this.dataBaseRepository.save(category);
 
     return category;
   }
 
   public async save(category: Category): Promise<Category> {
-    return this.ormRepository.save(category);
+    return this.dataBaseRepository.save(category);
   }
 
   public async remove(category: Category): Promise<void> {
-    await this.ormRepository.remove(category);
+    await this.dataBaseRepository.remove(category);
   }
 }
 

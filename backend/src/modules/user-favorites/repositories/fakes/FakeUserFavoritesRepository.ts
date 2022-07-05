@@ -4,7 +4,7 @@ import IUserFavoritesRepository from '@modules/user-favorites/repositories/IUser
 
 import ICreateUserFavoriteDTO from '@modules/user-favorites/dtos/ICreateUserFavoriteDTO';
 
-import UserFavorite from '../../infra/typeorm/schemas/UserFavorite';
+import UserFavorite from '../../infra/typeorm/entities/UserFavorite';
 
 export default class FakeUserFavoritesRepository
   implements IUserFavoritesRepository {

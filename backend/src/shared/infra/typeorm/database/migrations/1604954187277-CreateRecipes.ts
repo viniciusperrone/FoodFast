@@ -5,7 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export default class CreateRecipes1604954187277 implements MigrationInterface {
+export class CreateRecipes1604954187277 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.createTable(
       new Table({
@@ -13,14 +13,10 @@ export default class CreateRecipes1604954187277 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar(36)',
+            type: 'uuid',
             isPrimary: true,
-            isUnique: true,
-          },
-          {
-            name: 'category_id',
-            type: 'varchar(36)',
-            isNullable: true,
+            generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()',
           },
           {
             name: 'name',

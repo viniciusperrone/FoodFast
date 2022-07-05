@@ -7,7 +7,7 @@ import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICa
 import IRecipesRepository from '@modules/recipes/repositories/IRecipesRepository';
 import IUserFavoritesRepository from '../repositories/IUserFavoritesRepository';
 
-import UserFavorite from '../infra/typeorm/schemas/UserFavorite';
+import UserFavorite from '../infra/typeorm/entities/UserFavorite';
 import ICreateUserFavoriteDTO from '../dtos/ICreateUserFavoriteDTO';
 
 @injectable()

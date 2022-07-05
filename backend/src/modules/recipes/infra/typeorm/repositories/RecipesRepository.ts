@@ -1,5 +1,6 @@
-import { getRepository, Like, Repository } from 'typeorm';
-import { v4 } from 'uuid';
+import { Like, Repository } from 'typeorm';
+import { dataSource } from '@shared/infra/typeorm/database';
+import { v4 as uuid } from 'uuid';
 
 import IRecipesRepository from '@modules/recipes/repositories/IRecipesRepository';
 
@@ -8,17 +9,17 @@ import ICreateRecipeDTO from '@modules/recipes/dtos/ICreateOrUpdateRecipeDTO';
 import Recipe from '../entities/Recipe';
 
 class RecipesRepository implements IRecipesRepository {
-  private ormRepository: Repository<Recipe>;
+  private databaseRepository: Repository<Recipe>;
 
   constructor() {
-    this.ormRepository = getRepository(Recipe);
+    this.databaseRepository = dataSource.getRepository(Recipe);
   }
 
   public async findAllRecipesByCategoryId(
     page: number,
     category_id: string,
   ): Promise<Recipe[]> {
-    const findRecipes = await this.ormRepository.find({
+    const findRecipes = await this.databaseRepository.find({
       skip: (page - 1) * 10,
       take: 10,
       where: {
@@ -32,14 +33,14 @@ class RecipesRepository implements IRecipesRepository {
   public async findAllRecipes(search: string, page: number): Promise<Recipe[]> {
     const findRecipes =
       search !== ''
-        ? await this.ormRepository.find({
+        ? await this.databaseRepository.find({
             skip: (page - 1) * 10,
             take: 10,
             where: {
               name: Like(`%${search}%`),
             },
           })
-        : await this.ormRepository.find({
+        : await this.databaseRepository.find({
             skip: (page - 1) * 10,
             take: 10,
           });
@@ -47,8 +48,8 @@ class RecipesRepository implements IRecipesRepository {
     return findRecipes;
   }
 
-  public async findByName(name: string): Promise<Recipe | undefined> {
-    const findRecipe = await this.ormRepository.findOne({
+  public async findByName(name: string): Promise<Recipe | null> {
+    const findRecipe = await this.databaseRepository.findOne({
       where: {
         name,
       },
@@ -57,28 +58,28 @@ class RecipesRepository implements IRecipesRepository {
     return findRecipe;
   }
 
-  public async findById(id: string): Promise<Recipe | undefined> {
-    const findRecipe = await this.ormRepository.findOne(id);
+  public async findById(id: string): Promise<Recipe | null> {
+    const findRecipe = await this.databaseRepository.findOne({ where: { id } });
 
     return findRecipe;
   }
 
   public async create(recipeData: ICreateRecipeDTO): Promise<Recipe> {
-    const recipe = this.ormRepository.create(recipeData);
+    const recipe = this.databaseRepository.create(recipeData);
 
-    Object.assign(recipe, { id: v4() });
+    Object.assign(recipe, { id: uuid() });
 
-    await this.ormRepository.save(recipe);
+    await this.databaseRepository.save(recipe);
 
     return recipe;
   }
 
   public async save(recipe: Recipe): Promise<Recipe> {
-    return this.ormRepository.save(recipe);
+    return this.databaseRepository.save(recipe);
   }
 
   public async remove(recipe: Recipe): Promise<void> {
-    await this.ormRepository.remove(recipe);
+    await this.databaseRepository.remove(recipe);
   }
 }
 

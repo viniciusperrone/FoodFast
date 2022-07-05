@@ -1,20 +1,21 @@
-import { getMongoRepository, MongoRepository } from 'typeorm';
+import { Repository } from 'typeorm';
+import { dataSource } from '@shared/infra/typeorm/database';
 
 import IUserFavoritesRepository from '@modules/user-favorites/repositories/IUserFavoritesRepository';
 
 import ICreateUserFavoriteDTO from '@modules/user-favorites/dtos/ICreateUserFavoriteDTO';
 
-import UserFavorite from '../schemas/UserFavorite';
+import UserFavorite from '../entities/UserFavorite';
 
 class UserFavoritesRepository implements IUserFavoritesRepository {
-  private ormRepository: MongoRepository<UserFavorite>;
+  private databaseRepository: Repository<UserFavorite>;
 
   constructor() {
-    this.ormRepository = getMongoRepository(UserFavorite, 'mongo');
+    this.databaseRepository = dataSource.getRepository(UserFavorite);
   }
 
   public async findAllByUserId(user_id: string): Promise<UserFavorite[]> {
-    const findUserFavorites = await this.ormRepository.find({
+    const findUserFavorites = await this.databaseRepository.find({
       where: { user_id },
     });
 
@@ -24,16 +25,18 @@ class UserFavoritesRepository implements IUserFavoritesRepository {
   public async findByUserAndRecipeId(
     user_id: string,
     recipe_id: string,
-  ): Promise<UserFavorite | undefined> {
-    const findUserFavorite = await this.ormRepository.findOne({
+  ): Promise<UserFavorite | null> {
+    const findUserFavorite = await this.databaseRepository.findOne({
       where: { user_id, recipe_id },
     });
 
     return findUserFavorite;
   }
 
-  public async findById(id: string): Promise<UserFavorite | undefined> {
-    const findUserFavorite = await this.ormRepository.findOne(id);
+  public async findById(id: string): Promise<UserFavorite | null> {
+    const findUserFavorite = await this.databaseRepository.findOne({
+      where: { id },
+    });
 
     return findUserFavorite;
   }
@@ -42,23 +45,23 @@ class UserFavoritesRepository implements IUserFavoritesRepository {
     user_id,
     recipe_id,
   }: ICreateUserFavoriteDTO): Promise<UserFavorite> {
-    const userFavorite = this.ormRepository.create({ user_id, recipe_id });
+    const userFavorite = this.databaseRepository.create({ user_id, recipe_id });
 
-    await this.ormRepository.save(userFavorite);
+    await this.databaseRepository.save(userFavorite);
 
     return userFavorite;
   }
 
   public async remove(userFavorite: UserFavorite): Promise<void> {
-    await this.ormRepository.remove(userFavorite);
+    await this.databaseRepository.remove(userFavorite);
   }
 
   public async removeAllByRecipeId(recipe_id: string): Promise<void> {
-    const findUserFavorites = await this.ormRepository.find({
+    const findUserFavorites = await this.databaseRepository.find({
       where: { recipe_id },
     });
 
-    await this.ormRepository.remove(findUserFavorites);
+    await this.databaseRepository.remove(findUserFavorites);
   }
 }
 
