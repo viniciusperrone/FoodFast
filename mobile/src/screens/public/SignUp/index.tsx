@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import { theme } from '../../../global/styles/global';
-import { style } from './style';
 import {
   FontAwesome5,
   Feather,
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
-import Button from '../../../components/Button';
-import { useAuth } from '@hooks/auth';
+import Button from '@components/Button';
+import { style } from './style';
+import { theme } from 'global/styles/global';
 
 interface UserRegisterData {
   username: string;

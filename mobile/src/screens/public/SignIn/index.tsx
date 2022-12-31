@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import { theme } from '../../../global/styles/global';
+import { theme } from 'global/styles/global';
 import { style } from './style';
 import {
   FontAwesome5,
   Feather,
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
-import Button from '../../../components/Button';
-import { useAuth } from '../../../hooks/auth';
+import { useAuth } from '@hooks/auth';
 import { useNavigation } from '@react-navigation/native';
+import Button from '@components/Button';
 
 type SignInProps = {
   open: boolean;

@@ -5,7 +5,8 @@
     "baseUrl": "./",
     "paths": {
       "assets/*": ["src/assets/*"],
-      "utils/*": ["src/utils/*"],
+      "global/*": ["src/global/*"],
+      "@utils/*": ["src/utils/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],

@@ -10,16 +10,14 @@ import { theme } from './src/global/styles/global';
 LogBox.ignoreLogs(['Remote debugger']);
 
 export default function App() {
-    return (
-        <ContextProvider>
-            <StatusBar
-                barStyle="dark-content"
-                backgroundColor={theme.colors.white_grey}
-                translucent
-            />
-            <Routes />
-
-        </ContextProvider>
-    );
+  return (
+    <ContextProvider>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={theme.colors.white_grey}
+        translucent
+      />
+      <Routes />
+    </ContextProvider>
+  );
 }
-
