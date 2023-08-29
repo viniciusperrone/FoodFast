@@ -1,8 +1,5 @@
 <p align="center">
-  <a href="https://github.com/lorenzowind/UBEMath">
-    <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
-  </a>
-
+  <img src="./mobile/src/assets/logo_foodfast.png" alt="Logo" height="180">
   <h1 align="center">FoodFast 2.0</h1>
 </p>
 
